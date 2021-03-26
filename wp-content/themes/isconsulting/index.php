@@ -1,4 +1,8 @@
 <?php get_header() ?>
+<?php
+$directory_url = get_template_directory_uri();
+?>
+
 <div class="home">
   <section class="header">
     <div class="title">
@@ -11,7 +15,7 @@
       </h1>
     </div>
     <div class="circle"><p>Hello World!</p></div>
-    <div class="corp-img" style="background-image: url('<?= get_template_directory_uri() ?>/Assets/img/home-header-img-corp.jpg');"></div>
+    <div class="corp-img" style="background-image: url('<?= get_template_directory_uri() ?>/img/home-header-img-corp.jpg');"></div>
   </section>
   <!-- end header -->
 
@@ -34,13 +38,13 @@
               <div class="card-icon">
                 <div class="circle-icon-1">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-learning-sm-icon.svg"
+                    src="<?= get_template_directory_uri() ?>/img/home-learning-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-learning-icon.svg"
+                  src="<?= get_template_directory_uri() ?>/img/home-learning-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -60,13 +64,13 @@
               <div class="card-icon">
                 <div class="circle-icon-2">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-workhard-sm-icon.svg"
+                    src="<?= get_template_directory_uri() ?>/img/home-workhard-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-workhard-icon.svg"
+                  src="<?= get_template_directory_uri() ?>/img/home-workhard-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -86,13 +90,13 @@
               <div class="card-icon">
                 <div class="circle-icon-3">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-experience-sm-icon.svg"
+                    src="<?= get_template_directory_uri() ?>/img/home-experience-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-experience-icon.svg"
+                  src="<?= get_template_directory_uri() ?>/img/home-experience-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -112,13 +116,13 @@
               <div class="card-icon">
                 <div class="circle-icon-4">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-optimist-sm-icon.svg"
+                    src="<?= get_template_directory_uri() ?>/img/home-optimist-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-optimist-icon.svg"
+                  src="<?= get_template_directory_uri() ?>/img/home-optimist-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -138,13 +142,13 @@
               <div class="card-icon">
                 <div class="circle-icon-5">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-satisfaction-sm-icon.svg"
+                    src="<?= get_template_directory_uri() ?>/img/home-satisfaction-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-satisfaction-icon.svg"
+                  src="<?= get_template_directory_uri() ?>/img/home-satisfaction-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -189,12 +193,12 @@
       ></a>
       <div class="swiper-container d-flex align-items-center">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" style="background-image: url('<?= get_template_directory_uri() ?>/Assets/img/home-port-img1-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= get_template_directory_uri() ?>/Assets/img/home-port-img2-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= get_template_directory_uri() ?>/Assets/img/home-port-img3-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= get_template_directory_uri() ?>/Assets/img/home-port-img1-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= get_template_directory_uri() ?>/Assets/img/home-port-img2-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= get_template_directory_uri() ?>/Assets/img/home-port-img3-corp.jpg') ;"></div>
+          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img1-corp.jpg') ;"></div>
+          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img2-corp.jpg') ;"></div>
+          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img3-corp.jpg') ;"></div>
+          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img1-corp.jpg') ;"></div>
+          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img2-corp.jpg') ;"></div>
+          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img3-corp.jpg') ;"></div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -216,7 +220,7 @@
             <div class="card h-100 border-0">
               <div class="news-img">
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-newsImage1-corp.jpg"
+                  src="<?= get_template_directory_uri() ?>/img/home-newsImage1-corp.jpg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -245,7 +249,7 @@
             <div class="card h-100 border-0">
               <div class="news-img">
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-newsImage2-corp.jpg"
+                  src="<?= get_template_directory_uri() ?>/img/home-newsImage2-corp.jpg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -274,7 +278,7 @@
             <div class="card h-100 border-0">
               <div class="news-img">
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-newsImage3-corp.jpg"
+                  src="<?= get_template_directory_uri() ?>/img/home-newsImage3-corp.jpg"
                   class="card-img-top"
                   alt="..."
                 />

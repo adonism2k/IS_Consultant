@@ -1,5 +1,15 @@
 <?php get_header() ?>
 
+<?php
+$directory_url   = get_template_directory_uri();
+$address         = get_field('address');
+$phone_number    = get_field('phone_number');
+$whatsapp_number = get_field('whatsapp_number');
+$email           = get_field('email');
+$lng             = (float)get_field('longitude');
+$lat             = (float)get_field('latitude');
+?>
+
 <div class="contact-us">
   <section class="newsletter">
     <div class="row wrapper">
@@ -7,27 +17,33 @@
         <div class="title">
           <h1>Contact Us</h1>
         </div>
-        <div class="address">
-          <div class="circle"></div>
-          <p>
-            <?= get_field( 'address' ) ?>
-          </p>
-        </div>
+        <?php if (isset($address)): ?>
+          <div class="address">
+            <div class="circle"></div>
+            <p><?= $address ?></p>
+          </div>
+        <?php endif; ?>
         <div class="contact">
-          <div class="row phone-wrapper mb-3">
-            <img src="<?= get_template_directory_uri() ?>/Assets/img/phone-icon-black.svg" alt="..." />
-            <span class="ml-4"> <?= get_field( 'phone_number' ) ?> </span>
-          </div>
-          <div class="row wa-wrapper mb-3">
-            <img src="<?= get_template_directory_uri() ?>/Assets/img/wa-icon-black.svg" alt="..." />
-            <span class="ml-4"> <?= get_field( 'whatsapp_number' ) ?> </span>
-          </div>
-          <div class="row email-wrapper mb-3">
-            <img src="<?= get_template_directory_uri() ?>/Assets/img/email-icon-black.svg" alt="..." />
-            <span class="ml-4">
-              <a href="#"><?= get_field( 'email' ) ?></a>
-            </span>
-          </div>
+          <?php if (isset($phone_number)): ?>
+            <div class="row phone-wrapper mb-3">
+              <img src="<?=$directory_url?>/img/phone-icon-black.svg" alt="..." />
+              <span class="ml-4"> <?= $phone_number ?> </span>
+            </div>
+          <?php endif; ?>
+          <?php if (isset($whatsapp_number)): ?>
+            <div class="row wa-wrapper mb-3">
+              <img src="<?=$directory_url?>/img/wa-icon-black.svg" alt="..." />
+              <span class="ml-4"> <?= $whatsapp_number ?> </span>
+            </div>
+          <?php endif; ?>
+          <?php if (isset($email)): ?>
+            <div class="row email-wrapper mb-3">
+              <img src="<?=$directory_url?>/img/email-icon-black.svg" alt="..." />
+              <span class="ml-4">
+                <a href="#"><?= $email ?></a>
+              </span>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
       <div class="col-lg-7">
@@ -74,7 +90,8 @@
     </div>
   </section>
   <!-- end newsletter -->
-
+  
+  <?php if($lng && $lat !== null): ?>
   <section class="map">
     <div class="title">
       <div class="wrapper">
@@ -84,11 +101,12 @@
     </div>
   </section>
   <!-- end map -->
+  <?php endif; ?>
 </div>
 
 
 
-
+<?php if($lng && $lat !== null): ?>
 <!-- Mapbox -->
 <script>
   mapboxgl.accessToken =
@@ -96,7 +114,7 @@
   var map = new mapboxgl.Map({
     container: "map", // container id
     style: "mapbox://styles/mapbox/streets-v11",
-    center: [<?= (float)get_field('longitude') ?>, <?= (float)get_field('latitude') ?>], // starting position
+    center: [<?= $lng ?>, <?= $lat ?>], // starting position
     doubleClickZoom: true,
     scrollZoom: false,
     zoom: 15, // starting zoom
@@ -106,12 +124,13 @@
     color: "#147fab",
     draggable: false,
   })
-    .setLngLat([<?= (float)get_field('longitude') ?>, <?= (float)get_field('latitude') ?>])
+    .setLngLat([<?= $lng ?>, <?= $lat ?>])
     .addTo(map);
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
 </script>
 <!-- end Mapbox -->
+<?php endif; ?>
 
 <?php get_footer() ?>

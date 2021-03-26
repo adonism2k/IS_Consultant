@@ -7,9 +7,7 @@ $args = array(
     'orderby'     => 'date',
     'order'       => 'ASC',
 );
-
-$portfolio = new WP_Query( $args );
-$projects = $portfolio->posts;
+$projects = get_posts( $args );
 ?>
 
 <div class="consultant">
@@ -31,14 +29,13 @@ $projects = $portfolio->posts;
     </div>
   </section>
   <!-- end header -->
-
   <section class="portfolio">
     <div class="wrapper">
       <h1 class="title">
         <?=get_field('portfolio_title')?>
       </h1>
     </div>
-    <?php if($portfolio->have_posts()): ?>
+    <?php if(isset($projects)): ?>
       <?php foreach($projects as $project): ?>
         <div class="port">
           <div class="port-img" style="background-image: url('<?= get_field('project_image', $project->ID)['url']; ?>');"></div>

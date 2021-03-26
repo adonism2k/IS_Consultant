@@ -7,67 +7,52 @@ $args = array(
   'orderby'     => 'date',
   'order'       => 'ASC',
 );
+$services                 = get_posts( $args );
 
-$service_query = new WP_Query( $args );
-$services = $service_query->posts;
-$services_1 = array_filter(explode('<!-- /wp:group -->', $services[0]->post_content));
-$services_2 = array_filter(explode('<!-- /wp:group -->', $services[1]->post_content));
+$first_service_post       = array_filter(explode('<!-- /wp:group -->', $services[0]->post_content));
+$first_service_image_url  = get_field('service_image', $services[0]->ID)['url'];
+$first_service_title      = $services[0]->post_title;
 
-// foreach ($wp_group_posts as $post) {
+$second_service_post      = array_filter(explode('<!-- /wp:group -->', $services[1]->post_content));
+$second_service_image_url = get_field('service_image', $services[1]->ID)['url'];
+$second_service_title     = $services[1]->post_title;
 
-//   $search = array(
-//     'class="wp-block-group"',
-//     'wp-block-group__inner-container', 
-//     '<!-- wp:heading -->', 
-//     '<!-- /wp:heading -->', 
-//     '<!-- wp:paragraph -->',
-//   );
-
-//   $replace = array(
-//     'class="vision"',
-//     'row',
-//     '<div class="circle"></div>',
-//     '</div>',
-//     '<div class="row">'
-//   );
-  
-//   $p = getTextBetweenTags($post, "p");
-  
-//   $replacing_str = str_replace($search, $replace, $post);
-//   var_dump($replacing_str);
-// }
+$page_title               = get_post()->post_title;
+$page_banner              = get_field("banner_image")['url'];
+$page_description         = get_post()->post_content;
+$blog_name                = get_bloginfo('name');
 ?>
 
 <div class="services">
-  <section class="header">
+  <section class="header<?php if(empty($page_description)): ?> pb-5 <?php endif; ?>">
     <div class="container-header d-flex flex-column align-items-center">
       <div class="title">
-        <h1><?= get_post()->post_title ?></h1>
+        <h1><?= $page_title ?></h1>
       </div>
-      <div class="corp-img" style="background-image: url('<?=get_field("banner_image")['url']?>');"></div>
+      <div class="corp-img" style="background-image: url('<?= $page_banner ?>');"></div>
+      <?php if(isset($page_description)): ?>
       <div class="description">
         <?php if(has_blocks()): ?>
-          <?= get_post()->post_content ?>
+          <?= $page_description ?>
         <?php else: ?>
           <p class="text-center">
             IS Consulting is a trusted taxes and transfers pricing consultant. Built to meet your needs for understanding and solving any issues in taxation and transfer pricing matters and all aspects related.
           </p>
         <?php endif; ?>
-        <p class="about-is">About <?= get_bloginfo('name') !== null ? get_bloginfo('name') : 'IS Consulting' ?></p>
+        <p class="about-is">About <?= $blog_name !== null ? $blog_name : 'IS Consulting' ?></p>
       </div>
       <div class="circle rounded-circle"></div>
+      <?php endif; ?>
     </div>
   </section>
   <!-- end header -->
 
-
-  <section class="service-1">     
+  <?php if(isset($first_service_post)): ?>
+  <section class="service-1<?php if(empty($page_description)): ?> mt-5 <?php endif; ?>">     
     <div class="wrapper">
       <div class="title d-flex align-items-center">
         <div class="mr-5">
-          <h1>
-            <?= $services[0]->post_title ?>
-          </h1>
+          <h1><?= $services[0]->post_title ?></h1>
         </div>
         <svg
             width="15"
@@ -85,11 +70,11 @@ $services_2 = array_filter(explode('<!-- /wp:group -->', $services[1]->post_cont
     </div>
     <div class="services-wrapper">
       <div class="row wrapper d-flex justify-content-center">
-        <div class="col-lg-4 vismis-img" style="background-image: url('<?= get_field('service_image', $services[0]->ID)['url']; ?>')"></div>
+        <div class="col-lg-4 vismis-img" style="background-image: url('<?= $first_service_image_url ?>')"></div>
         <div class="col-lg-7">
           <div class="wrapper vismis-desc">
               <?php
-                foreach($services_1 as $service): 
+                foreach($first_service_post as $service): 
                   $search = array(
                     'class="wp-block-group"',
                     'wp-block-group__inner-container', 
@@ -107,8 +92,9 @@ $services_2 = array_filter(explode('<!-- /wp:group -->', $services[1]->post_cont
                     '<div class="row">',
                     ' '
                   );
+                  $the_post = str_replace($search, $replace, $service);
               ?>
-                  <?= str_replace($search, $replace, $service);  ?>
+                  <?= $the_post  ?>
               <?php endforeach; ?>
           </div>
         </div>
@@ -116,14 +102,15 @@ $services_2 = array_filter(explode('<!-- /wp:group -->', $services[1]->post_cont
     </div>
   </section>
   <!-- end service-1 -->
+  <?php endif; ?>
 
-
+  <?php if(isset($second_service_post)): ?>
   <section class="service-2">
     <div class="wrapper">
       <div class="title d-flex align-items-center">
         <div class="mr-5">
           <h1>
-            <?= $services[1]->post_title ?>
+            <?= $second_service_title ?>
           </h1>
         </div>
         <svg
@@ -141,10 +128,10 @@ $services_2 = array_filter(explode('<!-- /wp:group -->', $services[1]->post_cont
       </div>
     </div>
     <div class="port">
-      <div class="port-img" style="background-image: url('<?= get_field('service_image', $services[1]->ID)['url']; ?>');"></div>
+      <div class="port-img" style="background-image: url('<?= $second_service_image_url ?>');"></div>
       <div class="wrapper mt-5">
         <?php
-          foreach($services_2 as $service): 
+          foreach($second_service_post as $service): 
             $search = array(
               'class="wp-block-group"',
               'wp-block-group__inner-container', 
@@ -162,24 +149,15 @@ $services_2 = array_filter(explode('<!-- /wp:group -->', $services[1]->post_cont
               '<div class="row">',
               ' '
             );
+            $the_post = str_replace($search, $replace, $service);
         ?>
-            <?= str_replace($search, $replace, $service);  ?>
+            <?= $the_post  ?>
         <?php endforeach; ?>
-        <!-- <div class="service-desc">
-          <div class="row">
-            <div class="circle"></div>
-            <h1 class="text-bold">-	Tax Audit & Objection</h1>
-          </div>
-          <div class="row">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere diam libero magna proin ligula eget nullam. Massa eget gravida viverra in volutpat. 
-            </p>
-          </div>
-        </div> -->
       </div>
     </div>
   </section>
   <!-- end service-2 -->
+  <?php endif; ?>
 </div>
 
 <?php get_footer() ?>
