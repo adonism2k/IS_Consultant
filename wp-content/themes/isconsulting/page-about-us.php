@@ -1,55 +1,70 @@
 <?php get_header() ?>
 
+<?php
+$directory_url       = get_template_directory_uri();
+$blog_name           = get_bloginfo('name');
+$page_title          = get_the_title();
+$page_banner         = get_field( "banner_image" )['url'];
+$page_description    = get_post()->post_content;
+$vismis_image        = get_field("vismis_image")['url'];
+$vision_title        = get_field('vision_title');
+$vision_description  = get_field('vision_description');
+$mission_title       = get_field('mission_title');
+$mission_description = get_field('mission_description');
+?>
+
 <div class="about-us">
   <section class="header">
     <div class="container-header d-flex flex-column align-items-center">
       <div class="title">
         <h1>
-          <?=get_the_title()?>
+          <?= $page_title ?>
         </h1>
       </div>
-      <div class="corp-img" style="background-image: url('<?=get_field("banner_image")['url']?>');"></div>
-      <div class="description">
-        <?php if(has_blocks()): ?>
-          <?= get_post()->post_content?>
-        <?php else: ?>
-          <p class="text-center">
-            IS Consulting is a trusted taxes and transfers pricing consultant. Built to meet your needs for understanding and solving any issues in taxation and transfer pricing matters and all aspects related.
-          </p>
-          <p class="text-center">
-            We take a strategic approach when assisting our clients in achieving client objectives. Our team of professionals is involved from preparation, planning, and determination of action steps all the way through to execution and implementation.
-          </p>
-        <?php endif; ?>
-        <p class="about-is">About <?= get_bloginfo('name') !== null ? get_bloginfo('name') : 'IS Consulting' ?></p>
-      </div>
-      <div class="circle rounded-circle"></div>
+      <div class="corp-img" style="background-image: url('<?=$page_banner?>');"></div>
+      <?php if(isset($page_description)): ?>
+        <div class="description">
+          <?php if(has_blocks()): ?>
+            <?= $page_description ?>
+          <?php else: ?>
+            <p class="text-center">
+              IS Consulting is a trusted taxes and transfers pricing consultant. Built to meet your needs for understanding and solving any issues in taxation and transfer pricing matters and all aspects related.
+            </p>
+            <p class="text-center">
+              We take a strategic approach when assisting our clients in achieving client objectives. Our team of professionals is involved from preparation, planning, and determination of action steps all the way through to execution and implementation.
+            </p>
+          <?php endif; ?>
+          <p class="about-is">About <?= isset($blog_name) ? $blog_name : 'IS Consulting' ?></p>
+        </div>
+        <div class="circle rounded-circle"></div>
+      <?php endif; ?>
     </div>
   </section>
   <!-- end header -->
 
   <section class="vismis">
     <div class="row wrapper d-flex justify-content-center">
-      <div class="col-lg-4 vismis-img" style="background-image: url('<?=get_field("vismis_image")['url']?>');"></div>
+      <div class="col-lg-4 vismis-img" style="background-image: url('<?= $vismis_image ?>');"></div>
       <div class="col-lg-7 ">
         <div class="wrapper vismis-desc">
           <div class="vision">
             <div class="row">
-              <h1 class="text-bold"><?=get_field('vision_title')?></h1>
+              <h1 class="text-bold"><?= $vision_title ?></h1>
             </div>
             <div class="row">
               <p>
-                <?=get_field('vision_description')?>
+                <?= $vision_description?>
               </p>
             </div>
           </div>
           <div class=""><h1 class="&">&</h1></div>
           <div class="mission">
             <div class="row">
-              <h1><?=get_field('mission_title')?></h1>
+              <h1><?= $mission_title ?></h1>
             </div>
             <div class="row">
               <p>
-                <?=get_field('mission_description')?>
+                <?= $mission_description ?>
               </p>
             </div>
           </div>
@@ -73,13 +88,13 @@
               <div class="card-icon">
                 <div class="circle-icon-1">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-learning-sm-icon.svg"
+                    src="<?= $directory_url ?>/img/home-learning-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-learning-icon.svg"
+                  src="<?= $directory_url ?>/img/home-learning-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -99,13 +114,13 @@
               <div class="card-icon">
                 <div class="circle-icon-2">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-workhard-sm-icon.svg"
+                    src="<?= $directory_url ?>/img/home-workhard-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-workhard-icon.svg"
+                  src="<?= $directory_url ?>/img/home-workhard-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -125,13 +140,13 @@
               <div class="card-icon">
                 <div class="circle-icon-3">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-experience-sm-icon.svg"
+                    src="<?= $directory_url ?>/img/home-experience-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-experience-icon.svg"
+                  src="<?= $directory_url ?>/img/home-experience-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -151,13 +166,13 @@
               <div class="card-icon">
                 <div class="circle-icon-4">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-optimist-sm-icon.svg"
+                    src="<?= $directory_url ?>/img/home-optimist-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-optimist-icon.svg"
+                  src="<?= $directory_url ?>/img/home-optimist-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />
@@ -177,13 +192,13 @@
               <div class="card-icon">
                 <div class="circle-icon-5">
                   <img
-                    src="<?= get_template_directory_uri() ?>/Assets/img/home-satisfaction-sm-icon.svg"
+                    src="<?= $directory_url ?>/img/home-satisfaction-sm-icon.svg"
                     class="icon"
                     alt="..."
                   />
                 </div>
                 <img
-                  src="<?= get_template_directory_uri() ?>/Assets/img/home-satisfaction-icon.svg"
+                  src="<?= $directory_url ?>/img/home-satisfaction-icon.svg"
                   class="card-img-top"
                   alt="..."
                 />

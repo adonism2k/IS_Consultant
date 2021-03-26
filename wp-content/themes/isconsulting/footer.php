@@ -1,3 +1,11 @@
+<?php
+$address         = get_field('address');
+$directory_url   = get_template_directory_uri();
+$phone_number    = get_field('phone_number');
+$whatsapp_number = get_field('whatsapp_number');
+$email           = get_field('email');
+?>
+    
     <footer
       class="d-flex justify-content-center align-items-center flex-column"
     >
@@ -6,46 +14,50 @@
       >
         <div class="row h-100 w-100">
           <div class="col-xl-2 col-lg-4 logo">
-            <img src="<?= get_template_directory_uri() ?>/Assets/img/logo-corp.svg" alt="IS Consultant" />
+            <img src="<?= $directory_url ?>/img/logo-corp.svg" alt="IS Consultant" />
           </div>
           <div
             class="col-xl-7 col-lg-8 contact d-flex flex-column justify-content-between"
           >
             <div class="title mb-3"><h4>Contact Us</h4></div>
             <div class="row content">
+              <?php if(isset($address)): ?>
               <div class="col-md address__wrapper d-flex mb-3">
                 <div class="icon">
-                  <img src="<?= get_template_directory_uri() ?>/Assets/img/map-icon.svg" alt="..." />
+                  <img src="<?= $directory_url ?>/img/map-icon.svg" alt="..." />
                 </div>
                 <div class="address pl-5">
-                  <?= get_field('address') ?>
+                  <?= $address ?>
                 </div>
               </div>
+              <?php endif; ?>
               <div class="col-md contact-list__wrapper">
-                <div
-                  class="contact-phone__wrapper d-flex align-items-center mb-3"
-                >
-                  <div class="icon">
-                    <img src="<?= get_template_directory_uri() ?>/Assets/img/Phone-icon.svg" alt="..." />
+                <?php if(isset($phone_number)): ?>
+                  <div class="contact-phone__wrapper d-flex align-items-center mb-3">
+                    <div class="icon">
+                      <img src="<?= $directory_url ?>/img/Phone-icon.svg" alt="..." />
+                    </div>
+                    <div class="contact-phone ml-5"><?= $phone_number ?></div>
                   </div>
-                  <div class="contact-phone ml-5"><?= get_field('phone_number') ?></div>
-                </div>
-                <div class="contact-wa__wrapper d-flex align-items-center mb-3">
-                  <div class="icon">
-                    <img src="<?= get_template_directory_uri() ?>/Assets/img/wa-icon.svg" alt="..." />
+                <?php endif; ?>
+                <?php if(isset($whatsapp_number)): ?>
+                  <div class="contact-wa__wrapper d-flex align-items-center mb-3">
+                    <div class="icon">
+                      <img src="<?= $directory_url ?>/img/wa-icon.svg" alt="..." />
+                    </div>
+                    <div class="contact-wa ml-5"><?= $whatsapp_number ?></div>
                   </div>
-                  <div class="contact-wa ml-5"><?= get_field('whatsapp_number') ?></div>
-                </div>
-                <div
-                  class="contact-email__wrapper d-flex align-items-center mb-3"
-                >
-                  <div class="icon">
-                    <img src="<?= get_template_directory_uri() ?>/Assets/img/email-icon.svg" alt="..." />
+                <?php endif; ?>
+                <?php if(isset($email)): ?>
+                  <div class="contact-email__wrapper d-flex align-items-center mb-3">
+                    <div class="icon">
+                      <img src="<?= $directory_url ?>/img/email-icon.svg" alt="..." />
+                    </div>
+                    <div class="contact-email ml-5">
+                      <a href="#"><?= $email ?></a>
+                    </div>
                   </div>
-                  <div class="contact-email ml-5">
-                    <a href="#"><?= get_field('email') ?></a>
-                  </div>
-                </div>
+                <?php endif; ?>
               </div>
             </div>
           </div>

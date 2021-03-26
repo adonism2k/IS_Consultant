@@ -1,3 +1,8 @@
+<?php
+$directory_url = get_template_directory_uri();
+$blog_name     = get_bloginfo('name');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,71 +17,71 @@
     <link
       rel="apple-touch-icon-precomposed"
       sizes="57x57"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/apple-touch-icon-57x57.png"
+      href="<?= $directory_url ?>/img/ico/apple-touch-icon-57x57.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="114x114"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/apple-touch-icon-114x114.png"
+      href="<?= $directory_url ?>/img/ico/apple-touch-icon-114x114.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="72x72"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/apple-touch-icon-72x72.png"
+      href="<?= $directory_url ?>/img/ico/apple-touch-icon-72x72.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="144x144"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/apple-touch-icon-144x144.png"
+      href="<?= $directory_url ?>/img/ico/apple-touch-icon-144x144.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="60x60"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/apple-touch-icon-60x60.png"
+      href="<?= $directory_url ?>/img/ico/apple-touch-icon-60x60.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="120x120"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/apple-touch-icon-120x120.png"
+      href="<?= $directory_url ?>/img/ico/apple-touch-icon-120x120.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="76x76"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/apple-touch-icon-76x76.png"
+      href="<?= $directory_url ?>/img/ico/apple-touch-icon-76x76.png"
     />
     <link
       rel="apple-touch-icon-precomposed"
       sizes="152x152"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/apple-touch-icon-152x152.png"
+      href="<?= $directory_url ?>/img/ico/apple-touch-icon-152x152.png"
     />
     <link
       rel="icon"
       type="image/png"
       href="favicon-196x196.png"
-      sizes="<?= get_template_directory_uri() ?>/Assets/img/ico/196x196"
+      sizes="<?= $directory_url ?>/img/ico/196x196"
     />
     <link
       rel="icon"
       type="image/png"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/favicon-96x96.png"
+      href="<?= $directory_url ?>/img/ico/favicon-96x96.png"
       sizes="96x96"
     />
     <link
       rel="icon"
       type="image/png"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/favicon-32x32.png"
+      href="<?= $directory_url ?>/img/ico/favicon-32x32.png"
       sizes="32x32"
     />
     <link
       rel="icon"
       type="image/png"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/favicon-16x16.png"
+      href="<?= $directory_url ?>/img/ico/favicon-16x16.png"
       sizes="16x16"
     />
     <link
       rel="icon"
       type="image/png"
-      href="<?= get_template_directory_uri() ?>/Assets/img/ico/favicon-128.png"
+      href="<?= $directory_url ?>/img/ico/favicon-128.png"
       sizes="128x128"
     />
     <meta name="IS Consultant" content="&nbsp;" />
@@ -104,7 +109,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
 
-    <title><?= get_bloginfo('name') !== null ? get_bloginfo('name') : 'Introducing • IS Consulting' ?></title>
+    <title><?= isset($blog_name) ? $blog_name : 'Introducing • IS Consulting' ?></title>
   </head>
 
   <body>
@@ -113,7 +118,7 @@
         <a class="navbar-brand" href="<?=site_url()?>">
           <?php
             $custom_logo_id = get_theme_mod( 'custom_logo' );
-            $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+            $logo           = wp_get_attachment_image_src( $custom_logo_id , 'full' );
             // print_r(has_blocks());
             if (has_custom_logo()): 
           ?>
@@ -124,7 +129,7 @@
             />
           <?php else: ?>
             <img
-              src="<?= get_template_directory_uri() ?>/Assets/img/logo-corp.svg"
+              src="<?= $directory_url ?>/img/logo-corp.svg"
               alt="IS Consultant"
               class="navbar__logo"
             />
@@ -146,12 +151,21 @@
             class="wrapper__navbar navbar-nav ml-auto justify-content-around"
           >
             <?php 
-              $navItems = wp_get_nav_menu_items('Header');
-              $current_page_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; 
+              $navItems         = wp_get_nav_menu_items('Header');
+              $current_page_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             ?>
-            <?php foreach($navItems as $nav): ?>
-              <a class="nav-link <?php if($nav->url === $current_page_url): ?>active text-primary<?php endif; ?>" href="<?= $nav->url;?>"><?= $nav->title;?></a>
-            <?php endforeach; ?>
+            <?php if(isset($navItems)): ?>
+              <?php foreach($navItems as $nav): ?>
+                <a class="nav-link <?php if($nav->url === $current_page_url): ?>active text-primary<?php endif; ?>" href="<?= $nav->url;?>"><?= $nav->title;?></a>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <a class="nav-link" href="./Home.html">Home</a>
+              <a class="nav-link" href="./About Us.html">About Us</a>
+              <a class="nav-link" href="./Consultant.html">Consultant</a>
+              <a class="nav-link" href="./Services.html">Services</a>
+              <a class="nav-link" href="./News.html">News</a>
+              <a class="nav-link" href="./Contact Us.html">Contact Us</a>
+            <?php endif; ?>
             <div
               class="wrapper__il8n d-flex justify-content-between align-items-center"
             >
