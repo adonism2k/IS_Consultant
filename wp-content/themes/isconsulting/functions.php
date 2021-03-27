@@ -187,10 +187,10 @@ function page_contact_options(){
 }
 
 function register_contact_options(){
-  register_setting( 'contact-options', 'Address' );
-  register_setting( 'contact-options', 'Phone Number' );
-  register_setting( 'contact-options', 'Whatsapp Number' );
-  register_setting( 'contact-options', 'Email Address' );
+  register_setting( 'contact-options', 'address' );
+  register_setting( 'contact-options', 'phone_number' );
+  register_setting( 'contact-options', 'whatsapp_number' );
+  register_setting( 'contact-options', 'email' );
   register_setting( 'contact-options', 'longitude' );
   register_setting( 'contact-options', 'latitude' );
 }

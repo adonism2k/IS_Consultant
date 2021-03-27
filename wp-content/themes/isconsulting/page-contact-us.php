@@ -2,12 +2,12 @@
 
 <?php
 $directory_url   = get_template_directory_uri();
-$address         = get_field('address');
-$phone_number    = get_field('phone_number');
-$whatsapp_number = get_field('whatsapp_number');
-$email           = get_field('email');
-$lng             = (float)get_field('longitude');
-$lat             = (float)get_field('latitude');
+$address         = get_option('address');
+$phone_number    = get_option('phone_number');
+$whatsapp_number = get_option('whatsapp_number');
+$email           = get_option('email');
+$lng             = (float)get_option('longitude');
+$lat             = (float)get_option('latitude');
 ?>
 
 <div class="contact-us">

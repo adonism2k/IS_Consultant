@@ -14,7 +14,7 @@ $ValueArgs = array(
   'posts_per_page' => 9,
 );
 $news_posts                = get_posts( $newsArgs );
-$values                    = get_posts( $ValueArgs );
+$values                    = array_reverse(get_posts( $ValueArgs ));
 $directory_url             = get_template_directory_uri();
 $page_title                = get_field('page_title');
 $page_banner_url           = get_field( "banner_image" )['url'];

@@ -5,7 +5,7 @@ $args = array(
   'post_type'     => 'values',
   'post_status'   => 'publish',
 );
-$values  = get_posts( $args );
+$values                  = array_reverse(get_posts( $args ));
 $directory_url           = get_template_directory_uri();
 $blog_name               = get_bloginfo('name');
 $page_title              = get_field('page_title');

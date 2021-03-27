@@ -1,9 +1,9 @@
 <?php
-$address         = get_field('address');
 $directory_url   = get_template_directory_uri();
-$phone_number    = get_field('phone_number');
-$whatsapp_number = get_field('whatsapp_number');
-$email           = get_field('email');
+$address         = get_option('address');
+$phone_number    = get_option('phone_number');
+$whatsapp_number = get_option('whatsapp_number');
+$email           = get_option('email');
 ?>
     
     <footer
