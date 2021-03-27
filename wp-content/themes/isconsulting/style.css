@@ -1436,8 +1436,6 @@ nav {
 
 .about-us section.about-us .about-card .row .col .card .card-icon .card-img-top {
   height: 100%;
-  -webkit-transform: translateX(70px);
-          transform: translateX(70px);
   pointer-events: none;
 }
 

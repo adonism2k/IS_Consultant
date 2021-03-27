@@ -17,10 +17,10 @@ $second_service_post      = array_filter(explode('<!-- /wp:group -->', $services
 $second_service_image_url = get_field('service_image', $services[1]->ID)['url'];
 $second_service_title     = $services[1]->post_title;
 
-$page_title               = get_post()->post_title;
-$page_banner              = get_field("banner_image")['url'];
-$page_description         = get_post()->post_content;
 $blog_name                = get_bloginfo('name');
+$page_title               = get_post()->post_title;
+$page_banner_url          = get_field("banner_image")['url'];
+$page_description         = get_post()->post_content;
 ?>
 
 <div class="services">
@@ -29,17 +29,13 @@ $blog_name                = get_bloginfo('name');
       <div class="title">
         <h1><?= $page_title ?></h1>
       </div>
-      <div class="corp-img" style="background-image: url('<?= $page_banner ?>');"></div>
+      <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url.'/img/home-header-img-corp.jpg' ?>');"></div>
       <?php if(isset($page_description)): ?>
       <div class="description">
-        <?php if(has_blocks()): ?>
+        <p class="text-center">
           <?= $page_description ?>
-        <?php else: ?>
-          <p class="text-center">
-            IS Consulting is a trusted taxes and transfers pricing consultant. Built to meet your needs for understanding and solving any issues in taxation and transfer pricing matters and all aspects related.
-          </p>
-        <?php endif; ?>
-        <p class="about-is">About <?= $blog_name !== null ? $blog_name : 'IS Consulting' ?></p>
+        </p>
+        <p class="about-is">About <?= $blog_name ?></p>
       </div>
       <div class="circle rounded-circle"></div>
       <?php endif; ?>
@@ -75,6 +71,7 @@ $blog_name                = get_bloginfo('name');
           <div class="wrapper vismis-desc">
               <?php
                 foreach($first_service_post as $service): 
+                  //logic for first service content
                   $search = array(
                     'class="wp-block-group"',
                     'wp-block-group__inner-container', 
@@ -132,6 +129,7 @@ $blog_name                = get_bloginfo('name');
       <div class="wrapper mt-5">
         <?php
           foreach($second_service_post as $service): 
+            //logic for second service content
             $search = array(
               'class="wp-block-group"',
               'wp-block-group__inner-container', 

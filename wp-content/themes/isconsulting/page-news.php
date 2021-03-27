@@ -1,24 +1,23 @@
 <?php get_header() ?>
 
 <?php
-
 $args = array(
-  'post_type'     => 'post',
-  'post_status'   => 'publish',
-  'category_name' => 'news',
+  'post_type'      => 'post',
+  'post_status'    => 'publish',
+  'category_name'  => 'news',
+  'posts_per_page' => 20,
 );
-$news_posts = get_posts( $args );
-
-$page_title  = get_the_title();
-$page_banner = get_field( "banner_image" )['url'];
+$news_posts      = get_posts( $args );
+$page_title      = get_the_title();
+$page_banner_url = get_field( "banner_image" )['url'];
 ?>
 
 <div class="news">
   <section class="header">
     <div class="title">
-      <h1><?= $page_title ?></h1>
+      <h1><?= isset($page_title) ? $page_title : 'News'; ?></h1>
     </div>
-    <div class="corp-img" style="background-image: url('<?= $page_banner ?>');"></div>
+    <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url.'/img/about-header-img-corp.jpg' ?>');"></div>
   </section>
   <!-- end header -->
 
@@ -44,7 +43,7 @@ $page_banner = get_field( "banner_image" )['url'];
       </div>
       <?php if(isset($news_posts)): ?>
         <div class="news-card">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-around">
               <?php foreach($news_posts as $news): ?>
                 <div class="col w-100 d-flex justify-content-center">
                   <div class="card h-100 border-0">
@@ -60,9 +59,13 @@ $page_banner = get_field( "banner_image" )['url'];
                         <?= $news->post_title ?>
                       </h5>
                       <p class="card-text">
-                        by Instagram <a href="#" class="news-link"><?= get_field('news_instagram', $news->ID) ?></a>
-                        <br />
-                        <?= get_field('news_date', $news->ID) ?>
+                        <?php if(!empty(get_field('news_instagram', $news->ID))): ?>
+                          by Instagram <a href="#" class="news-link"><?= get_field('news_instagram', $news->ID) ?></a>
+                          <br />
+                        <?php endif; ?>
+                        <?php if(!empty(get_field('news_date', $news->ID))): ?>
+                          <?= get_field('news_date', $news->ID) ?>
+                        <?php endif; ?>
                       </p>
                       <p class="card-text">
                         <?= $news->post_content ?>
@@ -74,6 +77,8 @@ $page_banner = get_field( "banner_image" )['url'];
               <?php endforeach; ?>
           </div>
         </div>
+      <?php else: ?>
+        <div class="news_card">There's no news available</div>
       <?php endif; ?>
     </div>
   </section>

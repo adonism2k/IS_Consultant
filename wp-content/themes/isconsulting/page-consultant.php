@@ -4,10 +4,16 @@
 $args = array(
     'post_type'   => 'portfolio',
     'post_status' => 'publish',
+    'posts_per_page' => 10,
     'orderby'     => 'date',
     'order'       => 'ASC',
 );
 $projects = get_posts( $args );
+$hero_image_url = get_field('user_image')['url'];
+$user_name = get_field('user_name');
+$user_description = get_field('user_description');
+
+$portfolio_title = get_field('portfolio_title');
 ?>
 
 <div class="consultant">
@@ -15,14 +21,14 @@ $projects = get_posts( $args );
     <div class="wrapper profile">
       <div class="row h-100 justify-content-md-between align-items-start">
         <div class="col-xl-4 profile-img">
-          <img src="<?=get_field('user_image')['url']?>" alt="Profile Image">
+          <img src="<?= $hero_image_url ?>" alt="Profile Image">
         </div>
         <div class="col-xl-7 profile-desc">
             <h1 class="mb-5">
-              <?=get_field('user_name')?>
+              <?= $user_name ?>
             </h1> 
             <p>
-              <?=get_field('user_description')?>
+              <?= $user_description ?>
             </p>
         </div>
       </div>
@@ -32,7 +38,7 @@ $projects = get_posts( $args );
   <section class="portfolio">
     <div class="wrapper">
       <h1 class="title">
-        <?=get_field('portfolio_title')?>
+        <?= $portfolio_title ?>
       </h1>
     </div>
     <?php if(isset($projects)): ?>

@@ -75,7 +75,7 @@ function custom_post_type() {
 	/**
 	 * Post Type: Services
 	 */
-		 $labels = array(
+	$labels = array(
     'name'                  => _x( 'Services', 'Post Type General Name', 'text_domain' ),
     'singular_name'         => _x( 'Service', 'Post Type Singular Name', 'text_domain' ),
     'menu_name'             => __( 'Services', 'text_domain' ),
@@ -125,5 +125,96 @@ function custom_post_type() {
   );
 
 	register_post_type( 'services', $args );
+  
+	/**
+	 * Post Type: Values
+	 */
+	$labels = array(
+    'name'                  => _x( 'Values', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'Value', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'Values', 'text_domain' ),
+    'name_admin_bar'        => __( 'Values', 'text_domain' ),
+    'archives'              => __( 'Value Archives', 'text_domain' ),
+    'parent_item_colon'     => __( 'Parent value:', 'text_domain' ),
+    'all_items'             => __( 'All values', 'text_domain' ),
+    'add_new_item'          => __( 'Add New value', 'text_domain' ),
+    'add_new'               => __( 'Add New', 'text_domain' ),
+    'new_item'              => __( 'New value', 'text_domain' ),
+    'edit_item'             => __( 'Edit value', 'text_domain' ),
+    'update_item'           => __( 'Update value', 'text_domain' ),
+    'view_item'             => __( 'View value', 'text_domain' ),
+    'search_items'          => __( 'Search value', 'text_domain' ),
+    'not_found'             => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+    'featured_image'        => __( 'Featured Image', 'text_domain' ),
+    'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+    'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+    'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+    'insert_into_item'      => __( 'Insert into value', 'text_domain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this value', 'text_domain' ),
+    'items_list'            => __( 'Values list', 'text_domain' ),
+    'items_list_navigation' => __( 'Values list navigation', 'text_domain' ),
+    'filter_items_list'     => __( 'Filter values list', 'text_domain' ),
+  );
+
+	$args = array(
+    'label'               => __( 'Values', 'text_domain' ),
+    'labels'              => $labels,
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'menu_position'       => 6,
+    'show_in_admin_bar'   => true,
+    'show_in_nav_menus'   => true,
+    'can_export'          => true,
+    'has_archive'         => true,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+    'menu_icon'           => 'dashicons-chart-line',
+    'rewrite'             => array('slug' => 'values'),
+    'show_in_rest'        => true,
+    'supports'            => array('thumbnail', 'title', 'editor', 'custom_fields'),
+  );
+
+	register_post_type( 'values', $args );
 }
 add_action( 'init', 'custom_post_type');
+
+function page_contact_options(){
+  include "inc/contact-options.php";
+}
+
+function register_contact_options(){
+  register_setting( 'contact-options', 'Address' );
+  register_setting( 'contact-options', 'Phone Number' );
+  register_setting( 'contact-options', 'Whatsapp Number' );
+  register_setting( 'contact-options', 'Email Address' );
+  register_setting( 'contact-options', 'longitude' );
+  register_setting( 'contact-options', 'latitude' );
+}
+
+function menu_option_contact() {
+	//create new top-level menu
+	add_menu_page(
+    'Contact Options', // Page Title
+    'Contact Options', // Menu Title
+    'administrator', // Capability
+    'contact-options', // Menu slug
+    'page_contact_options', // function
+    'dashicons-id', // Option Icon
+    2 // Position
+  );
+	//call register settings function
+	add_action( 'admin_init', 'register_contact_options' );
+}
+
+// Create Options Contact
+add_action('admin_menu', 'menu_option_contact');
+
+function my_myme_types($mime_types){
+    $mime_types['svg'] = 'image/svg+xml'; //Adding svg extension
+    return $mime_types;
+}
+add_filter('upload_mimes', 'my_myme_types', 1, 1);
