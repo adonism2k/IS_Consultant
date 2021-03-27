@@ -1,168 +1,230 @@
 <?php get_header() ?>
 <?php
-$directory_url = get_template_directory_uri();
+$newsArgs = array(
+  'post_type'      => 'post',
+  'post_status'    => 'publish',
+  'category_name'  => 'news',
+  'posts_per_page' => 3,
+  'orderby'        => 'date',
+  'order'          => 'DESC',
+);
+$ValueArgs = array(
+  'post_type'   => 'values',
+  'post_status' => 'publish',
+  'posts_per_page' => 9,
+);
+$news_posts                = get_posts( $newsArgs );
+$values                    = get_posts( $ValueArgs );
+$directory_url             = get_template_directory_uri();
+$page_title                = get_field('page_title');
+$page_banner_url           = get_field( "banner_image" )['url'];
+$first_section_title       = get_field('first_section_title');
+$first_section_description = get_field('first_section_description');
+$second_section_title      = get_field('second_section_title');
+$third_section_title       = get_field('third_section_title');
+$third_section_description = get_field('third_section_description');
 ?>
 
 <div class="home">
   <section class="header">
     <div class="title">
       <h1 class="prologue">
-        <?php if(has_blocks()): ?>
-          <?= get_post()->post_content ?>
-        <?php else: ?>
-          We are IS Consultant that will help your lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor ipsum morbi massa elit consequat enim auctor.
-        <?php endif; ?>
+        <?= isset($page_title) 
+                ? $page_title 
+                : 'We are IS Consultant that will help your lorem ipsum dolor sit amet, 
+                    consectetur adipiscing elit. Dolor ipsum morbi massa elit consequat enim auctor.'; ?>
       </h1>
     </div>
     <div class="circle"><p>Hello World!</p></div>
-    <div class="corp-img" style="background-image: url('<?= get_template_directory_uri() ?>/img/home-header-img-corp.jpg');"></div>
+    <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url.'/img/home-header-img-corp.jpg' ?>');"></div>
   </section>
   <!-- end header -->
 
   <section class="about-us">
     <div class="wrapper d-flex align-items-center flex-column">
       <div class="title">
-        <h1>About Us</h1>
+        <h1><?= isset($first_section_title) ? $first_section_title : 'About Us' ?></h1>
       </div>
-      <div class="subtitle">
-        IS Consulting is a trusted taxes and transfer pricing consultant.
-        Built to mee your needs for understanding and solving any issues in
-        taxation and transfer pricing matters and all aspects related.
-      </div>
+        <div class="subtitle">
+          <?= isset($first_section_description) 
+                  ? $first_section_description 
+                  : 'IS Consulting is a trusted taxes and transfer pricing consultant. 
+                      Built to mee your needs for understanding and solving any issues 
+                      in taxation and transfer pricing matters and all aspects related.'  ?>
+        </div>
       <div class="about-card">
         <div
           class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center"
         >
-          <div class="col w-100 d-flex justify-content-center">
-            <div class="card h-100 border-0">
-              <div class="card-icon">
-                <div class="circle-icon-1">
+          <?php if(isset($values)): 
+            $i = 1;
+          ?>
+            <?php foreach($values as $value): ?>
+              <div class="col w-100 d-flex justify-content-center">
+                <div class="card h-100 border-0">
+                  <div class="card-icon">
+                    <?php if (isset(get_field('secondary_value_icon', $value->ID)['url'])): ?>
+                      <div class="circle-icon-<?= $i ?>">
+                        <img
+                          src="<?= get_field('secondary_value_icon', $value->ID)['url'] ?>"
+                          class="icon"
+                          alt="..."
+                        />
+                      </div>
+                    <?php endif; ?>
+                    <img
+                      src="<?= get_field('primary_value_icon', $value->ID)['url'] ?>"
+                      class="card-img-top"
+                      alt="..."
+                      <?php if (isset(get_field('secondary_value_icon', $value->ID)['url'])): ?>
+                      style="transform: translateX(70px);"
+                      <?php else: ?>
+                      style="transform: translateX(0);"
+                      <?php endif; ?>
+                    />
+                  </div>
+                  <div class="card-body text-left">
+                    <h5 class="card-title"><?= $value->post_title ?></h5>
+                    <p class="card-text"><?= $value->post_content ?></p>
+                  </div>
+                </div>
+              </div>
+            <?php 
+              $i++;
+              endforeach; 
+            ?>
+          <?php else: ?>
+            <div class="col w-100 d-flex justify-content-center">
+              <div class="card h-100 border-0">
+                <div class="card-icon">
+                  <div class="circle-icon-1">
+                    <img
+                      src="<?= $directory_url ?>/img/home-learning-sm-icon.svg"
+                      class="icon"
+                      alt="..."
+                    />
+                  </div>
                   <img
-                    src="<?= get_template_directory_uri() ?>/img/home-learning-sm-icon.svg"
-                    class="icon"
+                    src="<?= $directory_url ?>/img/home-learning-icon.svg"
+                    class="card-img-top"
                     alt="..."
                   />
                 </div>
-                <img
-                  src="<?= get_template_directory_uri() ?>/img/home-learning-icon.svg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body text-left">
-                <h5 class="card-title">Learning</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                  ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                  in.
-                </p>
+                <div class="card-body text-left">
+                  <h5 class="card-title">Learning</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
+                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
+                    in.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col w-100 d-flex justify-content-center">
-            <div class="card h-100 border-0">
-              <div class="card-icon">
-                <div class="circle-icon-2">
+            <div class="col w-100 d-flex justify-content-center">
+              <div class="card h-100 border-0">
+                <div class="card-icon">
+                  <div class="circle-icon-2">
+                    <img
+                      src="<?= $directory_url ?>/img/home-workhard-sm-icon.svg"
+                      class="icon"
+                      alt="..."
+                    />
+                  </div>
                   <img
-                    src="<?= get_template_directory_uri() ?>/img/home-workhard-sm-icon.svg"
-                    class="icon"
+                    src="<?= $directory_url ?>/img/home-workhard-icon.svg"
+                    class="card-img-top"
                     alt="..."
                   />
                 </div>
-                <img
-                  src="<?= get_template_directory_uri() ?>/img/home-workhard-icon.svg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body text-left">
-                <h5 class="card-title">Work Hard</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                  ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                  in.
-                </p>
+                <div class="card-body text-left">
+                  <h5 class="card-title">Work Hard</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
+                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
+                    in.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col w-100 d-flex justify-content-center">
-            <div class="card h-100 border-0">
-              <div class="card-icon">
-                <div class="circle-icon-3">
+            <div class="col w-100 d-flex justify-content-center">
+              <div class="card h-100 border-0">
+                <div class="card-icon">
+                  <div class="circle-icon-3">
+                    <img
+                      src="<?= $directory_url ?>/img/home-experience-sm-icon.svg"
+                      class="icon"
+                      alt="..."
+                    />
+                  </div>
                   <img
-                    src="<?= get_template_directory_uri() ?>/img/home-experience-sm-icon.svg"
-                    class="icon"
+                    src="<?= $directory_url ?>/img/home-experience-icon.svg"
+                    class="card-img-top"
                     alt="..."
                   />
                 </div>
-                <img
-                  src="<?= get_template_directory_uri() ?>/img/home-experience-icon.svg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body text-left">
-                <h5 class="card-title">Experience</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                  ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                  in.
-                </p>
+                <div class="card-body text-left">
+                  <h5 class="card-title">Experience</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
+                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
+                    in.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col w-100 d-flex justify-content-center">
-            <div class="card h-100 border-0">
-              <div class="card-icon">
-                <div class="circle-icon-4">
+            <div class="col w-100 d-flex justify-content-center">
+              <div class="card h-100 border-0">
+                <div class="card-icon">
+                  <div class="circle-icon-4">
+                    <img
+                      src="<?= $directory_url ?>/img/home-optimist-sm-icon.svg"
+                      class="icon"
+                      alt="..."
+                    />
+                  </div>
                   <img
-                    src="<?= get_template_directory_uri() ?>/img/home-optimist-sm-icon.svg"
-                    class="icon"
+                    src="<?= $directory_url ?>/img/home-optimist-icon.svg"
+                    class="card-img-top"
                     alt="..."
                   />
                 </div>
-                <img
-                  src="<?= get_template_directory_uri() ?>/img/home-optimist-icon.svg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body text-left">
-                <h5 class="card-title">Optimist</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                  ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                  in.
-                </p>
+                <div class="card-body text-left">
+                  <h5 class="card-title">Optimist</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
+                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
+                    in.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col w-100 d-flex justify-content-center">
-            <div class="card h-100 border-0">
-              <div class="card-icon">
-                <div class="circle-icon-5">
+            <div class="col w-100 d-flex justify-content-center">
+              <div class="card h-100 border-0">
+                <div class="card-icon">
+                  <div class="circle-icon-5">
+                    <img
+                      src="<?= $directory_url ?>/img/home-satisfaction-sm-icon.svg"
+                      class="icon"
+                      alt="..."
+                    />
+                  </div>
                   <img
-                    src="<?= get_template_directory_uri() ?>/img/home-satisfaction-sm-icon.svg"
-                    class="icon"
+                    src="<?= $directory_url ?>/img/home-satisfaction-icon.svg"
+                    class="card-img-top"
                     alt="..."
                   />
                 </div>
-                <img
-                  src="<?= get_template_directory_uri() ?>/img/home-satisfaction-icon.svg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body text-left">
-                <h5 class="card-title">Satisfaction</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                  ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                  in.
-                </p>
+                <div class="card-body text-left">
+                  <h5 class="card-title">Satisfaction</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
+                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
+                    in.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          <?php endif; ?>
         </div>
         <div class="circle"></div>
       </div>
@@ -172,7 +234,7 @@ $directory_url = get_template_directory_uri();
 
   <section class="portfolio">
     <div class="title">
-      <h1>Portfolio</h1>
+      <h1><?= isset($second_section_title) ? $second_section_title : 'Portfolio' ?></h1>
     </div>
     <div class="port-photos">
       <a
@@ -209,102 +271,46 @@ $directory_url = get_template_directory_uri();
   <section class="news">
     <div class="wrapper d-flex align-items-center flex-column">
       <div class="title">
-        <h1>News</h1>
+        <h1>
+          <?= isset($third_section_title) ? $third_section_title : 'News' ?>
+        </h1>
       </div>
       <div class="subtitle">
-        About what we’ve been talking about we share about accountant and tax
+        <?= isset($third_section_description) ? $third_section_description : 'About what we’ve been talking about we share about accountant and tax'  ?>
       </div>
-      <div class="news-card">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-          <div class="col w-100 d-flex justify-content-center">
-            <div class="card h-100 border-0">
-              <div class="news-img">
-                <img
-                  src="<?= get_template_directory_uri() ?>/img/home-newsImage1-corp.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body text-left">
-                <h5 class="card-title">
-                  The Future of User Interface Accountant
-                </h5>
-                <p class="card-text">
-                  by Instagram <a href="#" class="news-link">@isconsulting</a>
-                  <br />
-                  02 February 2021
-                </p>
-                <p class="card-text">
-                  Pemerintah mempertegas sekaligus menyederhanakan ketentuan
-                  pajak atas penjualan pulsa, kartu perdana, token listrik dan
-                  voucher, sebagaimana tertuang dalam Peraturan Menteri
-                  Keuangan (PMK) Nomor 6/PMK.03/2021 yang berlaku mulai
-                  tanggal 1 Februari 2021.
-                  <a href="#">⁣Simak update selengkapnya</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col w-100 d-flex justify-content-center">
-            <div class="card h-100 border-0">
-              <div class="news-img">
-                <img
-                  src="<?= get_template_directory_uri() ?>/img/home-newsImage2-corp.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body text-left">
-                <h5 class="card-title">
-                  The Future of User Interface Accountant
-                </h5>
-                <p class="card-text">
-                  by Instagram <a href="#" class="news-link">@isconsulting</a>
-                  <br />
-                  02 February 2021
-                </p>
-                <p class="card-text">
-                  Pemerintah mempertegas sekaligus menyederhanakan ketentuan
-                  pajak atas penjualan pulsa, kartu perdana, token listrik dan
-                  voucher, sebagaimana tertuang dalam Peraturan Menteri
-                  Keuangan (PMK) Nomor 6/PMK.03/2021 yang berlaku mulai
-                  tanggal 1 Februari 2021.
-                  <a href="#">⁣Simak update selengkapnya</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col w-100 d-flex justify-content-center">
-            <div class="card h-100 border-0">
-              <div class="news-img">
-                <img
-                  src="<?= get_template_directory_uri() ?>/img/home-newsImage3-corp.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body text-left">
-                <h5 class="card-title">
-                  The Future of User Interface Accountant
-                </h5>
-                <p class="card-text">
-                  by Instagram <a href="#" class="news-link">@isconsulting</a>
-                  <br />
-                  02 February 2021
-                </p>
-                <p class="card-text">
-                  Pemerintah mempertegas sekaligus menyederhanakan ketentuan
-                  pajak atas penjualan pulsa, kartu perdana, token listrik dan
-                  voucher, sebagaimana tertuang dalam Peraturan Menteri
-                  Keuangan (PMK) Nomor 6/PMK.03/2021 yang berlaku mulai
-                  tanggal 1 Februari 2021.
-                  <a href="#">⁣Simak update selengkapnya</a>
-                </p>
-              </div>
-            </div>
+      <?php if(isset($news_posts)): ?>
+        <div class="news-card">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+              <?php foreach($news_posts as $news): ?>
+                <div class="col w-100 d-flex justify-content-center">
+                  <div class="card h-100 border-0">
+                    <div class="news-img">
+                      <img
+                        src="<?= get_field('news_image', $news->ID)['url'] ?>"
+                        class="card-img-top"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="card-body text-left">
+                      <h5 class="card-title">
+                        <?= $news->post_title ?>
+                      </h5>
+                      <p class="card-text">
+                        by Instagram <a href="#" class="news-link"><?= get_field('news_instagram', $news->ID) ?></a>
+                        <br />
+                        <?= get_field('news_date', $news->ID) ?>
+                      </p>
+                      <p class="card-text">
+                        <?= $news->post_content ?>
+                        <a href="#">⁣Simak update selengkapnya</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              <?php endforeach; ?>
           </div>
         </div>
-      </div>
+      <?php endif; ?>
     </div>
   </section>
   <!-- end news -->  

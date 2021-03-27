@@ -114,7 +114,7 @@ $lat             = (float)get_field('latitude');
   var map = new mapboxgl.Map({
     container: "map", // container id
     style: "mapbox://styles/mapbox/streets-v11",
-    center: [<?= $lng ?>, <?= $lat ?>], // starting position
+    center: [<?=$lng?>, <?=$lat?>], // starting position
     doubleClickZoom: true,
     scrollZoom: false,
     zoom: 15, // starting zoom
@@ -124,7 +124,7 @@ $lat             = (float)get_field('latitude');
     color: "#147fab",
     draggable: false,
   })
-    .setLngLat([<?= $lng ?>, <?= $lat ?>])
+    .setLngLat([<?=$lng?>, <?=$lat?>])
     .addTo(map);
 
   // Add zoom and rotation controls to the map.
