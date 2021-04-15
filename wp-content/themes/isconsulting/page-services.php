@@ -2,24 +2,24 @@
 
 <?php
 $args = array(
-  'post_type'   => 'services',
-  'post_status' => 'publish',
-  'orderby'     => 'date',
-  'order'       => 'ASC',
+  "post_type"   => "services",
+  "post_status" => "publish",
+  "orderby"     => "date",
+  "order"       => "ASC",
 );
 $services                 = get_posts( $args );
 
-$first_service_post       = array_filter(explode('<!-- /wp:group -->', $services[0]->post_content));
-$first_service_image_url  = get_field('service_image', $services[0]->ID)['url'];
+$first_service_post       = array_filter(explode("<!-- /wp:group -->", $services[0]->post_content));
+$first_service_image_url  = get_field("service_image", $services[0]->ID)["url"];
 $first_service_title      = $services[0]->post_title;
 
-$second_service_post      = array_filter(explode('<!-- /wp:group -->', $services[1]->post_content));
-$second_service_image_url = get_field('service_image', $services[1]->ID)['url'];
+$second_service_post      = array_filter(explode("<!-- /wp:group -->", $services[1]->post_content));
+$second_service_image_url = get_field("service_image", $services[1]->ID)["url"];
 $second_service_title     = $services[1]->post_title;
 
-$blog_name                = get_bloginfo('name');
+$blog_name                = get_bloginfo("name");
 $page_title               = get_post()->post_title;
-$page_banner_url          = get_field("banner_image")['url'];
+$page_banner_url          = get_field("banner_image")["url"];
 $page_description         = get_post()->post_content;
 ?>
 
@@ -29,7 +29,7 @@ $page_description         = get_post()->post_content;
       <div class="title">
         <h1><?= $page_title ?></h1>
       </div>
-      <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url.'/img/home-header-img-corp.jpg' ?>');"></div>
+      <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url."/img/home-header-img-corp.jpg" ?>');"></div>
       <?php if(isset($page_description)): ?>
       <div class="description">
         <p class="text-center">
@@ -74,20 +74,20 @@ $page_description         = get_post()->post_content;
                   //logic for first service content
                   $search = array(
                     'class="wp-block-group"',
-                    'wp-block-group__inner-container', 
-                    '<!-- wp:heading -->', 
-                    '<!-- /wp:heading -->', 
-                    '<!-- wp:paragraph -->',
+                    "wp-block-group__inner-container", 
+                    "<!-- wp:heading -->", 
+                    "<!-- /wp:heading -->", 
+                    "<!-- wp:paragraph -->",
                     "\xc2\xa0"
                   );
 
                   $replace = array(
-                    'class="vision"',
-                    'row',
-                    '<div class="circle"></div>',
-                    '</div>',
-                    '<div class="row">',
-                    ' '
+                    "class='vision'",
+                    "row",
+                    "<div class='circle'></div>",
+                    "</div>",
+                    "<div class='row'>",
+                    " "
                   );
                   $the_post = str_replace($search, $replace, $service);
               ?>
@@ -132,20 +132,20 @@ $page_description         = get_post()->post_content;
             //logic for second service content
             $search = array(
               'class="wp-block-group"',
-              'wp-block-group__inner-container', 
-              '<!-- wp:heading -->', 
-              '<!-- /wp:heading -->', 
-              '<!-- wp:paragraph -->',
+              "wp-block-group__inner-container", 
+              "<!-- wp:heading -->", 
+              "<!-- /wp:heading -->", 
+              "<!-- wp:paragraph -->",
               "\xc2\xa0"
             );
 
             $replace = array(
-              'class="service-desc"',
-              'row',
-              '<div class="circle"></div>',
-              '</div>',
-              '<div class="row">',
-              ' '
+              "class='service-desc'",
+              "row",
+              "<div class='circle'></div>",
+              "</div>",
+              "<div class='row'>",
+              " "
             );
             $the_post = str_replace($search, $replace, $service);
         ?>

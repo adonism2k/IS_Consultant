@@ -1,8 +1,10 @@
 <?php
-$directory_url = get_template_directory_uri();
-$blog_name     = get_bloginfo('name');
+$directory_url    = get_template_directory_uri();
+$blog_name        = get_bloginfo("name");
+$languages        = array_reverse(pll_the_languages(array('raw'=> true)));
+$current_page_url = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$navItems         = pll_current_language() === 'en' ? wp_get_nav_menu_items("Header") : wp_get_nav_menu_items("Menu in Bahasa");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -106,10 +108,10 @@ $blog_name     = get_bloginfo('name');
     <!-- Packages -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />    
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
 
-    <title><?= isset($blog_name) ? $blog_name : 'Introducing • IS Consulting' ?></title>
+    <title><?= isset($blog_name) ? $blog_name : "Introducing • IS Consulting" ?></title>
   </head>
 
   <body>
@@ -117,8 +119,8 @@ $blog_name     = get_bloginfo('name');
       <div class="container-fluid wrapper">
         <a class="navbar-brand" href="<?=site_url()?>">
           <?php
-            $custom_logo_id = get_theme_mod( 'custom_logo' );
-            $logo           = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+            $custom_logo_id = get_theme_mod( "custom_logo" );
+            $logo           = wp_get_attachment_image_src( $custom_logo_id , "full" );
             // print_r(has_blocks());
             if (has_custom_logo()): 
           ?>
@@ -147,31 +149,17 @@ $blog_name     = get_bloginfo('name');
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div
-            class="wrapper__navbar navbar-nav ml-auto justify-content-around"
-          >
-            <?php 
-              $navItems         = wp_get_nav_menu_items('Header');
-              $current_page_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-            ?>
+          <div class="wrapper__navbar navbar-nav ml-auto justify-content-around">
             <?php if(isset($navItems)): ?>
               <?php foreach($navItems as $nav): ?>
                 <a class="nav-link <?php if($nav->url === $current_page_url): ?>active text-primary<?php endif; ?>" href="<?= $nav->url;?>"><?= $nav->title;?></a>
               <?php endforeach; ?>
-            <?php else: ?>
-              <a class="nav-link" href="./Home.html">Home</a>
-              <a class="nav-link" href="./About Us.html">About Us</a>
-              <a class="nav-link" href="./Consultant.html">Consultant</a>
-              <a class="nav-link" href="./Services.html">Services</a>
-              <a class="nav-link" href="./News.html">News</a>
-              <a class="nav-link" href="./Contact Us.html">Contact Us</a>
             <?php endif; ?>
-            <div
-              class="wrapper__il8n d-flex justify-content-between align-items-center"
-            >
-              <div class="nav-il8n active">EN</div>
-              <div class="border-left border-dark h-75"></div>
-              <div class="nav-il8n">ID</div>
+            <div class="wrapper__il8n d-flex justify-content-between align-items-center">
+              <?php foreach($languages as $lang): ?>
+                <a href="<?= $lang["url"] ?>" id="english" class="nav-il8n <?php if(in_array('current-lang', $lang["classes"])): ?> active <?php endif; ?> text-decoration-none"><?= strtoupper($lang["slug"]) ?></a>
+                <!-- <div class="border-left border-dark h-75"></div> -->
+              <?php endforeach; ?>
             </div>
           </div>
         </div>

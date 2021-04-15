@@ -1,9 +1,9 @@
 <?php
 $directory_url   = get_template_directory_uri();
-$address         = get_option('address');
-$phone_number    = get_option('phone_number');
-$whatsapp_number = get_option('whatsapp_number');
-$email           = get_option('email');
+$address         = get_option("address");
+$phone_number    = get_option("phone_number");
+$whatsapp_number = get_option("whatsapp_number");
+$email           = get_option("email");
 ?>
     
     <footer
@@ -99,5 +99,13 @@ $email           = get_option('email');
     <!-- Packages JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script>
+    $('#indonesia').click(() => {
+      
+      location.reload();
+    });
+    var english = $('#english') 
+
+    </script>
   </body>
 </html>

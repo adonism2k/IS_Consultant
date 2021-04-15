@@ -5,8 +5,8 @@ Author: Abdian Rizky Ramadan
 Author URI: https://github.com/AbdianRizky
 Text Domain: isconsultant
 Description: design in 2021, for modern portfolio website
-Version: 1.3
-Requires PHP: 7.0
+Version: 1.0.0
+Requires PHP: 8.0+
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
@@ -90,7 +90,7 @@ nav {
 }
 
 .wrapper__navbar {
-  width: 700px;
+  width: 800px;
   font-size: 18px;
   font-weight: 600;
   -webkit-transition: font-size 0.5s ease 0.5s, width 0.5s ease 0.5s;
@@ -100,7 +100,7 @@ nav {
 
 @media (min-width: 1537px) {
   .wrapper__navbar {
-    width: 750px;
+    width: 1000px;
     font-size: 20px;
   }
 }
@@ -2781,4 +2781,3 @@ footer .copyright {
   background-color: #004764;
   color: rgba(252, 252, 252, 0.42);
 }
-/*# sourceMappingURL=app.css.map */
