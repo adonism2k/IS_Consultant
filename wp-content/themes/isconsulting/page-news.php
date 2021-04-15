@@ -2,22 +2,22 @@
 
 <?php
 $args = array(
-  'post_type'      => 'post',
-  'post_status'    => 'publish',
-  'category_name'  => 'news',
-  'posts_per_page' => 20,
+  "post_type"      => "post",
+  "post_status"    => "publish",
+  "category_name"  => "news-en",
+  "posts_per_page" => 20,
 );
 $news_posts      = get_posts( $args );
 $page_title      = get_the_title();
-$page_banner_url = get_field( "banner_image" )['url'];
+$page_banner_url = get_field( "banner_image" )["url"];
 ?>
 
 <div class="news">
   <section class="header">
     <div class="title">
-      <h1><?= isset($page_title) ? $page_title : 'News'; ?></h1>
+      <h1><?= isset($page_title) ? $page_title : "News"; ?></h1>
     </div>
-    <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url.'/img/about-header-img-corp.jpg' ?>');"></div>
+    <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : "${directory_url}/img/about-header-img-corp.jpg" ?>');"></div>
   </section>
   <!-- end header -->
 
@@ -45,11 +45,11 @@ $page_banner_url = get_field( "banner_image" )['url'];
         <div class="news-card">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-around">
               <?php foreach($news_posts as $news): ?>
-                <div class="col w-100 d-flex justify-content-center">
+                <div class="col">
                   <div class="card h-100 border-0">
                     <div class="news-img">
                       <img
-                        src="<?= get_field('news_image', $news->ID)['url'] ?>"
+                        src='<?= get_field("news_image", $news->ID)["url"] ?>'
                         class="card-img-top"
                         alt="..."
                       />
@@ -59,17 +59,17 @@ $page_banner_url = get_field( "banner_image" )['url'];
                         <?= $news->post_title ?>
                       </h5>
                       <p class="card-text">
-                        <?php if(!empty(get_field('news_instagram', $news->ID))): ?>
-                          by Instagram <a href="#" class="news-link"><?= get_field('news_instagram', $news->ID) ?></a>
+                        <?php if(!empty(get_field("news_instagram", $news->ID))): ?>
+                          by Instagram <a href="#" class="news-link"><?= get_field("news_instagram", $news->ID) ?></a>
                           <br />
                         <?php endif; ?>
-                        <?php if(!empty(get_field('news_date', $news->ID))): ?>
-                          <?= get_field('news_date', $news->ID) ?>
+                        <?php if(!empty(get_field("news_date", $news->ID))): ?>
+                          <?= get_field("news_date", $news->ID) ?>
                         <?php endif; ?>
                       </p>
                       <p class="card-text">
                         <?= $news->post_content ?>
-                        <a href="#">⁣Simak update selengkapnya</a>
+                        <a href="<?= get_permalink( $post->ID ) ?>">⁣Simak update selengkapnya</a>
                       </p>
                     </div>
                   </div>
