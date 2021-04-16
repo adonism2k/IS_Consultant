@@ -6,7 +6,7 @@ $current_page_url = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "h
 $navItems         = pll_current_language() === 'en' ? wp_get_nav_menu_items("Header") : wp_get_nav_menu_items("Menu in Bahasa");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />

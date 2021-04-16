@@ -10,10 +10,12 @@ IS Consulting Profile Wordpress Page
 ## Tasks
 
 - [ ] Make news detail
-- [ ] Fix grid news
 - [ ] Fix news error
-- [ ] Fix portfolio responsive
+- [ ] Fix about us circle
 - [ ] Fix posts multilingual
+- [x] Fix grid news
+- [x] Fix portfolio responsive
+- [x] Make post for portfolio photos in home 
 - [x] CPT Service, Portfolio & Values
 - [x] Contact Options
 - [x] Fix mission title & description must required

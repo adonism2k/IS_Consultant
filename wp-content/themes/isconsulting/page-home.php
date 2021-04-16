@@ -3,7 +3,6 @@
 $newsArgs = array(
   "post_type"      => "post",
   "post_status"    => "publish",
-  "category_name"  => "news-en",
   "posts_per_page" => 3,
   "orderby"        => "date",
   "order"          => "ASC",
@@ -13,9 +12,18 @@ $valueArgs = array(
   "post_status"    => "publish",
   "posts_per_page" => 9,
 );
+$portfolioArgs = array(
+    "name"           => "portfolio-documentation",
+    "post_type"      => "portfolio",
+    "post_status"    => "publish",
+    "posts_per_page" => 10,
+    "orderby"        => "date",
+    "order"          => "ASC",
+);
+$portfolio_documentation                 = get_posts( $portfolioArgs );
+$portfolio_image = array_filter(explode('<!-- /wp:image -->', $portfolio_documentation[0]->post_content));
 $news_posts                = get_posts( $newsArgs );
 $values                    = array_reverse(get_posts( $valueArgs ));
-// var_dump($news_posts);
 $directory_url             = get_template_directory_uri();
 $page_title                = get_field("page_title");
 $page_banner_url           = get_field( "banner_image" )["url"];
@@ -238,8 +246,7 @@ $third_section_description = get_field("third_section_description");
       <h1><?= isset($second_section_title) ? $second_section_title : "Portfolio" ?></h1>
     </div>
     <div class="port-photos">
-      <a
-        href="./Consultant.html"
+      <a href="./Consultant.html"
         class="d-flex justify-content-between align-items-center"
         >See all Portfolio
         <svg
@@ -256,14 +263,16 @@ $third_section_description = get_field("third_section_description");
       ></a>
       <div class="swiper-container d-flex align-items-center">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img1-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img2-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img3-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img1-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img2-corp.jpg') ;"></div>
-          <div class="swiper-slide" style="background-image: url('<?= $directory_url ?>/img/home-port-img3-corp.jpg') ;"></div>
+          <?php foreach($portfolio_image as $img): ?>
+            <?php
+              $doc = new DOMDocument();
+              @$doc->loadHTML($img);
+              $xpath = new DOMXPath($doc);
+              $url = $xpath->evaluate("string(//img/@src)");
+            ?>
+            <div class="swiper-slide" style="background-image: url('<?= $url ?>') ;"></div>
+          <?php endforeach; ?>
         </div>
-        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -281,7 +290,7 @@ $third_section_description = get_field("third_section_description");
       </div>
       <?php if(isset($news_posts)): ?>
         <div class="news-card">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
               <?php foreach($news_posts as $news): ?>
                 <div class="col w-100 d-flex justify-content-center">
                   <div class="card h-100 border-0">
