@@ -16,6 +16,21 @@ if ( ! is_admin() ) {
 }
 add_action( "after_setup_theme", "theme_prefix_setup" );
 
+
+function string_translate() {
+  // footer
+  pll_register_string('footer_contact-us', 'Contact Us');
+  pll_register_string('footer_newsletter', 'Special Letter to Us');
+  pll_register_string('footer_newsletter_description', 'For more updates and information, drop us an email or phone number.');
+  pll_register_string('contact_map', 'Find Us on Map');
+  pll_register_string('full-name_label', 'Full Name');
+  pll_register_string('phone_label', 'Phone Number');
+  pll_register_string('email_label', 'Email Address');
+  pll_register_string('message_label', 'Message');
+}
+add_action("after_setup_theme", "string_translate");
+
+
 function custom_post_type() {
 	
 	/**

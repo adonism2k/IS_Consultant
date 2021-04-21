@@ -19,7 +19,7 @@ $email           = get_option("email");
           <div
             class="col-xl-7 col-lg-8 contact d-flex flex-column justify-content-between"
           >
-            <div class="title mb-3"><h4>Contact Us</h4></div>
+            <div class="title mb-3"><h4><?= pll_e('Contact Us'); ?></h4></div>
             <div class="row content">
               <?php if(isset($address)): ?>
               <div class="col-md address__wrapper d-flex mb-3">
@@ -62,10 +62,9 @@ $email           = get_option("email");
             </div>
           </div>
           <div class="col-xl-3 col-lg-12 newsletter">
-            <div class="title mb-3"><h4>Special Letter to Us</h4></div>
+            <div class="title mb-3"><h4><?= pll_e('Special Letter to Us'); ?></h4></div>
             <div class="subtitle mb-3">
-              For more updates and information, drop us an email or phone
-              number.
+              <?= pll_e('For more updates and information, drop us an email or phone number.'); ?>
             </div>
             <form
               action="#"

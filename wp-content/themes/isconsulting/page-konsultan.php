@@ -42,7 +42,6 @@ $portfolio_title = get_field("portfolio_title");
     </div>
     <?php if(isset($projects)): ?>
       <?php foreach($projects as $project): ?>
-        
         <div class="port">
           <div class="port-img" style="background-image: url('<?= get_field("project_image", $project->ID)["url"]; ?>');"></div>
           <div class="deskripsi d-flex justify-content-center align-items-center">
