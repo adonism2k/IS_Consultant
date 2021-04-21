@@ -9,6 +9,7 @@ $args = array(
     "order"       => "ASC",
 );
 $projects = get_posts( $args );
+unset( $projects[3] );
 $hero_image_url = get_field("user_image")["url"];
 $user_name = get_field("user_name");
 $user_description = get_field("user_description");
