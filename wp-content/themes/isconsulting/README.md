@@ -11,11 +11,12 @@ IS Consulting Profile Wordpress Page
 
 - [ ] Make news detail
 - [ ] Fix news error
-- [ ] Fix about us circle
+- [ ] Fix portfolio responsive
 - [ ] Fix posts multilingual
+- [x] Contact Us multilingual
+- [x] Footer multilingual
+- [x] Fix multilingual between border
 - [x] Fix grid news
-- [x] Fix portfolio responsive
-- [x] Make post for portfolio photos in home 
 - [x] CPT Service, Portfolio & Values
 - [x] Contact Options
 - [x] Fix mission title & description must required
