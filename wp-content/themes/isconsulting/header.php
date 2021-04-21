@@ -156,9 +156,15 @@ $navItems         = pll_current_language() === 'en' ? wp_get_nav_menu_items("Hea
               <?php endforeach; ?>
             <?php endif; ?>
             <div class="wrapper__il8n d-flex justify-content-between align-items-center">
+            <?php 
+            $numItems = count($languages);
+            $i = 0;
+            ?>
               <?php foreach($languages as $lang): ?>
                 <a href="<?= $lang["url"] ?>" id="english" class="nav-il8n <?php if(in_array('current-lang', $lang["classes"])): ?> active <?php endif; ?> text-decoration-none"><?= strtoupper($lang["slug"]) ?></a>
-                <!-- <div class="border-left border-dark h-75"></div> -->
+                <?php if(++$i !== $numItems): ?>
+                  <div class="border-left border-dark h-75"></div>
+                <?php endif; ?>
               <?php endforeach; ?>
             </div>
           </div>

@@ -15,7 +15,7 @@ $lat             = (float)get_option("latitude");
     <div class="row wrapper">
       <div class="col-lg-5">
         <div class="title">
-          <h1>Contact Us</h1>
+          <h1><?= pll_e('Contact Us'); ?></h1>
         </div>
         <?php if (isset($address)): ?>
           <div class="address">
@@ -49,7 +49,7 @@ $lat             = (float)get_option("latitude");
       <div class="col-lg-7">
         <form action="#" class="form-newsletter d-flex flex-column align-items-center">
           <div class="form-group">
-            <label for="name">Full Name</label>
+            <label for="name"><?= pll_e('Full Name'); ?></label>
             <input
               type="text"
               class="form-control"
@@ -58,16 +58,16 @@ $lat             = (float)get_option("latitude");
             />
           </div>
           <div class="form-group">
-            <label for="phone">Phone</label>
+            <label for="phone"><?= pll_e('Phone Number'); ?></label>
             <input
               type="email"
               class="form-control"
               id="phone"
-              placeholder=Phone number"
+              placeholder="08123456xxx"
             />
           </div>
           <div class="form-group">
-            <label for="email">Email address</label>
+            <label for="email"><?= pll_e('Email Address'); ?></label>
             <input
               type="email"
               class="form-control"
@@ -76,8 +76,8 @@ $lat             = (float)get_option("latitude");
             />
           </div>
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea class="form-control" id="message" rows="3" placeholder="message"></textarea>
+            <label for="message"><?= pll_e('Message'); ?></label>
+            <textarea class="form-control" id="message" rows="3"></textarea>
           </div>
           <button
             type="submit"
@@ -95,7 +95,7 @@ $lat             = (float)get_option("latitude");
   <section class="map">
     <div class="title">
       <div class="wrapper">
-        <h1>Find Us on Map</h1>
+        <h1><?= pll_e('Find Us on Map'); ?></h1>
       </div>
       <div id="map"></div>
     </div>
