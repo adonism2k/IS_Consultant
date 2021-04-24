@@ -1,9 +1,14 @@
 <?php
-$directory_url    = get_template_directory_uri();
-$blog_name        = get_bloginfo("name");
-$languages        = array_reverse(pll_the_languages(array('raw'=> true)));
-$current_page_url = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$navItems         = pll_current_language() === 'en' ? wp_get_nav_menu_items("Header") : wp_get_nav_menu_items("Menu in Bahasa");
+$directory_url             = get_template_directory_uri();
+$blog_name                 = get_bloginfo("name");
+$languages                 = array_reverse(pll_the_languages(["raw" => true]));
+$total_number_of_languages = count($languages);
+$current_page_url          = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$navItems                  = pll_current_language() === 'en' ? wp_get_nav_menu_items("Header") : wp_get_nav_menu_items("Menu in Bahasa");
+$custom_logo_id            = get_theme_mod("custom_logo" );
+$logo                      = wp_get_attachment_image_src($custom_logo_id ,"full" );
+$news                      = pll_current_language() === 'en' ? "news" : "berita";
+// var_dump(((bool)strpos($current_page_url, $news) and (bool)strpos($navItems[4]->url, $news)));
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -97,10 +102,10 @@ $navItems         = pll_current_language() === 'en' ? wp_get_nav_menu_items("Hea
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/> 
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= get_stylesheet_uri(); ?>" />
@@ -117,56 +122,44 @@ $navItems         = pll_current_language() === 'en' ? wp_get_nav_menu_items("Hea
   <body>
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid wrapper">
-        <a class="navbar-brand" href="<?=site_url()?>">
-          <?php
-            $custom_logo_id = get_theme_mod( "custom_logo" );
-            $logo           = wp_get_attachment_image_src( $custom_logo_id , "full" );
-            // print_r(has_blocks());
-            if (has_custom_logo()): 
-          ?>
-            <img
-              src="<?= esc_url($logo[0]) ?>"
-              alt="IS Consultant"
-              class="navbar__logo"
-            />
+        <a class="navbar-brand" href="<?=home_url()?>">
+          <?php if (has_custom_logo()): ?>
+            <img src="<?= esc_url($logo[0]) ?>" alt="IS Consultant" class="navbar__logo"/>
           <?php else: ?>
-            <img
-              src="<?= $directory_url ?>/img/logo-corp.svg"
-              alt="IS Consultant"
-              class="navbar__logo"
-            />
+            <img src="<?= $directory_url ?>/img/logo-corp.svg" alt="IS Consultant" class="navbar__logo"/>
           <?php endif; ?>
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="wrapper__navbar navbar-nav ml-auto justify-content-around">
             <?php if(isset($navItems)): ?>
               <?php foreach($navItems as $nav): ?>
-                <a class="nav-link <?php if($nav->url === $current_page_url): ?>active text-primary<?php endif; ?>" href="<?= $nav->url;?>"><?= $nav->title;?></a>
+                <a href="<?= $nav->url;?>"
+                  class="nav-link 
+                  <?php if($nav->url === $current_page_url or ((bool)strpos($current_page_url, $news)) and (bool)strpos($nav->url, $news)):
+                    // aktif jika nav url valuenya sama dengan current url atau ketika current url dan nav url terdapat kata news
+                    // DISCLAIMER: current url dan nav url terdapat kata news hanya untuk mengecek apakah itu post news atau bukan ?>
+                    active text-primary
+                  <?php endif; ?>" 
+                >
+                  <?= $nav->title;?>
+                </a>
               <?php endforeach; ?>
             <?php endif; ?>
-            <div class="wrapper__il8n d-flex justify-content-between align-items-center">
-            <?php 
-            $numItems = count($languages);
-            $i = 0;
-            ?>
-              <?php foreach($languages as $lang): ?>
-                <a href="<?= $lang["url"] ?>" id="english" class="nav-il8n <?php if(in_array('current-lang', $lang["classes"])): ?> active <?php endif; ?> text-decoration-none"><?= strtoupper($lang["slug"]) ?></a>
-                <?php if(++$i !== $numItems): ?>
-                  <div class="border-left border-dark h-75"></div>
-                <?php endif; ?>
-              <?php endforeach; ?>
-            </div>
+            <?php if(!is_single() and !is_404() and !is_archive()): $i = 0; //dirender jika bukan halaman single dan 404 dan archive ?>
+              <div class="wrapper__il8n d-flex justify-content-between align-items-center">
+                <?php foreach($languages as $lang): ?>
+                  <a href="<?= $lang["url"] ?>" class="nav-il8n <?php if($lang["current_lang"]): ?> active <?php endif; ?> text-decoration-none">
+                    <?= strtoupper($lang["slug"]) ?>
+                  </a>
+                  <?php if(++$i !== $total_number_of_languages ): //dirender selama $i(incerement) tidak sama dengan jumlah banyaknya bahasa ?>
+                    <div class="border-left border-dark h-75"></div>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>

@@ -4,8 +4,10 @@
 $args = array(
   "post_type"      => "post",
   "post_status"    => "publish",
-  "category_name"  => "news-id",
+  "category_name"  => "berita",
   "posts_per_page" => 20,
+  "orderby"        => "date",
+  "order"          => "ASC",
 );
 $news_posts      = get_posts( $args );
 $page_title      = get_the_title();
@@ -42,10 +44,10 @@ $page_banner_url = get_field( "banner_image" )["url"];
         </div>
       </div>
       <?php if(isset($news_posts)): ?>
-        <div class="news-card">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start">
+        <div class="news-card w-100">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start w-100">
               <?php foreach($news_posts as $news): ?>
-                <div class="col">
+                <div class="col w-100">
                   <div class="card h-100 border-0">
                     <div class="news-img">
                       <img
@@ -56,7 +58,7 @@ $page_banner_url = get_field( "banner_image" )["url"];
                     </div>
                     <div class="card-body text-left">
                       <h5 class="card-title">
-                        <?= $news->post_title ?>
+                        <a href="<?= get_permalink($news->ID) ?>" class="text-dark"><?= $news->post_title ?></a>
                       </h5>
                       <p class="card-text">
                         <?php if(!empty(get_field("news_instagram", $news->ID))): ?>
@@ -67,10 +69,9 @@ $page_banner_url = get_field( "banner_image" )["url"];
                           <?= get_field("news_date", $news->ID) ?>
                         <?php endif; ?>
                       </p>
-                      <p class="card-text">
-                        <?= $news->post_content ?>
-                        <a href="<?= get_permalink( $post->ID ) ?>">⁣Simak update selengkapnya</a>
-                      </p>
+                      <?php if(!empty($news->post_content)): ?>
+                        <?= array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] //get first paragraph ?>
+                      <?php endif; ?>
                     </div>
                   </div>
                 </div>
