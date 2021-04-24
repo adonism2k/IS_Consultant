@@ -9,10 +9,14 @@ IS Consulting Profile Wordpress Page
 
 ## Tasks
 
-- [ ] Make news detail
-- [ ] Fix news error
-- [ ] Fix portfolio responsive
-- [ ] Fix posts multilingual
+- [ ] add social share
+- [ ] make tags page
+- [ ] make category page
+- [ ] Fix single news content for list, quote, code, image and table
+- [x] Make news detail
+- [x] Fix news error
+- [x] Fix portfolio responsive
+- [x] Fix posts multilingual
 - [x] Contact Us multilingual
 - [x] Footer multilingual
 - [x] Fix multilingual between border
