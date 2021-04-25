@@ -193,53 +193,56 @@ function custom_post_type() {
     "supports"            => array("thumbnail", "title", "editor", "custom_fields"),
   );
 
-	register_post_type( "values", $args );
+	register_post_type("values", $args);
 }
-add_action( "init", "custom_post_type");
+add_action("init","custom_post_type");
 
-function page_contact_options(){
+function page_contact_options() {
   include "inc/contact-options.php";
 }
 
-function register_contact_options(){
-  register_setting( "contact-options", "address" );
-  register_setting( "contact-options", "phone_number" );
-  register_setting( "contact-options", "whatsapp_number" );
-  register_setting( "contact-options", "email" );
-  register_setting( "contact-options", "longitude" );
-  register_setting( "contact-options", "latitude" );
+function register_contact_options() {
+  register_setting("contact-options","address");
+  register_setting("contact-options","phone_number");
+  register_setting("contact-options","whatsapp_number");
+  register_setting("contact-options","email");
+  register_setting("contact-options","longitude");
+  register_setting("contact-options","latitude");
 }
 
 function menu_option_contact() {
-	//create new top-level menu
 	add_menu_page(
     "Contact Options", // Page Title
     "Contact Options", // Menu Title
     "administrator", // Capability
     "contact-options", // Menu slug
     "page_contact_options", // function
-    "dashicons-id", // Option Icon
+    "dashicons-id", // Icon Url
     2 // Position
-  );
-	//call register settings function
-	add_action( "admin_init", "register_contact_options" );
+  ); //create new top-level menu
+	add_action("admin_init","register_contact_options" ); //call register settings function
 }
+add_action("admin_menu","menu_option_contact"); // Create Options Contact
 
-// Create Options Contact
-add_action("admin_menu", "menu_option_contact");
-
-function my_myme_types($mime_types){
+function my_myme_types($mime_types) {
     $mime_types["svg"] = "image/svg+xml"; //Adding svg extension
     return $mime_types;
 }
-add_filter("upload_mimes", "my_myme_types", 1, 1);
+add_filter("upload_mimes","my_myme_types",1,1);
 
 
-function getStringBetween($tagname, $fromString)
-{
-    $pattern = "#<\s*?$tagname\b[^>]*>(.*?)</$tagname\b[^>]*>#s";
-    $string = $fromString;
-    preg_match($pattern, $string, $matches);
-    return $matches[1];
+function getStringBetween($tagname, $fromString) {
+  $pattern = "#<\s*?$tagname\b[^>]*>(.*?)</$tagname\b[^>]*>#s";
+  $string = $fromString;
+  preg_match($pattern, $string, $matches);
+  return $matches[1];
 }
-add_action( "getStringBetween", "getStringBetween" );
+add_action("getStringBetween","getStringBetween" );
+
+function slugToTitle($slug) {
+  $title = explode('-', $slug);
+  $title = join(' ', $title);
+  $title = ucwords($title);
+  return $title;
+}
+add_action( "slugToTitle", "slugToTitle" );
