@@ -1,13 +1,15 @@
 <?php get_header() ?>
 
 <?php
-$directory_url   = get_template_directory_uri();
-$address         = get_option("address");
-$phone_number    = get_option("phone_number");
-$whatsapp_number = get_option("whatsapp_number");
-$email           = get_option("email");
-$lng             = (float)get_option("longitude");
-$lat             = (float)get_option("latitude");
+$directory_url     = get_template_directory_uri();
+$contact_us_title  = get_field('contact_us_title');
+$show_on_map_title = get_field('show_on_map_title');
+$address           = get_option("address");
+$phone_number      = get_option("phone_number");
+$whatsapp_number   = get_option("whatsapp_number");
+$email             = get_option("email");
+$lng               = (float)get_option("longitude");
+$lat               = (float)get_option("latitude");
 ?>
 
 <div class="contact-us">
@@ -15,7 +17,7 @@ $lat             = (float)get_option("latitude");
     <div class="row wrapper">
       <div class="col-lg-5">
         <div class="title">
-          <h1><?= pll_e('Contact Us'); ?></h1>
+          <h1><?= $contact_us_title ?></h1>
         </div>
         <?php if (isset($address)): ?>
           <div class="address">
@@ -95,7 +97,7 @@ $lat             = (float)get_option("latitude");
   <section class="map">
     <div class="title">
       <div class="wrapper">
-        <h1><?= pll_e('Find Us on Map'); ?></h1>
+        <h1><?= $show_on_map_title ?></h1>
       </div>
       <div id="map"></div>
     </div>

@@ -11,7 +11,6 @@ $args         = array(
   "order"          => "ASC",
 );
 $news_posts = get_posts($args);
-// var_dump($news_posts);
 ?>
 
 <div class="news">

@@ -31,7 +31,6 @@ $args = array(
   "order"          => "ASC",
 );
 $latest_news   = get_posts($args);
-// var_dump(count($latest_news));
 ?>
 
 <article class="container d-flex flex-column">
