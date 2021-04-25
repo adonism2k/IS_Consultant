@@ -22,8 +22,8 @@ $portfolioArgs = array(
 );
 $portfolio_documentation   = get_posts( $portfolioArgs );
 $portfolio_image           = array_filter(explode('<!-- /wp:image -->', $portfolio_documentation[0]->post_content));
-$news_posts                = get_posts( $newsArgs );
 $values                    = array_reverse(get_posts( $valueArgs ));
+$news_posts                = get_posts( $newsArgs );
 $directory_url             = get_template_directory_uri();
 $page_title                = get_field("page_title");
 $page_banner_url           = get_field( "banner_image" )["url"];
@@ -32,7 +32,6 @@ $first_section_description = get_field("first_section_description");
 $second_section_title      = get_field("second_section_title");
 $third_section_title       = get_field("third_section_title");
 $third_section_description = get_field("third_section_description");
-// var_dump(strlen("Gempa terkini disebut berkekuatan magnitudo 5,0 mengguncang wilayah Toba Samosir, Sumatra Utara. Berdasarkan data dari Badan Meteorologi, Klimatologi, dan Geofisika (BMKG), gempa bumi terjadi pada Sabtu, 27 Maret 2021, pukul 15.46 WIB. Kemudian lokasi gempa terkini di Sumba Barat Daya tersebut berada pada koordinat 2,44 LU dan 98,96 BT."))
 ?>
 
 <div class="home">

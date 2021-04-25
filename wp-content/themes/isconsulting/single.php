@@ -15,7 +15,7 @@ if(!empty($tags)) {
   $args         = array(
     "post_type"      => "post",
     "post_status"    => "publish",
-    "tag"            => "$random_tag->slug",
+    "tag"            => $random_tag->slug,
     "posts_per_page" => 3,
     "orderby"        => "date",
     "order"          => "ASC",
@@ -31,7 +31,6 @@ $args = array(
   "order"          => "ASC",
 );
 $latest_news   = get_posts($args);
-// var_dump(count($latest_news));
 ?>
 
 <article class="container d-flex flex-column">
@@ -107,7 +106,7 @@ $latest_news   = get_posts($args);
                   <div class="col-12 d-flex flex-column justify-content-center align-items-center">
                     <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="Related News Image" class="news-image">
                     <a href="<?= get_permalink($news->ID) ?>" class="text-dark news-title"><?=$news->post_title?></a>
-                    <div class="w-75 w-md-100 border-top border-secondary my-4"></div>
+                    <div class="w-100 border-top border-secondary my-4"></div>
                   </div>
                 <?php endforeach; ?>
               </div>
@@ -126,7 +125,7 @@ $latest_news   = get_posts($args);
                   <div class="col-12 d-flex flex-column justify-content-center align-items-center">
                     <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="Related News Image" class="news-image">
                     <a href="<?= get_permalink($news->ID) ?>" class="text-dark news-title"><?=$news->post_title?></a>
-                    <div class="w-75 w-md-100 border-top border-secondary my-4"></div>
+                    <div class="w-100 border-top border-secondary my-4"></div>
                   </div>
                 <?php endforeach; ?>
               </div>

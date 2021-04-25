@@ -9,10 +9,15 @@ IS Consulting Profile Wordpress Page
 
 ## Tasks
 
-- [ ] add social share
-- [ ] make tags page
-- [ ] make category page
 - [ ] Fix single news content for list, quote, code, image and table
+- [ ] add social share
+- [ ] newsletter form
+- [ ] Fix search layout
+- [ ] Fix news page layout
+- [ ] Fix news page layout
+- [x] Contact Us page
+- [x] Add custom search form
+- [x] Make tags page
 - [x] Make news detail
 - [x] Fix news error
 - [x] Fix portfolio responsive

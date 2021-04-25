@@ -8,113 +8,112 @@ $navItems                  = pll_current_language() === 'en' ? wp_get_nav_menu_i
 $custom_logo_id            = get_theme_mod("custom_logo" );
 $logo                      = wp_get_attachment_image_src($custom_logo_id ,"full" );
 $news                      = pll_current_language() === 'en' ? "news" : "berita";
-// var_dump(((bool)strpos($current_page_url, $news) and (bool)strpos($navItems[4]->url, $news)));
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <!-- favicon -->
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="57x57"
-      href="<?= $directory_url ?>/img/ico/apple-touch-icon-57x57.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="114x114"
-      href="<?= $directory_url ?>/img/ico/apple-touch-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="72x72"
-      href="<?= $directory_url ?>/img/ico/apple-touch-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="144x144"
-      href="<?= $directory_url ?>/img/ico/apple-touch-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="60x60"
-      href="<?= $directory_url ?>/img/ico/apple-touch-icon-60x60.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="120x120"
-      href="<?= $directory_url ?>/img/ico/apple-touch-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="76x76"
-      href="<?= $directory_url ?>/img/ico/apple-touch-icon-76x76.png"
-    />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="152x152"
-      href="<?= $directory_url ?>/img/ico/apple-touch-icon-152x152.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="favicon-196x196.png"
-      sizes="<?= $directory_url ?>/img/ico/196x196"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="<?= $directory_url ?>/img/ico/favicon-96x96.png"
-      sizes="96x96"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="<?= $directory_url ?>/img/ico/favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="<?= $directory_url ?>/img/ico/favicon-16x16.png"
-      sizes="16x16"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="<?= $directory_url ?>/img/ico/favicon-128.png"
-      sizes="128x128"
-    />
-    <meta name="IS Consultant" content="&nbsp;" />
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
-    <!-- end favicon -->
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="57x57"
+        href="<?= $directory_url ?>/img/ico/apple-touch-icon-57x57.png"
+      />
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="114x114"
+        href="<?= $directory_url ?>/img/ico/apple-touch-icon-114x114.png"
+      />
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="72x72"
+        href="<?= $directory_url ?>/img/ico/apple-touch-icon-72x72.png"
+      />
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="<?= $directory_url ?>/img/ico/apple-touch-icon-144x144.png"
+      />
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="60x60"
+        href="<?= $directory_url ?>/img/ico/apple-touch-icon-60x60.png"
+      />
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="120x120"
+        href="<?= $directory_url ?>/img/ico/apple-touch-icon-120x120.png"
+      />
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="76x76"
+        href="<?= $directory_url ?>/img/ico/apple-touch-icon-76x76.png"
+      />
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="152x152"
+        href="<?= $directory_url ?>/img/ico/apple-touch-icon-152x152.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href="favicon-196x196.png"
+        sizes="<?= $directory_url ?>/img/ico/196x196"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href="<?= $directory_url ?>/img/ico/favicon-96x96.png"
+        sizes="96x96"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href="<?= $directory_url ?>/img/ico/favicon-32x32.png"
+        sizes="32x32"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href="<?= $directory_url ?>/img/ico/favicon-16x16.png"
+        sizes="16x16"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href="<?= $directory_url ?>/img/ico/favicon-128.png"
+        sizes="128x128"
+      />
+      <meta name="IS Consultant" content="&nbsp;" />
+      <meta name="msapplication-TileColor" content="#FFFFFF" />
+      <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+      <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+      <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+      <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+      <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+    <!-- /favicon -->
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/> 
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- fonts -->
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/> 
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- /fonts -->
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?= get_stylesheet_uri(); ?>" />
+    <!-- css -->
+      <link rel="stylesheet" href="<?= get_stylesheet_uri(); ?>" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />    
+      <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+    <!-- /css -->
 
-    <!-- Packages -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />    
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <!-- script -->
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <!-- /script -->
 
     <title><?= isset($blog_name) ? $blog_name : "Introducing • IS Consulting" ?></title>
   </head>
