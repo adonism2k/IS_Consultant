@@ -1,21 +1,13 @@
 <?php
 
-if ( ! is_admin() ) {
+if (!is_admin()) {
   require_once( ABSPATH . "wp-admin/includes/post.php" );
 }
 
-/**
- * Implement the Custom Header feature.
- */
- function theme_prefix_setup() {
-	
-	add_theme_support( "custom-logo", array(		
-		"header-text" => array( "site-title", "site-description" ),
-	) );
-
+function theme_prefix_setup() {
+	add_theme_support( "custom-logo", array("header-text" => array("site-title","site-description")));
 }
 add_action( "after_setup_theme", "theme_prefix_setup" );
-
 
 function string_translate() {
   // footer
@@ -84,7 +76,6 @@ function custom_post_type() {
     "show_in_rest"        => true,
     "supports"            => array("thumbnail", "title", "editor", "custom-fields")
   );
-
 	register_post_type( "portfolio", $args );
 
 	/**
@@ -138,7 +129,6 @@ function custom_post_type() {
     "show_in_rest"        => true,
     "supports"            => array("thumbnail", "title", "editor", "custom_fields"),
   );
-
 	register_post_type( "services", $args );
   
 	/**
@@ -192,7 +182,6 @@ function custom_post_type() {
     "show_in_rest"        => true,
     "supports"            => array("thumbnail", "title", "editor", "custom_fields"),
   );
-
 	register_post_type("values", $args);
 }
 add_action("init","custom_post_type");

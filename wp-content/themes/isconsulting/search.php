@@ -1,25 +1,24 @@
 <?php get_header() ?>
-
-<?php
-$args = array(
+<?php 
+global $wp;
+$search_query = $wp->query_vars["s"];
+$args         = array(
+  "s"              => $search_query,
   "post_type"      => "post",
   "post_status"    => "publish",
-  "category_name"  => "berita",
   "posts_per_page" => 20,
   "orderby"        => "date",
   "order"          => "ASC",
 );
-$news_posts      = get_posts( $args );
-$page_title      = get_the_title();
-$page_banner_url = get_field( "banner_image" )["url"];
+$news_posts = get_posts($args);
+// var_dump($news_posts);
 ?>
 
 <div class="news">
-  <section class="header">
-    <div class="title">
-      <h1><?= isset($page_title) ? $page_title : "News"; ?></h1>
+  <section class="header mb-5">
+    <div class="title p-0 pt-5">
+      <h1><?= !empty($search_query) ? $search_query : "News"; ?></h1>
     </div>
-    <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : "${directory_url}/img/about-header-img-corp.jpg" ?>');"></div>
   </section>
   <!-- end header -->
 

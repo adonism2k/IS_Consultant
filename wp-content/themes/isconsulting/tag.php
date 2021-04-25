@@ -24,24 +24,7 @@ $page_title = slugToTitle($wp->query_vars["tag"]);
 
   <section class="news">
     <div class="wrapper d-flex align-items-center flex-column">
-      <div class="form-row w-100">
-        <div class="form-group col-md">
-          <input
-            type="text"
-            class="form-control"
-            id="inputCity"
-            placeholder="Cari Berita..."
-          />
-        </div>
-        <div class="form-group col-md-2">
-          <select id="inputState" class="form-control">
-            <option selected disabled>Urutkan</option>
-            <option>Terbaru</option>
-            <option>Terlama</option>
-            <option>Paling banyak dikunjungi</option>
-          </select>
-        </div>
-      </div>
+      <?= get_search_form() ?>
       <?php if(isset($news_posts)): ?>
         <div class="news-card w-100">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start w-100">
