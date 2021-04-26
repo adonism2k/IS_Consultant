@@ -13,6 +13,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 :root {
   /* color */
   --primary-color: #147fab;
+  --type-quote: Vollkorn;
+	--quote-image-width: 140px;
+	--border-rad: 7px;
+	--quote-bg: hsl(0 0% 97%);
 }
 
 body {
@@ -2269,16 +2273,11 @@ nav {
   }
 }
 
-.news section.news .news-card .row .col {
-  margin: 0 0 5rem 0;
-}
-
 
 .news section.news .news-card .row .col .card {
   background-color: white;
   -webkit-filter: drop-shadow(0px 4px 43px rgba(133, 133, 133, 0.25));
   filter: drop-shadow(0px 4px 43px rgba(133, 133, 133, 0.25));
-  /* width: 400px; */
   height: 100%;
   border-radius: 10px;
 }
@@ -2317,7 +2316,6 @@ nav {
   -webkit-filter: drop-shadow(0px 4px 43px rgba(133, 133, 133, 0.25));
   filter: drop-shadow(0px 4px 43px rgba(133, 133, 133, 0.25));
   height: 100%;
-  padding-bottom: 36px;
 }
 
 .news .news .news-card .row .col .card .card-img {
@@ -2550,10 +2548,6 @@ footer .footer-container .contact .contact-email a:hover {
   color: white;
 }
 
-footer .footer-container .newsletter {
-  height: 200px;
-}
-
 footer .footer-container .btn-primary {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -2638,7 +2632,6 @@ article #thumbnail .description {
   font-size: 10px;
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
-  /* font-size: 12px; */
 }
 
 @media (min-width: 576px) {
@@ -2666,7 +2659,6 @@ article #thumbnail {
 
 article #thumbnail img {
   width: 100%;
-  /* height: 395.4375px; */
   aspect-ratio: 16 / 9;
 }
 
@@ -2680,7 +2672,6 @@ article .content {
 }
 
 article main {
-  /* background-color: #90a9b3; */
   height: 600px;
   font-family: Merriweather;
   font-style: normal;
@@ -2691,6 +2682,206 @@ article main {
 article main #content :is(h1, h2, h3, h4, h5, h6) {
   font-weight: 600;
   transition: all 0.5s ease 0.5s;
+}
+
+article main #content blockquote {
+  background: #1480ab08;
+  border-left: 10px solid #1480ab7e;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+article main #content blockquote:before {
+  color: #1480ab7e;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+article main #content blockquote p {
+  display: inline;
+}
+
+article main #content blockquote cite {
+  margin-top: 20px;
+  display: block;
+}
+
+article main #content figure blockquote {
+	position: relative;
+	margin: 40px 0;
+	padding: 1.6em 2.4em .7em 2.4em;
+  font-style: italic;
+	background: var(--quote-bg) no-repeat left / var(--quote-image-width);
+	border-radius: var(--border-rad);
+	border: 2px solid white;
+	box-shadow: 2px 2px 4px hsl(0 0% 0% / 20%);
+	text-indent: 1.6em;
+}
+
+@media (min-width: 768px) {
+	article main #content figure blockquote {
+		margin: 40px 60px;
+	}
+}
+
+article main #content figure blockquote::before {
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: var(--border-rad);
+	box-shadow:
+		inset -2px -2px 1px hsl(0 0% 100%),
+		inset 2px 2px 4px hsl(0 0% 0% / 20%);
+}
+
+article main #content figure blockquote::after {
+	content: "❝";
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	top: -2px;
+	transform: translate(-50%, -50%);
+	width: 1.3em;
+	height: 1.3em;
+	background: white;
+	box-shadow: 0 4px 5px -1px hsla(0 0% 0% / 20%);
+	border-radius: 999px;
+	display: grid;
+	place-content: center;
+	padding-top: .5em;
+	color: var(--primary-color);
+	font-size: 36px;
+	font-style: normal;
+	text-indent: 0;
+}
+
+article main #content figure blockquote cite {
+	display: block;
+	margin-top: 30px;
+	text-indent: 0;
+	text-align: center;
+	font: bold .9rem var(--type-body);
+	text-transform: uppercase;
+	color: hsl(0 0% 20%);
+}
+
+@media (min-width: 768px) {
+	article main #content figure blockquote cite {
+		margin-left: calc(1rem - var(--quote-image-width));
+	}
+}
+
+/* Table Styles */
+
+article main #content .table-wrapper{
+    margin: 15px;
+}
+
+article main #content table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    font-family: Merriweather;
+}
+
+article main #content table td, article main #content table th {
+    text-align: center;
+    padding: 8px;
+}
+
+article main #content table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+article main #content table thead th {
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+article main #content table tr:nth-child(even) {
+    background: #147fab08;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    article main #content table {
+        display: block;
+        width: 100%;
+    }
+    article main #content .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    article main #content table thead, article main #content table tbody, article main #content table thead th {
+        display: block;
+    }
+    article main #content table thead th:last-child{
+        border-bottom: none;
+    }
+    article main #content table thead {
+        float: left;
+    }
+    article main #content table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    article main #content table td, table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    article main #content table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    article main #content table tbody tr {
+        display: table-cell;
+    }
+    article main #content table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    article main #content table tr:nth-child(even) {
+        background: transparent;
+    }
+    article main #content table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    article main #content table tr td:nth-child(even) {
+        border-right: 1px solid #cacaca;
+    }
+    article main #content table tbody td {
+        display: block;
+        text-align: center;
+    }
 }
 
 article main #content p,
@@ -2745,4 +2936,32 @@ article main #news .news-image {
     width: 100%;
     height: calc(100% / 16 * 9);
   }
+}
+
+.pagination .page-item .page-link {
+  color: var(--primary-color);
+  /* border-color: var(--primary-color); */
+  border: none;
+  transition: all 0.1s ease-in-out;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.news .form-group .btn {
+  background-color: var(--primary-color) !important;
+  border: none;
+  color: white !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.news .form-group .btn:hover {
+  filter: brightness(120%) !important;
 }
