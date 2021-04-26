@@ -10,9 +10,9 @@ $news_title    = $news->post_title;
 $cat_name      = get_the_category($news->ID)[0]->name;
 $tags          = get_the_tags($news->ID);
 if(!empty($tags)) {
-  $key          = array_rand($tags);
-  $random_tag   = $tags[$key];
-  $args         = array(
+  $key        = array_rand($tags);
+  $random_tag = $tags[$key];
+  $args       = array(
     "post_type"      => "post",
     "post_status"    => "publish",
     "tag"            => $random_tag->slug,
@@ -30,7 +30,7 @@ $args = array(
   "orderby"        => "date",
   "order"          => "ASC",
 );
-$latest_news   = get_posts($args);
+$latest_news = get_posts($args);
 ?>
 
 <article class="container d-flex flex-column">
@@ -139,24 +139,32 @@ $latest_news   = get_posts($args);
             <p class="text-center">Share</p>
             <div class="row row-cols-4 row-cols-md-1">
               <div id="facebook" class="col-3 col-md-12 d-flex justify-content-center align-items-center mb-md-3">
-                <div class="social-media rounded-circle d-flex justify-content-center align-items-center">
+                <button onClick="openInNewWindow('https://www.facebook.com/sharer.php?u=stackoverflow.com/questions/47800797/adding-a-share-button-for-facebook-on-a-wordpress-site', 'facebook');"
+                  class="social-media border border-0 rounded-circle d-flex justify-content-center align-items-center">
                   <img src="<?=$directory_url?>/img/fb-icon.svg" alt="FB">
-                </div>
+                </button>
               </div>
               <div id="twitter" class="col-3 col-md-12 d-flex justify-content-center align-items-center mb-md-3">
-                <div class="social-media rounded-circle d-flex justify-content-center align-items-center">
+                <button onClick="openInNewWindow('https://twitter.com/intent/tweet?url=<?= home_url($wp->request) ?>&text=<?= $news_title ?>', 'twitter');"
+                  target="_blank"
+                  class="social-media border border-0 rounded-circle d-flex justify-content-center align-items-center">
                   <img src="<?=$directory_url?>/img/twt-icon.svg" alt="TWT">
-                </div>
+                </button>
               </div>
               <div id="linkedin" class="col-3 col-md-12 d-flex justify-content-center align-items-center mb-md-3">
-                <div class="social-media rounded-circle d-flex justify-content-center align-items-center">
+                <button onClick="openInNewWindow('https://www.linkedin.com/sharing/share-offsite/?url=<?= home_url($wp->request) ?>', 'linkedin');"
+                  target="_blank"
+                  class="social-media border border-0 rounded-circle d-flex justify-content-center align-items-center">
                   <img src="<?=$directory_url?>/img/lkn-icon.svg" alt="Lkn">
-                </div>
+                </button>
               </div>
               <div id="whatsapp" class="col-3 col-md-12 d-flex justify-content-center align-items-center mb-md-3">
-                <div class="social-media rounded-circle d-flex justify-content-center align-items-center">
+                <button onClick="openInNewWindow('https://wa.me//send?text=<?= home_url($wp->request) ?>', 'whatsapp');" 
+                  data-action="share/whatsapp/share" 
+                  target="_blank" 
+                  class="social-media border border-0 rounded-circle d-flex justify-content-center align-items-center">
                   <img src="<?=$directory_url?>/img/wa-icon-stroke.svg" alt="WA">
-                </div>
+                </button>
               </div>
             </div>
           </div>
@@ -167,5 +175,6 @@ $latest_news   = get_posts($args);
   </div>
 </article>
 <!-- end article -->
+
 
 <?php get_footer(); ?>

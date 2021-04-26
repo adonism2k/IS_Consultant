@@ -1,4 +1,11 @@
 <?php
+if(is_single()) {
+  global $wp;
+  $news                    = get_post(url_to_postid(home_url( $wp->request )));
+  $news_title              = $news->post_title;
+  $news_content            = getStringBetween("p", $news->post_content);
+  $news_image              = get_field("news_image", $news->ID)["url"];
+}
 $directory_url             = get_template_directory_uri();
 $blog_name                 = get_bloginfo("name");
 $languages                 = array_reverse(pll_the_languages(["raw" => true]));
@@ -7,14 +14,22 @@ $current_page_url          = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === 
 $navItems                  = pll_current_language() === 'en' ? wp_get_nav_menu_items("Header") : wp_get_nav_menu_items("Menu in Bahasa");
 $custom_logo_id            = get_theme_mod("custom_logo" );
 $logo                      = wp_get_attachment_image_src($custom_logo_id ,"full" );
-$news                      = pll_current_language() === 'en' ? "news" : "berita";
+$news_lang                 = pll_current_language() === 'en' ? "news" : "berita";
+// var_dump($news)
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- meta -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+      <?php if(is_single()): ?>
+        <meta property='og:title' content='<?=$news_title?>'/>
+        <meta property='og:image' content='<?=$news_image?>'/>
+        <meta property='og:description' content='<?= substr($news_content, 0, 63) . '...' ?>'/>
+        <meta property='og:url' content='<?= home_url($wp->request) ?>' />
+      <?php endif; ?>
+    <!-- /meta -->
 
     <!-- favicon -->
       <link
@@ -109,10 +124,13 @@ $news                      = pll_current_language() === 'en' ? "news" : "berita"
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
       <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />    
       <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+      <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/default.min.css">
     <!-- /css -->
 
     <!-- script -->
-      <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <!-- /script -->
 
     <title><?= isset($blog_name) ? $blog_name : "Introducing • IS Consulting" ?></title>
@@ -137,7 +155,7 @@ $news                      = pll_current_language() === 'en' ? "news" : "berita"
               <?php foreach($navItems as $nav): ?>
                 <a href="<?= $nav->url;?>"
                   class="nav-link 
-                  <?php if($nav->url === $current_page_url or ((bool)strpos($current_page_url, $news)) and (bool)strpos($nav->url, $news)):
+                  <?php if($nav->url === $current_page_url or ((bool)strpos($current_page_url, $news_lang)) and (bool)strpos($nav->url, $news_lang)):
                     // aktif jika nav url valuenya sama dengan current url atau ketika current url dan nav url terdapat kata news
                     // DISCLAIMER: current url dan nav url terdapat kata news hanya untuk mengecek apakah itu post news atau bukan ?>
                     active text-primary

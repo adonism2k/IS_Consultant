@@ -1,14 +1,12 @@
 <?php get_header() ?>
 <?php 
-global $wp;
-$search_query = $wp->query_vars["s"];
 $args         = array(
-  "s"              => $search_query,
+  "s"              => $s,
   "post_type"      => "post",
   "post_status"    => "publish",
   "posts_per_page" => 20,
   "orderby"        => "date",
-  "order"          => "ASC",
+  "order"          => $order,
 );
 $news_posts = get_posts($args);
 ?>
@@ -16,7 +14,7 @@ $news_posts = get_posts($args);
 <div class="news">
   <section class="header mb-5">
     <div class="title p-0 pt-5">
-      <h1><?= !empty($search_query) ? $search_query : "News"; ?></h1>
+      <h1><?= isset($s) ? $s : "News"; ?></h1>
     </div>
   </section>
   <!-- end header -->
@@ -28,18 +26,26 @@ $news_posts = get_posts($args);
         <div class="news-card w-100">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start w-100">
               <?php foreach($news_posts as $news): ?>
-                <div class="col w-100">
+                <?php $first_paragraph = array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] ?>
+                <div class="col mb-4">
                   <div class="card h-100 border-0">
                     <div class="news-img">
                       <img
                         src='<?= get_field("news_image", $news->ID)["url"] ?>'
                         class="card-img-top"
                         alt="..."
+                        height="218px"
                       />
                     </div>
                     <div class="card-body text-left">
                       <h5 class="card-title">
-                        <a href="<?= get_permalink($news->ID) ?>" class="text-dark"><?= $news->post_title ?></a>
+                        <a href="<?= get_permalink($news->ID) ?>" class="text-dark">
+                          <?php if(strlen($news->post_title) > 63): ?>
+                            <?= substr($news->post_title, '0', '63') . "..." ?>
+                          <?php else: ?>
+                            <?= $news->post_title ?>
+                          <?php endif; ?>
+                        </a>
                       </h5>
                       <p class="card-text">
                         <?php if(!empty(get_field("news_instagram", $news->ID))): ?>
@@ -51,7 +57,11 @@ $news_posts = get_posts($args);
                         <?php endif; ?>
                       </p>
                       <?php if(!empty($news->post_content)): ?>
-                        <?= array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] //get first paragraph ?>
+                        <?php if(strlen($first_paragraph) > 338): ?>
+                          <?= substr($first_paragraph, '0', '338') . "..." ?>
+                        <?php else: ?>
+                          <?= $first_paragraph ?>
+                        <?php endif; ?>
                       <?php endif; ?>
                     </div>
                   </div>

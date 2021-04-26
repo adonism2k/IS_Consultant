@@ -9,12 +9,13 @@ IS Consulting Profile Wordpress Page
 
 ## Tasks
 
-- [ ] Fix single news content for list, quote, code, image and table
-- [ ] add social share
 - [ ] newsletter form
-- [ ] Fix search layout
-- [ ] Fix news page layout
-- [ ] Fix news page layout
+- [x] Fix single news content for list, quote, code, image and table
+- [x] Filter the search results
+- [x] Fix search layout
+- [x] Fix news page layout
+- [x] Add pagination feature on news page
+- [x] add social share
 - [x] Contact Us page
 - [x] Add custom search form
 - [x] Make tags page

@@ -1,13 +1,13 @@
 <?php get_header() ?>
 <?php
-$newsArgs = array(
+$newsArgs      = array(
   "post_type"      => "post",
   "post_status"    => "publish",
   "posts_per_page" => 3,
   "orderby"        => "date",
   "order"          => "ASC",
 );
-$valueArgs = array(
+$valueArgs     = array(
   "post_type"      => "values",
   "post_status"    => "publish",
   "posts_per_page" => 20,
