@@ -35,10 +35,12 @@ $latest_news = get_posts($args);
 
 <article class="container d-flex flex-column">
   <div class="row pb-4">
-    <nav class="col-12 w-100 mt-4">
-      <a href="<?= home_url() ?>"><?= $home_title ?></a> 
-      > <a href="<?= site_url("/index.php/$news_url") ?>"><?= $cat_name ?></a>
-      > <?= substr($news_title, '0','22')."..." ?>
+    <nav class="col-12 mt-4" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= home_url() ?>"><?= $home_title ?></a> </li>
+        <li class="breadcrumb-item"><a href="<?= site_url("/index.php/$news_url") ?>"><?= $cat_name ?></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?= substr($news_title, '0','22')."..." ?></li>
+      </ol>
     </nav>
     <!-- end nav -->
     
