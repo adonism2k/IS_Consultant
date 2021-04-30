@@ -20,8 +20,6 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('WP_CACHE', true);
-define( 'WPCACHEHOME', 'C:\tools\Apache24\htdocs\wordpress\wp-content\plugins\wp-super-cache/' );
 define( 'DB_NAME', 'is_consultant' );
 
 /** MySQL database username */
@@ -90,3 +88,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+set_time_limit(300);

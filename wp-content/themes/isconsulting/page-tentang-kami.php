@@ -58,35 +58,27 @@ $second_section_title    = get_field("second_section_title");
   <section class="vismis">
     <div class="row wrapper d-flex justify-content-center">
       <div class="col-lg-4 vismis-img" style="background-image: url('<?= isset($vismis_image) ? $vismis_image : $directory_url."/img/about-img1-img-corp.jpg" ?>');"></div>
-      <div class="col-lg-7 ">
+      <div class="col-lg-7">
         <div class="wrapper vismis-desc">
           <div class="vision">
-            <div class="row">
-              <h1 class="text-bold"><?= isset($vision_title) ? $vision_title : "Our Vision" ?></h1>
-            </div>
-            <div class="row">
-              <p>
-                <?= isset($vision_description) 
-                        ? $vision_description 
-                        : "Our vision is to exceed expectations in providing excellent service, 
-                           unexpected quality and outstanding value, for our client partners and employees." ?>
-              </p>
-            </div>
+            <h1 class="text-bold"><?= isset($vision_title) ? $vision_title : "Our Vision" ?></h1>
+            <p>
+              <?= isset($vision_description) 
+                      ? $vision_description 
+                      : "Our vision is to exceed expectations in providing excellent service, 
+                         unexpected quality and outstanding value, for our client partners and employees." ?>
+            </p>
           </div>
           <div class=""><h1 class="&">&</h1></div>
           <div class="mission">
-            <div class="row">
-              <h1><?= isset($mission_title) ? $mission_title : "Our Mission" ?></h1>
-            </div>
-            <div class="row">
-              <p>
-                <?= isset($mission_description) 
-                        ? $mission_description 
-                        : "To be partner of choice for companies by building strong relationship, 
-                           providing reliable solution and resources, and always producing 
-                           outstanding results for our clients." ?>
-              </p>
-            </div>
+            <h1><?= isset($mission_title) ? $mission_title : "Our Mission" ?></h1>
+            <p>
+              <?= isset($mission_description) 
+                      ? $mission_description 
+                      : "To be partner of choice for companies by building strong relationship, 
+                         providing reliable solution and resources, and always producing 
+                         outstanding results for our clients." ?>
+            </p>
           </div>
         </div>
       </div>

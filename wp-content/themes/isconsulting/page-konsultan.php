@@ -44,17 +44,15 @@ $portfolio_title = get_field("portfolio_title");
       <?php foreach($projects as $project): ?>
         <div class="port">
           <div class="port-img" style="background-image: url('<?= get_field("project_image", $project->ID)["url"]; ?>');"></div>
-          <div class="deskripsi d-flex justify-content-center align-items-center">
+          <div class="deskripsi d-flex justify-content-center mt-5">
             <div class="wrapper">
               <div class="date"><?= get_field("date", $project->ID); ?></div>
               <div class="row">
                 <div class="col-md-4">
-                  <h1 >
-                    <?= $project->post_title ?>
-                  </h1>
+                  <h1><?= $project->post_title ?></h1>
                 </div>
                 <div class="col-md-8">
-                    <?= str_replace("\xc2\xa0", " ",$project->post_content) ?>
+                  <?= str_replace("\xc2\xa0", " ",$project->post_content) ?>
                 </div>
               </div>
             </div>  

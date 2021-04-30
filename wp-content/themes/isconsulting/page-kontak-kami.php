@@ -52,41 +52,21 @@ $lat               = (float)get_option("latitude");
         <form action="#" class="form-newsletter d-flex flex-column align-items-center">
           <div class="form-group">
             <label for="name"><?= pll_e('Full Name'); ?></label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="Name"
-            />
+            <input type="text" class="form-control" id="name" placeholder="John Doe"/>
           </div>
           <div class="form-group">
             <label for="phone"><?= pll_e('Phone Number'); ?></label>
-            <input
-              type="email"
-              class="form-control"
-              id="phone"
-              placeholder="08123456xxx"
-            />
+            <input type="text" class="form-control" id="phone" placeholder="08123456xxx"/>
           </div>
           <div class="form-group">
             <label for="email"><?= pll_e('Email Address'); ?></label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="name@example.com"
-            />
+            <input type="email" class="form-control" id="email" placeholder="johndoe@example.com"/>
           </div>
           <div class="form-group">
             <label for="message"><?= pll_e('Message'); ?></label>
             <textarea class="form-control" id="message" rows="3"></textarea>
           </div>
-          <button
-            type="submit"
-            class="btn btn-primary mt-3 px-4 py-2 rounded-lg"
-          >
-            Submit
-          </button>
+          <button type="submit" class="btn btn-primary mt-3 px-4 py-2 rounded-lg">Submit</button>
         </form>
       </div>
     </div>
@@ -119,14 +99,14 @@ $lat               = (float)get_option("latitude");
     center: [<?=$lng?>, <?=$lat?>], // starting position
     doubleClickZoom: true,
     scrollZoom: false,
-    zoom: 15, // starting zoom
+    zoom: 14, // starting zoom
   });
   // Set options
   var marker = new mapboxgl.Marker({
     color: "#147fab",
     draggable: false,
-  })
-    .setLngLat([<?=$lng?>, <?=$lat?>])
+    scale: 2,
+  }).setLngLat([<?=$lng?>, <?=$lat?>])
     .addTo(map);
 
   // Add zoom and rotation controls to the map.

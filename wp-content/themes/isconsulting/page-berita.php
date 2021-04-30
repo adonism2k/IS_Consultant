@@ -6,7 +6,7 @@ $args  = array(
   "post_type"      => "post",
   "post_status"    => "publish",
   "category_name"  => "berita",
-  "posts_per_page" => 2,
+  "posts_per_page" => 20,
   "paged"          => $paged,
   "orderby"        => "date",
   "order"          => "ASC",
@@ -36,13 +36,14 @@ $page_banner_url = get_field( "banner_image" )["url"];
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start w-100">
             <?php foreach($news_posts as $news): ?>
               <?php $first_paragraph = array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] ?>
-              <div class="col w-100">
+              <div class="col mb-4">
                 <div class="card h-100 border-0">
                   <div class="news-img">
                     <img
                       src='<?= get_field("news_image", $news->ID)["url"] ?>'
                       class="card-img-top"
                       alt="..."
+                      height="218px"
                     />
                   </div>
                   <div class="card-body text-left">
@@ -57,7 +58,7 @@ $page_banner_url = get_field( "banner_image" )["url"];
                     </h5>
                     <p class="card-text">
                       <?php if(!empty(get_field("news_instagram", $news->ID))): ?>
-                        by Instagram <a href="#" class="news-link"><?= get_field("news_instagram", $news->ID) ?></a>
+                        By <span class="text-primary"><?= get_field("news_instagram", $news->ID) ?></span>
                         <br />
                       <?php endif; ?>
                       <?php if(!empty(get_field("news_date", $news->ID))): ?>
@@ -65,8 +66,8 @@ $page_banner_url = get_field( "banner_image" )["url"];
                       <?php endif; ?>
                     </p>
                     <?php if(!empty($news->post_content)): ?>
-                      <?php if(strlen($first_paragraph) > 338): ?>
-                        <?= substr($first_paragraph, '0', '338') . "..." ?>
+                      <?php if(strlen($first_paragraph) > 200): ?>
+                        <?= substr($first_paragraph, '0', '200') . "..." ?>
                       <?php else: ?>
                         <?= $first_paragraph ?>
                       <?php endif; ?>
@@ -84,8 +85,8 @@ $page_banner_url = get_field( "banner_image" )["url"];
         <nav aria-label="news-pagination">
           <ul class="pagination mt-4">
             <?php foreach($paginated_links as $link): ?>
-              <li class="page-item px-1 <?php if($link->isCurrent): ?> active <?php endif; ?>">
-                <a class="page-link rounded-circle d-flex justify-content-center align-items-center" href="<?= $link->url ?>"><?= $link->page ?></a>
+              <li class="page-item mx-2 <?php if($link->isCurrent): ?> active <?php endif; ?>">
+                <a class="page-link p-0 w-100 h-100 rounded-circle d-flex justify-content-center align-items-center" href="<?= $link->url ?>"><?= $link->page ?></a>
               </li>
             <?php endforeach; ?>
           </ul>

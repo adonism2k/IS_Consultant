@@ -63,7 +63,7 @@ $latest_news = get_posts($args);
 
     <main class="col-12 w-100 h-100">
       <div class="row row-cols-1 row-cols-md-3 h-100">
-        <div id="content__wrapper" class="col-12 col-md-7 order-1 order-md-2">
+        <div id="content__wrapper" class="col-12 col-md-7 order-1 order-md-2 mb-4">
           <div class="row">
             <div id="content" class="col-12 h-100">
               <?= $news->post_content ?>
@@ -91,15 +91,17 @@ $latest_news = get_posts($args);
               </div>
             </div>
             <!-- end tags -->
+
+            <div id="batas" class="d-inline d-md-none col-12 d-flex align-items-center my-4">
+              <div class="w-100 border-top border-secondary"></div>
+            </div>
           </div>
         </div>
         
-        <div id="news" class="col-12 col-md-3 order-2 order-md-3">
+        <div id="news" class="col-12 col-md-3 order-2 order-md-3 mb-4">
           <?php if(!empty($related_news)): ?>
-            <div class="w-100 d-flex justify-content-center align-items-center flex-column">
-              <p class="text-center m-0">
-                Related News
-              </p>
+            <div class="w-100 d-flex justify-content-center align-items-center flex-column mb-4">
+              <h5 class="text-center m-0">Related News</h5>
               <div id="batas" class="w-50 d-flex align-items-center my-2">
                 <div class="w-100 border-top border-secondary"></div>
               </div>
@@ -116,9 +118,7 @@ $latest_news = get_posts($args);
           <?php endif; ?>
           <?php if(!empty($latest_news)): ?>
             <div class="w-100 d-flex justify-content-center align-items-center flex-column">
-              <p class="text-center m-0">
-                latest News
-              </p>
+              <h5 class="text-center m-0">latest News</h5>
               <div id="batas" class="w-50 d-flex align-items-center my-2">
                 <div class="w-100 border-top border-secondary"></div>
               </div>
@@ -136,32 +136,32 @@ $latest_news = get_posts($args);
         </div>
         <!-- end news -->
       
-        <div id="share" class="col-12 col-md-2 order-3 order-md-1">
+        <div id="share" class="col-12 col-md-2 order-3 order-md-1 mb-4">
           <div class="w-100 d-flex justify-content-center flex-column">
             <p class="text-center">Share</p>
             <div class="row row-cols-4 row-cols-md-1">
               <div id="facebook" class="col-3 col-md-12 d-flex justify-content-center align-items-center mb-md-3">
-                <button onClick="openInNewWindow('https://www.facebook.com/sharer.php?u=stackoverflow.com/questions/47800797/adding-a-share-button-for-facebook-on-a-wordpress-site', 'facebook');"
+                <button onClick="openInNewWindow('https://www.facebook.com/sharer.php?u=<?= urlencode(home_url($wp->request)) ?>', 'facebook');"
                   class="social-media border border-0 rounded-circle d-flex justify-content-center align-items-center">
                   <img src="<?=$directory_url?>/img/fb-icon.svg" alt="FB">
                 </button>
               </div>
               <div id="twitter" class="col-3 col-md-12 d-flex justify-content-center align-items-center mb-md-3">
-                <button onClick="openInNewWindow('https://twitter.com/intent/tweet?url=<?= home_url($wp->request) ?>&text=<?= $news_title ?>', 'twitter');"
+                <button onClick="openInNewWindow('https://twitter.com/intent/tweet?url=<?= urlencode(home_url($wp->request)) ?>&text=<?= $news_title ?>', 'twitter');"
                   target="_blank"
                   class="social-media border border-0 rounded-circle d-flex justify-content-center align-items-center">
                   <img src="<?=$directory_url?>/img/twt-icon.svg" alt="TWT">
                 </button>
               </div>
               <div id="linkedin" class="col-3 col-md-12 d-flex justify-content-center align-items-center mb-md-3">
-                <button onClick="openInNewWindow('https://www.linkedin.com/sharing/share-offsite/?url=<?= home_url($wp->request) ?>', 'linkedin');"
+                <button onClick="openInNewWindow('https://www.linkedin.com/sharing/share-offsite/?url=<?= urlencode(home_url($wp->request)) ?>', 'linkedin');"
                   target="_blank"
                   class="social-media border border-0 rounded-circle d-flex justify-content-center align-items-center">
                   <img src="<?=$directory_url?>/img/lkn-icon.svg" alt="Lkn">
                 </button>
               </div>
               <div id="whatsapp" class="col-3 col-md-12 d-flex justify-content-center align-items-center mb-md-3">
-                <button onClick="openInNewWindow('https://wa.me//send?text=<?= home_url($wp->request) ?>', 'whatsapp');" 
+                <button onClick="openInNewWindow('https://wa.me/?text=<?= urlencode(home_url($wp->request)) ?>', 'whatsapp');" 
                   data-action="share/whatsapp/share" 
                   target="_blank" 
                   class="social-media border border-0 rounded-circle d-flex justify-content-center align-items-center">
