@@ -186,7 +186,7 @@ nav {
 
 .home .header .title h1 {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.5rem;
   color: #000000;
   transition: font-size 0.5s ease 0.5s;
@@ -315,12 +315,6 @@ nav {
   font-size: 2.25rem;
 }
 
-@media (min-width: 1281px) {
-  .home section.about-us .title h1 {
-    font-size: 2.5rem;
-  }
-}
-
 @media (min-width: 1537px) {
   .home section.about-us .title h1 {
     font-size: 3rem;
@@ -330,10 +324,10 @@ nav {
 .home section.about-us .subtitle {
   max-width: 500px;
   height: 100%;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
   line-height: 33px;
-  margin: 50px 0 96px 0;
+  margin: 24px 0 96px 0;
   color: #6c6c6c;
   transition: font-size 0.5s ease 0.5s, max-width 0.5s ease 0.5s;
 }
@@ -342,12 +336,6 @@ nav {
   .home section.about-us .subtitle {
     max-width: 610px;
     font-size: 22px;
-  }
-}
-
-@media (min-width: 1025px) {
-  .home section.about-us .subtitle {
-    font-size: 24px;
   }
 }
 
@@ -666,12 +654,6 @@ nav {
   font-size: 2.25rem;
 }
 
-@media (min-width: 1281px) {
-  .home .news .title h1 {
-    font-size: 2.5rem;
-  }
-}
-
 @media (min-width: 1537px) {
   .home .news .title h1 {
     font-size: 3rem;
@@ -681,26 +663,19 @@ nav {
 .home .news .subtitle {
   max-width: 500px;
   height: 100%;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 22px;
   line-height: 33px;
-  margin: 50px 0 96px 0;
+  margin: 24px 0 96px 0;
   color: #6c6c6c;
   text-align: center;
   transition: font-size 0.5s ease 0.5s, max-width 0.5s ease 0.5s;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1281px) {
   .home .news .subtitle {
     max-width: 610px;
     font-size: 26px;
-  }
-}
-
-@media (min-width: 1281px) {
-  .home .news .subtitle {
-    font-size: 30px;
-    max-width: 780px;
   }
 }
 
@@ -893,7 +868,7 @@ nav {
 }
 
 .about-us .header .container-header .description p {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
   line-height: 33px;
 }
@@ -980,25 +955,21 @@ nav {
 
 .about-us .vismis .vismis-img {
   width: 100vw;
-  height: 200px;
+  height: 300px;
   background-repeat: no-repeat;
   background-position: 0;
   background-size: 100%;
   transition: height 0.5s ease 0.5s, width 0.5s ease 0.5s,
  background-position 0.5s ease 0.5s;
   will-change: height, width;
-}
-
-@media (min-width: 769px) {
-  .about-us .vismis .vismis-img {
-    height: 300px;
-  }
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 1025px) {
   .about-us .vismis .vismis-img {
     background-size: 454px;
     height: 550px;
+    margin: 0;
   }
 }
 
@@ -1196,7 +1167,7 @@ nav {
 .about-us section.about-us .subtitle {
   max-width: 500px;
   height: 100%;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
   line-height: 33px;
   margin: 50px 0 96px 0;
@@ -1211,15 +1182,9 @@ nav {
   }
 }
 
-@media (min-width: 1025px) {
-  .about-us section.about-us .subtitle {
-    font-size: 24px;
-  }
-}
-
 @media (min-width: 1281px) {
   .about-us section.about-us .subtitle {
-    font-size: 26px;
+    font-size: 24px;
     max-width: 780px;
   }
 }
@@ -1382,6 +1347,12 @@ nav {
 
 @media (min-width: 1025px) {
   .consultant .header {
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 1537px) {
+  .consultant .header {
     margin-top: 8rem;
   }
 }
@@ -1495,21 +1466,19 @@ nav {
 @media (min-width: 769px) {
   .consultant .portfolio .title {
     font-size: 2.25rem !important;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 }
 
 @media (min-width: 1025px) {
   .consultant .portfolio .title {
-    font-size: 2.5rem !important;
-    margin-bottom: 6rem;
+    font-size: 3rem !important;
   }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 1537px) {
   .consultant .portfolio .title {
-    margin-bottom: 8rem;
-    font-size: 3rem !important;
+    margin-bottom: 6rem;
   }
 }
 
@@ -1564,7 +1533,13 @@ nav {
 
 .consultant .portfolio .port .deskripsi {
   width: 100vw;
-  height: 500px;
+  height: 400px;
+}
+
+@media (min-width: 1537px) {
+  .consultant .portfolio .port .deskripsi {
+    height: 465px;
+  }
 }
 
 .consultant .portfolio .port .deskripsi .date {
@@ -1742,7 +1717,7 @@ nav {
 }
 
 .services .header .container-header .description p {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
   line-height: 33px;
 }
@@ -1864,25 +1839,21 @@ nav {
 
 .services .service-1 .services-wrapper .vismis-img {
   width: 100vw;
-  height: 200px;
+  height: 400px;
   background-repeat: no-repeat;
-  background-position: 0;
+  background-position: center;
   background-size: 100%;
   transition: height 0.5s ease 0.5s, width 0.5s ease 0.5s,
  background-position 0.5s ease 0.5s, background-size 0.5s ease 0.5s;
   will-change: height, width, background-position, background-size;
-}
-
-@media (min-width: 769px) {
-  .services .service-1 .services-wrapper .vismis-img {
-    height: 300px;
-  }
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 1025px) {
   .services .service-1 .services-wrapper .vismis-img {
     background-size: 454px;
     height: 550px;
+    margin: 0;
   }
 }
 
@@ -1944,7 +1915,7 @@ nav {
   z-index: -1;
 }
 
-.services .service-1 .services-wrapper .vismis-desc .vision .row h1 {
+.services .service-1 .services-wrapper .vismis-desc .vision .row h3 {
   color: #000000;
   transition: font-size 0.5s ease 0.5s;
   will-change: font-size;
@@ -1954,7 +1925,7 @@ nav {
 }
 
 @media (min-width: 1537px) {
-  .services .service-1 .services-wrapper .vismis-desc .vision .row h1 {
+  .services .service-1 .services-wrapper .vismis-desc .vision .row h3 {
     font-size: 2rem;
   }
 }
@@ -2077,7 +2048,7 @@ nav {
   z-index: -1;
 }
 
-.services .service-2 .port .service-desc .row h1 {
+.services .service-2 .port .service-desc .row h3 {
   color: #000000;
   transition: font-size 0.5s ease 0.5s;
   will-change: font-size;
@@ -2087,7 +2058,7 @@ nav {
 }
 
 @media (min-width: 1537px) {
-  .services .service-2 .port .service-desc .row h1 {
+  .services .service-2 .port .service-desc .row h3 {
     font-size: 2rem;
   }
 }
@@ -2359,7 +2330,7 @@ nav {
 
 @media (min-width: 1025px) {
   .contact-us .newsletter {
-    margin-top: 8rem;
+    margin-top: 4rem;
   }
 }
 
@@ -2938,9 +2909,23 @@ article main #news .news-image {
   }
 }
 
+article main #news .news-title {
+  width: 350px;
+}
+
+@media (min-width: 768px) {
+  article main #news .news-title {
+    width: 100%;
+  }
+}
+
+.pagination .page-item {
+  height: 40px !important;
+  width: 40px !important;
+}
+
 .pagination .page-item .page-link {
   color: var(--primary-color);
-  /* border-color: var(--primary-color); */
   border: none;
   transition: all 0.1s ease-in-out;
 }

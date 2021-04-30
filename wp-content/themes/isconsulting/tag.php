@@ -8,8 +8,8 @@ $args  = array(
   "orderby"        => "date",
   "order"          => "ASC",
 );
-$news_posts      = get_posts($args);
-$page_title      = slugToTitle(get_query_var("tag"));
+$news_posts = get_posts($args);
+$page_title = slugToTitle(get_query_var("tag"));
 ?>
 
 <div class="news">
@@ -28,7 +28,7 @@ $page_title      = slugToTitle(get_query_var("tag"));
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start w-100">
             <?php foreach($news_posts as $news): ?>
               <?php $first_paragraph = array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] ?>
-              <div class="col w-100">
+              <div class="col mb-4">
                 <div class="card h-100 border-0">
                   <div class="news-img">
                     <img
@@ -49,8 +49,8 @@ $page_title      = slugToTitle(get_query_var("tag"));
                       </a>
                     </h5>
                     <p class="card-text">
-                      <?php if(!empty(get_field("news_instagram", $news->ID))): ?>
-                        by Instagram <a href="#" class="news-link"><?= get_field("news_instagram", $news->ID) ?></a>
+                      <?php if(!empty(get_field("news_source", $news->ID))): ?>
+                        By <span class="text-primary"><?= get_field("news_source", $news->ID) ?></span>
                         <br />
                       <?php endif; ?>
                       <?php if(!empty(get_field("news_date", $news->ID))): ?>

@@ -1,15 +1,15 @@
 <?php get_header() ?>
 
 <?php
-$directory_url   = get_template_directory_uri();
+$directory_url     = get_template_directory_uri();
 $contact_us_title  = get_field('contact_us_title');
 $show_on_map_title = get_field('show_on_map_title');
-$address         = get_option("address");
-$phone_number    = get_option("phone_number");
-$whatsapp_number = get_option("whatsapp_number");
-$email           = get_option("email");
-$lng             = (float)get_option("longitude");
-$lat             = (float)get_option("latitude");
+$address           = get_option("address");
+$phone_number      = get_option("phone_number");
+$whatsapp_number   = get_option("whatsapp_number");
+$email             = get_option("email");
+$lng               = (float)get_option("longitude");
+$lat               = (float)get_option("latitude");
 ?>
 
 <div class="contact-us">
@@ -52,39 +52,22 @@ $lat             = (float)get_option("latitude");
         <form action="#" class="form-newsletter d-flex flex-column align-items-center">
           <div class="form-group">
             <label for="name"><?= pll_e('Full Name'); ?></label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="Name"
-            />
+            <input type="text" class="form-control" id="name" placeholder="John Doe" />
           </div>
           <div class="form-group">
             <label for="phone"><?= pll_e('Phone Number'); ?></label>
-            <input
-              type="email"
-              class="form-control"
-              id="phone"
-              placeholder="08123456xxx"
-            />
+            <input type="text" class="form-control" id="phone" placeholder="08123456xxx" />
           </div>
           <div class="form-group">
             <label for="email"><?= pll_e('Email Address'); ?></label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="name@example.com"
+            <input type="email" class="form-control" id="email" placeholder="johndoe@example.com"
             />
           </div>
           <div class="form-group">
             <label for="message"><?= pll_e('Message'); ?></label>
             <textarea class="form-control" id="message" rows="3"></textarea>
           </div>
-          <button
-            type="submit"
-            class="btn btn-primary mt-3 px-4 py-2 rounded-lg"
-          >
+          <button type="submit" class="btn btn-primary mt-3 px-4 py-2 rounded-lg" >
             Submit
           </button>
         </form>
@@ -119,12 +102,13 @@ $lat             = (float)get_option("latitude");
     center: [<?=$lng?>, <?=$lat?>], // starting position
     doubleClickZoom: true,
     scrollZoom: false,
-    zoom: 15, // starting zoom
+    zoom: 14, // starting zoom
   });
   // Set options
   var marker = new mapboxgl.Marker({
     color: "#147fab",
     draggable: false,
+    scale: 2,
   })
     .setLngLat([<?=$lng?>, <?=$lat?>])
     .addTo(map);

@@ -48,8 +48,8 @@ $news_posts = get_posts($args);
                         </a>
                       </h5>
                       <p class="card-text">
-                        <?php if(!empty(get_field("news_instagram", $news->ID))): ?>
-                          by Instagram <a href="#" class="news-link"><?= get_field("news_instagram", $news->ID) ?></a>
+                        <?php if(!empty(get_field("news_source", $news->ID))): ?>
+                          By <span class="text-primary"><?= get_field("news_source", $news->ID) ?></span>
                           <br />
                         <?php endif; ?>
                         <?php if(!empty(get_field("news_date", $news->ID))): ?>

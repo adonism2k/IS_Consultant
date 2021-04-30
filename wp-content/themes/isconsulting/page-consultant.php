@@ -2,18 +2,18 @@
 
 <?php
 $args = array(
-    "post_type"   => "portfolio",
-    "post_status" => "publish",
+    "post_type"      => "portfolio",
+    "post_status"    => "publish",
     "posts_per_page" => 10,
-    "orderby"     => "date",
-    "order"       => "ASC",
+    "orderby"        => "date",
+    "order"          => "ASC",
 );
 $projects = get_posts( $args );
 unset( $projects[3] );
-$hero_image_url = get_field("user_image")["url"];
-$user_name = get_field("user_name");
+$hero_image_url   = get_field("user_image")["url"];
+$user_name        = get_field("user_name");
 $user_description = get_field("user_description");
-$portfolio_title = get_field("portfolio_title");
+$portfolio_title  = get_field("portfolio_title");
 ?>
 
 <div class="consultant">
@@ -45,19 +45,15 @@ $portfolio_title = get_field("portfolio_title");
       <?php foreach($projects as $project): ?>
         <div class="port">
           <div class="port-img" style="background-image: url('<?= get_field("project_image", $project->ID)["url"]; ?>');"></div>
-          <div class="deskripsi d-flex justify-content-center align-items-center">
+          <div class="deskripsi d-flex justify-content-center mt-5">
             <div class="wrapper">
               <div class="date"><?= get_field("date", $project->ID); ?></div>
               <div class="row">
                 <div class="col-md-4">
-                  <h1 >
-                    <?= $project->post_title ?>
-                  </h1>
+                  <h1><?= $project->post_title ?></h1>
                 </div>
                 <div class="col-md-8">
-                  <p >
-                    <?= $project->post_content ?>
-                  </p>
+                  <?= str_replace("\xc2\xa0", " ",$project->post_content) ?>
                 </div>
               </div>
             </div>  

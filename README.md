@@ -25,7 +25,7 @@ IS Consulting Profile Wordpress Page
 - [x] Fix posts multilingual
 - [x] Contact Us multilingual
 - [x] Footer multilingual
-- [x] Fix multilingual between border
+- [ ] Fix multilingual between border
 - [x] Fix grid news
 - [x] CPT Service, Portfolio & Values
 - [x] Contact Options

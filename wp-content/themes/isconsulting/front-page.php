@@ -314,8 +314,10 @@ $third_section_description = get_field("third_section_description");
                         </a>
                       </h5>
                       <p class="card-text">
-                        <?php if(!empty(get_field("news_instagram", $news->ID))): ?>
-                          <span class="d-block">by Instagram <a href="#" class="news-link"><?= get_field("news_instagram", $news->ID) ?></a></span>
+                        <?php if(!empty(get_field("news_source", $news->ID))): ?>
+                          <span class="d-block">
+                          By <span class="text-primary"><?= get_field("news_source", $news->ID) ?></span>
+                          </span>
                         <?php endif; ?>
                         <?php if(!empty(get_field("news_date", $news->ID))): ?>
                           <span class="d-block"><?= get_field("news_date", $news->ID) ?></span>
@@ -341,7 +343,8 @@ $third_section_description = get_field("third_section_description");
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
   var swiper = new Swiper(".swiper-container", {
-    slidesPerView: 3,
+    // Refresh when breakpoint is changes
+    slidesPerView: window.innerWidth <= 576 ? 1 : 3,
     spaceBetween: 80,
     loop: true,
     loopFillGroupWithBlank: true,
