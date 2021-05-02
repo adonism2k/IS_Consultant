@@ -92,18 +92,14 @@ $second_section_title    = get_field("second_section_title");
         <h1><?= isset($second_section_title) ? $second_section_title : "Our Values"; ?></h1>
       </div>
       <div class="about-card">
-        <div
-          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center"
-        >
-          <?php if(!empty($values)): 
-            $i = 1;
-          ?>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
+          <?php if(!empty($values)): $i = 1 ?>
             <?php foreach($values as $value): ?>
               <div class="col w-100 d-flex justify-content-center">
-                <div class="card h-100 border-0">
+                <div class="card h-100 border-0 pb-0">
                   <div class="card-icon">
                     <?php if (isset(get_field("secondary_value_icon", $value->ID)["url"])): ?>
-                      <div class="circle-icon-<?= $i ?>">
+                      <div class="circle-icon-<?= $i++ ?>">
                         <img
                           src="<?= get_field("secondary_value_icon", $value->ID)["url"] ?>"
                           class="icon"
@@ -128,141 +124,7 @@ $second_section_title    = get_field("second_section_title");
                   </div>
                 </div>
               </div>
-            <?php 
-              $i++;
-              endforeach; 
-            ?>
-          <?php else: ?>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-1">
-                    <img
-                      src="<?= $directory_url ?>/img/home-learning-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-learning-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Pengetahuan</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-2">
-                    <img
-                      src="<?= $directory_url ?>/img/home-workhard-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-workhard-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Kerja Keras</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-3">
-                    <img
-                      src="<?= $directory_url ?>/img/home-experience-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-experience-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Pengalaman</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-4">
-                    <img
-                      src="<?= $directory_url ?>/img/home-optimist-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-optimist-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Optimis</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-5">
-                    <img
-                      src="<?= $directory_url ?>/img/home-satisfaction-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-satisfaction-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Kepuasan</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <?php endforeach; ?>
           <?php endif; ?>
         </div>
         <div class="circle"></div>

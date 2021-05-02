@@ -35,7 +35,7 @@ $page_banner_url = get_field( "banner_image" )["url"];
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start w-100">
             <?php foreach($news_post as $news): ?>
               <?php $first_paragraph = array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] ?>
-              <div class="col mb-4">
+              <div class="col mb-5">
                 <div class="card h-100 border-0">
                   <div class="news-img">
                     <a href="<?= get_permalink($news->ID) ?>">

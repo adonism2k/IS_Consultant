@@ -14,7 +14,7 @@ $options       = array(
 @$order = $wp->query_vars["order"];
 ?>
 
-<form action="<?= site_url("/") ?>" class="form-row w-100">
+<form action="<?= site_url("/") ?>" class="form-row w-100 mb-2 mb-md-4">
   <div class="form-group col-12 col-md">
     <label for="s" class="sr-only">Search in <?= home_url("/") ?></label>
     <input type="text" 
@@ -28,7 +28,7 @@ $options       = array(
     <select name="order" id="inputState" class="form-control">
       <option <?php if($order == null): ?>selected<?php endif; ?>disabled>Urutkan</option>
       <?php foreach($options as $option): ?>
-        <option value="<?= $option->value ?>" <?php if($order == $option->value and $order != null): ?>selected<?php endif; ?>>
+        <option value="<?= $option->value ?>" <?php if($order == $option->value): ?>selected<?php endif; ?>>
           <?= $option->label ?>
         </option>
       <?php endforeach; ?>
