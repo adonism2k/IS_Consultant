@@ -2,17 +2,17 @@
 
 <?php
 $args = array(
-    "post_type"   => "portfolio",
-    "post_status" => "publish",
+    "post_type"      => "portfolio",
+    "post_status"    => "publish",
     "posts_per_page" => 10,
-    "orderby"     => "date",
-    "order"       => "ASC",
+    "orderby"        => "date",
+    "order"          => "ASC",
 );
-$projects = get_posts( $args );
-$hero_image_url = get_field("user_image")["url"];
-$user_name = get_field("user_name");
+$projects         = get_posts( $args );
+$hero_image_url   = get_field("user_image")["url"];
+$user_name        = get_field("user_name");
 $user_description = get_field("user_description");
-$portfolio_title = get_field("portfolio_title");
+$portfolio_title  = get_field("portfolio_title");
 ?>
 
 <div class="consultant">

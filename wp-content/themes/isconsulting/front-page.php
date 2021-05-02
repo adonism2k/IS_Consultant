@@ -21,7 +21,7 @@ $portfolioArgs = array(
   "order"          => "ASC",
 );
 $portfolio_documentation   = get_posts( $portfolioArgs );
-$portfolio_image           = array_filter(explode('<!-- /wp:image -->', $portfolio_documentation[0]->post_content));
+$portfolio_image           = array_filter(explode("<!-- /wp:image -->", $portfolio_documentation[0]->post_content));
 $values                    = array_reverse(get_posts( $valueArgs ));
 $news_posts                = get_posts( $newsArgs );
 $directory_url             = get_template_directory_uri();
@@ -32,6 +32,7 @@ $first_section_description = get_field("first_section_description");
 $second_section_title      = get_field("second_section_title");
 $third_section_title       = get_field("third_section_title");
 $third_section_description = get_field("third_section_description");
+$link_to_consultant        = get_permalink(get_page_by_title(pll_current_language() === "en" ? "Consultant" : "Konsultan"));
 ?>
 
 <div class="home">
@@ -246,20 +247,12 @@ $third_section_description = get_field("third_section_description");
       <h1><?= isset($second_section_title) ? $second_section_title : "Portfolio" ?></h1>
     </div>
     <div class="port-photos">
-      <a href="./Consultant.html"
+      <a href="<?=$link_to_consultant?>"
         class="d-flex justify-content-between align-items-center"
         >See all Portfolio
-        <svg
-          width="9"
-          height="13"
-          viewBox="0 0 9 13"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M2.02011 0.5L0.610107 1.91L5.19011 6.5L0.610107 11.09L2.02011 12.5L8.02011 6.5L2.02011 0.5Z"
-            fill="white"
-          /></svg
+        <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg" >
+          <path d="M2.02011 0.5L0.610107 1.91L5.19011 6.5L0.610107 11.09L2.02011 12.5L8.02011 6.5L2.02011 0.5Z" fill="white"/>
+        </svg
       ></a>
       <div class="swiper-container d-flex align-items-center">
         <div class="swiper-wrapper">
@@ -296,12 +289,13 @@ $third_section_description = get_field("third_section_description");
                 <div class="col w-100 d-flex justify-content-center">
                   <div class="card h-100 border-0">
                     <div class="news-img">
-                      <img
-                        src="<?= get_field("news_image", $news->ID)["url"] ?>"
-                        class="card-img-top"
-                        alt="..."
-                        height="218px"
-                      />
+                      <a href="<?= get_permalink($news->ID) ?>">
+                        <img src='<?= get_field("news_image", $news->ID)["url"] ?>'
+                          class="card-img-top"
+                          alt="..."
+                          height="218px"
+                        />
+                      </a>
                     </div>
                     <div class="card-body text-left">
                       <h5 class="card-title">
@@ -323,8 +317,8 @@ $third_section_description = get_field("third_section_description");
                           <span class="d-block"><?= get_field("news_date", $news->ID) ?></span>
                         <?php endif; ?>
                       </p>
-                      <?php if(strlen($first_paragraph) > 338): ?>
-                        <?= substr($first_paragraph, '0', '338') . "..." ?>
+                      <?php if(strlen($first_paragraph) > 200): ?>
+                        <?= substr($first_paragraph, '0', '200') . "..." ?>
                       <?php else: ?>
                         <?= $first_paragraph ?>
                       <?php endif; ?>

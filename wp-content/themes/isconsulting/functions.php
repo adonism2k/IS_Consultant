@@ -1,5 +1,10 @@
 <?php
 
+
+if(!session_id()) {
+  session_start();
+}
+
 if (!is_admin()) {
   require_once( ABSPATH . "wp-admin/includes/post.php" );
 }
@@ -10,15 +15,14 @@ function theme_prefix_setup() {
 add_action( "after_setup_theme", "theme_prefix_setup" );
 
 function string_translate() {
-  // footer
-  pll_register_string('footer_contact-us', 'Contact Us');
-  pll_register_string('footer_newsletter', 'Special Letter to Us');
-  pll_register_string('footer_newsletter_description', 'For more updates and information, drop us an email or phone number.');
-  pll_register_string('contact_map', 'Find Us on Map');
-  pll_register_string('full-name_label', 'Full Name');
-  pll_register_string('phone_label', 'Phone Number');
-  pll_register_string('email_label', 'Email Address');
-  pll_register_string('message_label', 'Message');
+  pll_register_string("footer_contact-us", "Contact Us");
+  pll_register_string("footer_newsletter", "Special Letter to Us");
+  pll_register_string("footer_newsletter_description", "For more updates and information, drop us an email or phone number.");
+  pll_register_string("contact_map", "Find Us on Map");
+  pll_register_string("full-name_label", "Full Name");
+  pll_register_string("phone_label", "Phone Number");
+  pll_register_string("email_label", "Email Address");
+  pll_register_string("message_label", "Message");
 }
 add_action("after_setup_theme", "string_translate");
 
@@ -183,6 +187,62 @@ function custom_post_type() {
     "supports"            => array("thumbnail", "title", "editor", "custom_fields"),
   );
 	register_post_type("values", $args);
+
+  /**
+   * Post Type: Subscribe
+   */
+  $labels = array(
+    "name"                  => _x( "Subscribers", "Post Type General Name", "text_domain" ),
+    "singular_name"         => _x( "Subscriber", "Post Type Singular Name", "text_domain" ),
+    "menu_name"             => __( "Subscribers", "text_domain" ),
+    "name_admin_bar"        => __( "Subscribers", "text_domain" ),
+    "archives"              => __( "Subscriber Archives", "text_domain" ),
+    "parent_item_colon"     => __( "Parent Subscriber:", "text_domain" ),
+    "all_items"             => __( "All Subscribers", "text_domain" ),
+    "add_new_item"          => __( "Add New Subscriber", "text_domain" ),
+    "add_new"               => __( "Add New", "text_domain" ),
+    "new_item"              => __( "New Subscriber", "text_domain" ),
+    "edit_item"             => __( "Edit Subscriber", "text_domain" ),
+    "update_item"           => __( "Update Subscriber", "text_domain" ),
+    "view_item"             => __( "View Subscriber", "text_domain" ),
+    "search_items"          => __( "Search Subscribers", "text_domain" ),
+    "not_found"             => __( "Not found", "text_domain" ),
+    "not_found_in_trash"    => __( "Not found in Trash", "text_domain" ),
+    "featured_image"        => __( "Featured Image", "text_domain" ),
+    "set_featured_image"    => __( "Set featured image", "text_domain" ),
+    "remove_featured_image" => __( "Remove featured image", "text_domain" ),
+    "use_featured_image"    => __( "Use as featured image", "text_domain" ),
+    "insert_into_item"      => __( "Insert into Subscriber", "text_domain" ),
+    "uploaded_to_this_item" => __( "Uploaded to this Subscriber", "text_domain" ),
+    "items_list"            => __( "Subscribers list", "text_domain" ),
+    "items_list_navigation" => __( "Subscribers list navigation", "text_domain" ),
+    "filter_items_list"     => __( "Filter Subscribers list", "text_domain" ),
+  );
+  
+  $args = array(
+    "label"                 => __( "Subscriber", "text_domain" ),
+    "labels"                => $labels,
+    "hierarchical"          => false,
+    "public"                => false,
+    "show_ui"               => true,
+    "show_in_menu"          => true,
+    "menu_position"         => 5,
+    "show_in_admin_bar"     => true,
+    "show_in_nav_menus"     => true,
+    "can_export"            => true,
+    "has_archive"           => true,
+    "exclude_from_search"   => false,
+    "publicly_queryable"    => false,
+    "capability_type"       => "page",
+    "capabilities"          => [
+      "create_posts" => "do_not_allow",
+    ],
+    "menu_icon"             => "dashicons-email",
+    "rewrite"               => array("slug" => "subscriber"),
+    "show_in_rest"          => true,
+    "supports"              => array("title")
+  );
+  register_post_type( "subscribers", $args );
 }
 add_action("init","custom_post_type");
 
@@ -229,21 +289,21 @@ function getStringBetween($tagname, $from) {
 add_action("getStringBetween","getStringBetween" );
 
 function slugToTitle($slug) {
-  $title = explode('-', $slug);
-  $title = join(' ', $title);
+  $title = explode("-", $slug);
+  $title = join(" ", $title);
   $title = ucwords($title);
   return $title;
 }
 add_action( "slugToTitle", "slugToTitle" );
 
 function paginated_links( $query ) {
-    // When we're on page 1, 'paged' is 0, but we're counting from 1,
-    // so we're using max() to get 1 instead of 0
-    $currentPage = max( 1, get_query_var( 'paged', 1 ) );
+    // When we"re on page 1, "paged" is 0, but we"re counting from 1,
+    // so we"re using max() to get 1 instead of 0
+    $currentPage = max( 1, get_query_var( "paged", 1 ) );
  
     // This creates an array with all available page numbers, if there
     // is only *one* page, max_num_pages will return 0, so here we also
-    // use the max() function to make sure we'll always get 1
+    // use the max() function to make sure we"ll always get 1
     $pages = range( 1, max( 1, $query->max_num_pages ));
  
     // Now, map over $pages and return the page number, the url to that
@@ -259,3 +319,47 @@ function paginated_links( $query ) {
                                   : [];
 }
 add_action( "paginated_links", "paginated_links" );
+
+if( $_SERVER["REQUEST_METHOD"] === "POST" and !empty( $_POST["action"] ) and $_POST["action"] === "subscribe") {
+  // Do some minor form validation to make sure there is content
+  if (isset($_POST["email"])) {
+    $email            = $_POST["email"];
+    $email_not_exists = !post_exists($email);
+
+    if ($email_not_exists) {
+      global $wpdb;
+      $tablename = $wpdb->prefix.'subscribers';
+      $wpdb->insert($tablename, array(
+          "email" => $email
+      ), array("%s"));
+      $subscriber = array(
+        "post_title"  => $email,
+        "post_status" => "publish",       // Choose: publish, preview, future, draft, etc.
+        "post_type"   => "subscribers",   // "post",page" or use a custom post type if you want to
+      );
+      $pid = wp_insert_post($subscriber);  //save the new email as post
+      $_SESSION["subscribed"] = pll_current_language() === "en" ? "You’re now subscribed to our newsletters" : "Anda sekarang berlangganan buletin kami";
+    } else {
+      $_SESSION["subscribed"] = pll_current_language() === "en" ? "You’re already subscribed" : "Anda sudah berlangganan";
+    }
+  }
+  $location = $_SERVER["HTTP_REFERER"];
+  wp_safe_redirect($location);
+  exit();
+}
+
+// function delete_all_posts() {
+//     $subscribers = get_posts( array( 'post_type' => 'subscribers') );
+ 
+//     foreach ( $subscribers as $subs ) {
+//         // Delete all subscribers.
+//         wp_delete_post( $subs->ID, true); // Set to False if you want to send them to Trash.
+//     } 
+// }
+// add_action( 'init', 'delete_all_posts' );
+
+function turn_tagblog_translation_off( $taxonomies, $is_settings ) {
+    unset( $taxonomies['post_tag'] );
+    return $taxonomies;
+}
+add_filter( 'pll_get_taxonomies', 'turn_tagblog_translation_off', 10, 2 );

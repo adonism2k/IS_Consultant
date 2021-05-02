@@ -15,7 +15,6 @@ $navItems                  = pll_current_language() === 'en' ? wp_get_nav_menu_i
 $custom_logo_id            = get_theme_mod("custom_logo" );
 $logo                      = wp_get_attachment_image_src($custom_logo_id ,"full" );
 $news_lang                 = pll_current_language() === 'en' ? "news" : "berita";
-// var_dump($news)
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -128,9 +127,9 @@ $news_lang                 = pll_current_language() === 'en' ? "news" : "berita"
     <!-- /css -->
 
     <!-- script -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>
     <!-- /script -->
 
     <title><?= isset($blog_name) ? $blog_name : "Introducing • IS Consulting" ?></title>
@@ -155,9 +154,12 @@ $news_lang                 = pll_current_language() === 'en' ? "news" : "berita"
               <?php foreach($navItems as $nav): ?>
                 <a href="<?= $nav->url;?>"
                   class="nav-link 
-                  <?php if($nav->url === $current_page_url or ((bool)strpos($current_page_url, $news_lang)) and (bool)strpos($nav->url, $news_lang)):
-                    // aktif jika nav url valuenya sama dengan current url atau ketika current url dan nav url terdapat kata news
-                    // DISCLAIMER: current url dan nav url terdapat kata news hanya untuk mengecek apakah itu post news atau bukan ?>
+                  <?php 
+                    if($nav->url === $current_page_url //nav url valuenya sama dengan current url
+                       or ((bool)strpos($nav->url, $news_lang) and (bool)strpos($current_page_url, $news_lang)) //nav url dan current url ada kata news (mengecek apakah ini post news atau bukan)
+                       or ((bool)strpos($nav->url, $news_lang) and is_tag()) //nav url ada kata news dan lagi di halaman tag
+                       or ((bool)strpos($nav->url, $news_lang) and is_search())): //nav url ada kata news dan lagi di halaman search 
+                  ?>
                     active text-primary
                   <?php endif; ?>" 
                 >

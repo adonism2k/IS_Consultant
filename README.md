@@ -9,7 +9,11 @@ IS Consulting Profile Wordpress Page
 
 ## Tasks
 
-- [ ] newsletter form
+- [x] newsletter form
+- [x] Fitur Input Subscribers
+- [x] Ubah Gambar Portfolio di Home
+- [x] Icon Phone Black di Contact US
+- [x] Link See All Portfolio di Home
 - [x] Fix single news content for list, quote, code, image and table
 - [x] Filter the search results
 - [x] Fix search layout

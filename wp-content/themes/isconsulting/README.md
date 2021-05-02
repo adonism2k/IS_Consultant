@@ -1,15 +1,19 @@
 <h1>
-<a href="#">
-	<img width="100" height="100" src="wp-content/themes/isconsulting/img/logo-corp.png">
-	IS Consulting
-</a>
+	<a href="#">
+		<img width="100" height="100" src="wp-content/themes/isconsulting/img/logo-corp.png">
+		IS Consulting
+	</a>
 </h1>
 
 IS Consulting Profile Wordpress Page
 
 ## Tasks
 
-- [ ] newsletter form
+- [x] newsletter form
+- [x] Fitur Input Subscribers
+- [x] Ubah Gambar Portfolio di Home
+- [x] Icon Phone Black di Contact US
+- [x] Link See All Portfolio di Home
 - [x] Fix single news content for list, quote, code, image and table
 - [x] Filter the search results
 - [x] Fix search layout

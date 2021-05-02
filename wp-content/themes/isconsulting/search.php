@@ -27,15 +27,16 @@ $news_posts = get_posts($args);
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start w-100">
               <?php foreach($news_posts as $news): ?>
                 <?php $first_paragraph = array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] ?>
-                <div class="col mb-4">
+                <div class="col mb-5">
                   <div class="card h-100 border-0">
                     <div class="news-img">
-                      <img
-                        src='<?= get_field("news_image", $news->ID)["url"] ?>'
-                        class="card-img-top"
-                        alt="..."
-                        height="218px"
-                      />
+                      <a href="<?= get_permalink($news->ID) ?>">
+                        <img src='<?= get_field("news_image", $news->ID)["url"] ?>'
+                          class="card-img-top"
+                          alt="..."
+                          height="218px"
+                        />
+                      </a>
                     </div>
                     <div class="card-body text-left">
                       <h5 class="card-title">
@@ -57,8 +58,8 @@ $news_posts = get_posts($args);
                         <?php endif; ?>
                       </p>
                       <?php if(!empty($news->post_content)): ?>
-                        <?php if(strlen($first_paragraph) > 338): ?>
-                          <?= substr($first_paragraph, '0', '338') . "..." ?>
+                        <?php if(strlen($first_paragraph) > 200): ?>
+                          <?= substr($first_paragraph, '0', '200') . "..." ?>
                         <?php else: ?>
                           <?= $first_paragraph ?>
                         <?php endif; ?>

@@ -2324,13 +2324,13 @@ nav {
 }
 
 .contact-us .newsletter {
-  margin: 2rem 2rem 3rem 2rem;
+  margin: 1rem 2rem 3rem 2rem;
   font-size: 18px;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1537px) {
   .contact-us .newsletter {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
 }
 
@@ -2398,21 +2398,28 @@ nav {
   z-index: -1;
 }
 
-.contact-us .newsletter .form-newsletter .form-group {
+.contact-us .newsletter form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-us .newsletter form .form-group {
   width: 100%;
 }
 
-.contact-us .newsletter .form-newsletter .form-group .form-control {
+.contact-us .newsletter form .form-group .form-control {
   background-color: #e1e6e9 !important;
+  color: #414141;
   border: none !important;
 }
 
-.contact-us .newsletter .form-newsletter .btn-primary {
+.contact-us .newsletter form .btn-primary {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
 }
 
-.contact-us .newsletter .form-newsletter .btn-primary:hover {
+.contact-us .newsletter form .btn-primary:hover {
   background-color: #116f94;
   border-color: #116f94;
 }
@@ -2531,9 +2538,10 @@ footer .footer-container .btn-primary:hover {
 
 footer .copyright {
   width: 100%;
-  height: 40px;
+  height: 30px;
   background-color: #004764;
   color: rgba(252, 252, 252, 0.42);
+  font-size: 12px;
 }
 
 article nav {
@@ -2605,10 +2613,17 @@ article #thumbnail .description {
   font-weight: 400;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   article header .detail,
   article #thumbnail .description {
     font-size: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  article header .detail,
+  article #thumbnail .description {
+    font-size: 14px;
   }
 }
 
@@ -2791,7 +2806,7 @@ article main #content table tr:nth-child(even) {
 }
 
 /* Responsive */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     article main #content table {
         display: block;
         width: 100%;
@@ -2905,7 +2920,6 @@ article main #news .news-image {
 @media (min-width: 768px) {
   article main #news .news-image {
     width: 100%;
-    height: calc(100% / 16 * 9);
   }
 }
 
@@ -2949,4 +2963,103 @@ article main #news .news-title {
 
 .news .form-group .btn:hover {
   filter: brightness(120%) !important;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  background-color: #f0f0f05c !important;
+  padding: .25rem 1rem !important;
+}
+
+.breadcrumb::before {
+  content: quote(">");
+}
+
+@media (min-width: 1200px) {
+  .breadcrumb {
+    font-size: 16px;
+    padding: .5rem 1rem !important;
+  }
+}
+
+.breadcrumb .breadcrumb-item:not(:first-child)::before {
+  content: ">";
+}
+
+.breadcrumb .breadcrumb-item a {
+  color: var(--primary-color);
+}
+
+.breadcrumb .breadcrumb-item a:hover {
+  filter: brightness(80%);
+}
+
+.breadcrumb .breadcrumb-item.active {
+  color: #6c757d87;
+}
+
+.screen-reader-response {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.wpcf7-not-valid-tip {
+  color: #910000;
+  font-size: 12px;
+  font-style: italic;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .wpcf7-not-valid-tip {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1537px) {
+  .wpcf7-not-valid-tip {
+    font-size: 16px;
+  }
+}
+
+.wpcf7-not-valid-tip::before{
+  content: "*";
+}
+
+.wpcf7 form .wpcf7-response-output {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  color: rgba(255, 255, 255, 0.878);
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.wpcf7 form.init .wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  background-color: #00c721;
+  color: rgb(255, 255, 255);
+}
+
+.wpcf7 form.spam .wpcf7-response-output {
+  background-color: #faab00;
+  color: rgb(255, 255, 255);
+}
+
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output,
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output {
+  background-color: #b50808;
 }
