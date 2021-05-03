@@ -38,12 +38,8 @@ $page_banner_url = get_field( "banner_image" )["url"];
               <div class="col mb-5">
                 <div class="card h-100 border-0">
                   <div class="news-img">
-                    <a href="<?= get_permalink($news->ID) ?>">
-                      <img src='<?= get_field("news_image", $news->ID)["url"] ?>'
-                        class="card-img-top"
-                        alt="..."
-                        height="218px"
-                      />
+                    <a href="<?= get_permalink($news->ID) ?>" class="w-100">
+                      <img src='<?= get_field("news_image", $news->ID)["url"] ?>' class="card-img-top" alt="..."/>
                     </a>
                   </div>
                   <div class="card-body text-left">

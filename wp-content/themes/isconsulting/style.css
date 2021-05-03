@@ -126,7 +126,8 @@ nav {
   transition: background-color 0.3s ease;
 }
 
-.wrapper__navbar .wrapper__il8n .nav-il8n:hover {
+.wrapper__navbar .wrapper__il8n .nav-il8n:hover,
+.wrapper__navbar .wrapper__il8n .nav-il8n:active {
   background-color: #e4e4e4;
 }
 
@@ -632,16 +633,20 @@ nav {
   transition: width 0.5 ease-in-out 0.5s;
 }
 
-
 @media (min-width: 992px) {
   .home .portfolio .port-photos .swiper-container .swiper-wrapper .swiper-slide {
-    width: 350px !important;
+    width: 400px !important;
+  }
+}
+@media (min-width: 1281px) {
+  .home .portfolio .port-photos .swiper-container .swiper-wrapper .swiper-slide {
+    width: 450px !important;  
   }
 }
 
 @media (min-width: 1537px) {
   .home .portfolio .port-photos .swiper-container .swiper-wrapper .swiper-slide {
-    width: 400px !important;
+    width: 500px !important;
   }
 }
 
@@ -2250,7 +2255,8 @@ nav {
   -webkit-filter: drop-shadow(0px 4px 43px rgba(133, 133, 133, 0.25));
   filter: drop-shadow(0px 4px 43px rgba(133, 133, 133, 0.25));
   height: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .news section.news .news-card .row .col .card .card-title {
@@ -2419,7 +2425,8 @@ nav {
   border-color: var(--primary-color);
 }
 
-.contact-us .newsletter form .btn-primary:hover {
+.contact-us .newsletter form .btn-primary:hover,
+.contact-us .newsletter form .btn-primary:active {
   background-color: #116f94;
   border-color: #116f94;
 }
@@ -2522,7 +2529,8 @@ footer .footer-container .contact .contact-email a {
   text-decoration: underline;
 }
 
-footer .footer-container .contact .contact-email a:hover {
+footer .footer-container .contact .contact-email a:hover,
+footer .footer-container .contact .contact-email a:active {
   color: white;
 }
 
@@ -2531,7 +2539,8 @@ footer .footer-container .btn-primary {
   border-color: var(--primary-color);
 }
 
-footer .footer-container .btn-primary:hover {
+footer .footer-container .btn-primary:hover,
+footer .footer-container .btn-primary:active {
   background-color: #116f94;
   border-color: #116f94;
 }
@@ -2891,7 +2900,8 @@ article main #tags #the-tag {
   transition: all 0.150s ease;
 }
 
-article main #tags #the-tag:hover {
+article main #tags #the-tag:hover,
+article main #tags #the-tag:active {
   color: white;
   background-color: #525252;
 }
@@ -2906,10 +2916,19 @@ article main #share .social-media {
   transition: background-color .1s ease-in-out, filter .1s ease-in-out, -webkit-filter .1s ease-in-out;
 }
 
-article main #share .social-media:hover {
+article main #share .social-media:hover,
+article main #share .social-media:active {
   background-color: var(--primary-color);
   -webkit-filter: brightness(125%);
           filter: brightness(125%);
+}
+article main #share .social-media img {
+  transition: transform 0.2s ease;
+}
+
+article main #share .social-media:hover img,
+article main #share .social-media:active img {
+  transform: scale(120%);
 }
 
 article main #news .news-image {
@@ -2949,7 +2968,8 @@ article main #news .news-title {
   color: white;
 }
 
-.pagination .page-item .page-link:hover {
+.pagination .page-item .page-link:hover,
+.pagination .page-item .page-link:active {
   background-color: var(--primary-color);
   color: white;
 }
@@ -2961,7 +2981,8 @@ article main #news .news-title {
   transition: all 0.1s ease-in-out;
 }
 
-.news .form-group .btn:hover {
+.news .form-group .btn:hover,
+.news .form-group .btn:active {
   filter: brightness(120%) !important;
 }
 
@@ -2990,7 +3011,8 @@ article main #news .news-title {
   color: var(--primary-color);
 }
 
-.breadcrumb .breadcrumb-item a:hover {
+.breadcrumb .breadcrumb-item a:hover,
+.breadcrumb .breadcrumb-item a:active {
   filter: brightness(80%);
 }
 
@@ -3062,4 +3084,16 @@ article main #news .news-title {
 .wpcf7 form.invalid .wpcf7-response-output,
 .wpcf7 form.unaccepted .wpcf7-response-output {
   background-color: #b50808;
+}
+
+.news-card .row .col .card .news-img {
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+}
+
+@media (min-width: 1537px) {
+  .news-card .row .col .card .news-img {
+    height: 350px;
+  }
 }
