@@ -97,6 +97,17 @@ $email           = get_option("email");
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script>
+
+      $(".news-img").each((i, el) => {
+        var img = $(el).find(".card-img-top")
+        console.log()
+        if ($(img).height() >= 250) {
+          $(el).toggleClass("align-items-center")
+        } else {
+          $(el).toggleClass("align-items-start")
+        }
+      })
+
       $('#flashModal').modal('show')
       var openInNewWindow = (url, provider) => {
         var w = provider == "twitter" ? 500 : 800;
@@ -117,11 +128,6 @@ $email           = get_option("email");
           el.style.height = el.offsetWidth / 16 * 9 + "px";
         });
       }
-      var wpcf7Elm = document.querySelector( '.wpcf7' );
- 
-      wpcf7Elm.addEventListener( 'wpcf7submit', function( event ) {
-        alert( "Fire!" ); 
-      }, false );
     </script>
   </body>
 </html>

@@ -288,13 +288,9 @@ $link_to_consultant        = get_permalink(get_page_by_title(pll_current_languag
                 <?php $first_paragraph = array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] ?>
                 <div class="col w-100 d-flex justify-content-center">
                   <div class="card h-100 border-0">
-                    <div class="news-img">
-                      <a href="<?= get_permalink($news->ID) ?>">
-                        <img src='<?= get_field("news_image", $news->ID)["url"] ?>'
-                          class="card-img-top"
-                          alt="..."
-                          height="218px"
-                        />
+                    <div class="news-img w-100">
+                      <a href="<?= get_permalink($news->ID) ?>" class="w-100">
+                        <img src='<?= get_field("news_image", $news->ID)["url"] ?>' class="card-img-top" alt="..."/>
                       </a>
                     </div>
                     <div class="card-body text-left">
