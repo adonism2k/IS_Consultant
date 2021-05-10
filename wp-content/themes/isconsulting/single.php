@@ -31,12 +31,13 @@ $args = array(
   "order"          => "ASC",
 );
 $latest_news = get_posts($args);
+// var_dump(get_the_author_meta("nickname", $news->post_author));
 ?>
 
 <article class="container d-flex flex-column">
   <div class="row pb-4">
     <nav class="col-12 mt-4 m-md-0" aria-label="breadcrumb">
-      <ol class="breadcrumb">
+      <ol class="breadcrumb d-flex justify-content-center justify-content-md-start">
         <li class="breadcrumb-item"><a href="<?= home_url() ?>"><?= $home_title ?></a> </li>
         <li class="breadcrumb-item"><a href="<?= site_url("/index.php/$news_url") ?>"><?= $cat_name ?></a></li>
         <li class="breadcrumb-item active" aria-current="page"><?= substr($news_title, '0','22')."..." ?></li>
@@ -47,16 +48,16 @@ $latest_news = get_posts($args);
     <header class="col-12 w-100 d-flex justify-content-center align-items-center flex-column">
       <h1 class="title w-100"><?=$news_title?></h1>
       <div class="detail w-100 d-flex justify-content-between align-items-center">
-        <p class="writter">Written By <?= get_field("news_instagram", $news->ID) ?></p>
-        <p class="date"><?= get_field("news_date", $news->ID) ?></p>
+        <p class="writter">Written By <?= get_field("news_source", $news->ID) ?></p>
+        <p class="date"><?= get_the_date("d M Y H:i a", $news->ID) ?></p>
       </div>
     </header>
     <!-- end header -->
     
     <div id="thumbnail" class="col-12 w-100"> <!-- NOTE: the image must be 16:9 ratio or 703x395.4375 pixel -->
-      <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="News Thumbnail" class="news-image">
+      <img src="<?= post_thumbnail_url($news->ID) ?>" alt="News Thumbnail" class="news-image">
       <div class="description">
-        <p>Image Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in et porta rutrum commodo mattis.</p>
+        <p><?= post_thumbnail_description($news->ID) ?></p>
       </div>
     </div>
     <!-- end thumbnail -->
@@ -105,17 +106,15 @@ $latest_news = get_posts($args);
               <div id="batas" class="w-50 d-flex align-items-center my-2">
                 <div class="w-100 border-top border-secondary"></div>
               </div>
-              <div class="row">
                 <?php foreach($related_news as $news): ?>
-                  <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-                    <a href="<?= get_permalink($news->ID) ?>" class="news-image">
-                      <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="<?=$news->post_title?>" class="w-100 h-100">
+                  <div class="w-100 d-flex flex-column justify-content-center align-items-center">
+                    <a href="<?= get_permalink($news->ID) ?>" class="news-image d-flex align-items-center" style="overflow: hidden;">
+                      <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="<?=$news->post_title?>" class="w-100">
                     </a>
                     <a href="<?= get_permalink($news->ID) ?>" class="text-dark news-title"><?=$news->post_title?></a>
                     <div class="w-100 border-top border-secondary my-4"></div>
                   </div>
                 <?php endforeach; ?>
-              </div>
             </div>
           <?php endif; ?>
           <?php if(!empty($latest_news)): ?>
@@ -124,17 +123,15 @@ $latest_news = get_posts($args);
               <div id="batas" class="w-50 d-flex align-items-center my-2">
                 <div class="w-100 border-top border-secondary"></div>
               </div>
-              <div class="row">
                 <?php foreach($latest_news as $news): ?>
-                  <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-                    <a href="<?= get_permalink($news->ID) ?>" class="news-image">
-                      <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="<?=$news->post_title?>" class="w-100 h-100">
+                  <div class="w-100 d-flex flex-column justify-content-center align-items-center">
+                    <a href="<?= get_permalink($news->ID) ?>" class="news-image d-flex align-items-center" style="overflow: hidden;">
+                      <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="<?=$news->post_title?>" class="w-100">
                     </a>
                     <a href="<?= get_permalink($news->ID) ?>" class="text-dark news-title"><?=$news->post_title?></a>
                     <div class="w-100 border-top border-secondary my-4"></div>
                   </div>
                 <?php endforeach; ?>
-              </div>
             </div>
           <?php endif; ?>
         </div>

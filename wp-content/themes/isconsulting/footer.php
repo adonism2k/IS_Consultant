@@ -5,6 +5,11 @@ $address         = get_option("address");
 $phone_number    = get_option("phone_number");
 $whatsapp_number = get_option("whatsapp_number");
 $email           = get_option("email");
+
+$pattern = ['/-/', '/\b[0]/']; 
+$replace = ['', '62'];
+$int_wa_num = preg_replace($pattern, $replace, $whatsapp_number);
+$int_phone_num = preg_replace($pattern, $replace, $phone_number);
 ?>
     
     <footer class="d-flex justify-content-center align-items-center flex-column">
@@ -32,7 +37,9 @@ $email           = get_option("email");
                     <div class="icon">
                       <img src="<?= $directory_url ?>/img/phone-icon.svg" alt="..." />
                     </div>
-                    <div class="contact-phone ml-5"><?= $phone_number ?></div>
+                    <div class="contact-phone ml-5">
+                      <a href="tel:<?=$int_phone_num?>" target="_blank"><?= $phone_number ?></a>
+                    </div>
                   </div>
                 <?php endif; ?>
                 <?php if(isset($whatsapp_number)): ?>
@@ -40,7 +47,9 @@ $email           = get_option("email");
                     <div class="icon">
                       <img src="<?= $directory_url ?>/img/wa-icon.svg" alt="..." />
                     </div>
-                    <div class="contact-wa ml-5"><?= $whatsapp_number ?></div>
+                    <div class="contact-wa ml-5">
+                      <a href="https://wa.me/<?=$int_wa_num?>" target="_blank"><?= $whatsapp_number ?></a>
+                    </div>
                   </div>
                 <?php endif; ?>
                 <?php if(isset($email)): ?>
@@ -49,7 +58,7 @@ $email           = get_option("email");
                       <img src="<?= $directory_url ?>/img/email-icon.svg" alt="..." />
                     </div>
                     <div class="contact-email ml-5">
-                      <a href="#"><?= $email ?></a>
+                      <a href="mail:xxxx" target="_blank"><?= $email ?></a>
                     </div>
                   </div>
                 <?php endif; ?>
@@ -97,10 +106,8 @@ $email           = get_option("email");
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script>
-
       $(".news-img").each((i, el) => {
         var img = $(el).find(".card-img-top")
-        console.log()
         if ($(img).height() >= 250) {
           $(el).toggleClass("align-items-center")
         } else {
@@ -121,12 +128,26 @@ $email           = get_option("email");
         )
         return false;
       };
-
-      var newsImage = document.getElementsByClassName("news-image");
+      
       if (screen.width > 768) { //refresh ketika breakpoint berubah
-        Object.values(newsImage).forEach(el => {
+        $(".news-image").each((i, el) => {
           el.style.height = el.offsetWidth / 16 * 9 + "px";
-        });
+        })
+      }
+      
+      var cardContent = $(".card-body").find(".content")
+      if (screen.width <= 768 && $(cardContent).html().length > 150) {
+        $(cardContent).each((i, el) => {
+          $(el).html($(el).html().substring(0, 150) + "...") 
+        })
+      } else if (screen.width >= 768 && screen.width <= 1372 && $(cardContent).html().length > 200) {
+        $(cardContent).each((i, el) => {
+          $(el).html($(el).html().substring(0, 200) + "...") 
+        })
+      } else if (screen.width >= 1372 && $(cardContent).html().length > 400) {
+        $(cardContent).each((i, el) => {
+          $(el).html($(el).html().substring(0, 400) + "...") 
+        })
       }
     </script>
   </body>

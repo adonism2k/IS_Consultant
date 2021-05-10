@@ -24,30 +24,14 @@ $second_section_title    = get_field("second_section_title");
   <section class="header">
     <div class="container-header d-flex flex-column align-items-center">
       <div class="title">
-        <h1>
-          <?= isset($page_title) ? $page_title : "About Us"; ?>
-        </h1>
+        <h1><?= $page_title ?></h1>
       </div>
-      <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url."/img/about-header-img-corp.jpg" ?>');"></div>
+      <div class="corp-img" style="background-image: url('<?= $page_banner_url ?>');"></div>
       <?php if($page_first_description or $page_second_description !== null): ?>
         <div class="description">
-            <p class="text-center">
-              <?= isset($page_first_description) 
-                      ? $page_first_description 
-                      : "IS Consulting is a trusted taxes and transfers pricing consultant. 
-                         Built to meet your needs for understanding and solving any issues 
-                         in taxation and transfer pricing matters and all aspects related." ?>
-            </p>
-            <p class="text-center">
-              <?= isset($page_second_description) 
-                      ? $page_second_description 
-                      : "We take a strategic approach when assisting our clients in achieving client objectives. 
-                         Our team of professionals is involved from preparation, planning, and determination 
-                         of action steps all the way through to execution and implementation." ?>
-            </p>
-            <p class="about-is">
-              About <?= isset($blog_name) ? $blog_name : "IS Consultant";?>
-            </p>
+            <p class="text-center"><?= $page_first_description ?></p>
+            <p class="text-center"><?= $page_second_description ?></p>
+            <p class="about-is">About <?= $blog_name;?></p>
         </div>
         <div class="circle rounded-circle"></div>
       <?php endif; ?>
@@ -57,28 +41,17 @@ $second_section_title    = get_field("second_section_title");
 
   <section class="vismis">
     <div class="row wrapper d-flex justify-content-center">
-      <div class="col-lg-4 vismis-img" style="background-image: url('<?= isset($vismis_image) ? $vismis_image : $directory_url."/img/about-img1-img-corp.jpg" ?>');"></div>
+      <div class="col-lg-4 vismis-img" style="background-image: url('<?= $vismis_image ?>');"></div>
       <div class="col-lg-7">
         <div class="wrapper vismis-desc">
           <div class="vision">
-            <h1 class="text-bold"><?= isset($vision_title) ? $vision_title : "Our Vision" ?></h1>
-            <p>
-              <?= isset($vision_description) 
-                      ? $vision_description 
-                      : "Our vision is to exceed expectations in providing excellent service, 
-                          unexpected quality and outstanding value, for our client partners and employees." ?>
-            </p>
+            <h1 class="text-bold"><?= $vision_title ?></h1>
+            <p><?= $vision_description ?></p>
           </div>
           <div class=""><h1 class="&">&</h1></div>
           <div class="mission">
-            <h1><?= isset($mission_title) ? $mission_title : "Our Mission" ?></h1>
-            <p>
-              <?= isset($mission_description) 
-                      ? $mission_description 
-                      : "To be partner of choice for companies by building strong relationship, 
-                         providing reliable solution and resources, and always producing 
-                         outstanding results for our clients." ?>
-            </p>
+            <h1 class="text-bold"><?= $mission_title ?></h1>
+            <p><?= $mission_description ?></p>
           </div>
         </div>
       </div>
@@ -100,17 +73,10 @@ $second_section_title    = get_field("second_section_title");
                   <div class="card-icon">
                     <?php if (isset(get_field("secondary_value_icon", $value->ID)["url"])): ?>
                       <div class="circle-icon-<?= $i++ ?>">
-                        <img
-                          src="<?= get_field("secondary_value_icon", $value->ID)["url"] ?>"
-                          class="icon"
-                          alt="..."
-                        />
+                        <img src="<?= get_field("secondary_value_icon", $value->ID)["url"] ?>" class="icon" alt="..." />
                       </div>
                     <?php endif; ?>
-                    <img
-                      src="<?= get_field("primary_value_icon", $value->ID)["url"] ?>"
-                      class="card-img-top"
-                      alt="..."
+                    <img src="<?= get_field("primary_value_icon", $value->ID)["url"] ?>" class="card-img-top" alt="..."
                       <?php if (isset(get_field("secondary_value_icon", $value->ID)["url"])): ?>
                       style="transform: translateX(70px);"
                       <?php else: ?>

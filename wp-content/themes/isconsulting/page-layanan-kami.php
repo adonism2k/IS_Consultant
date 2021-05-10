@@ -28,12 +28,10 @@ $page_description         = get_post()->post_content;
       <div class="title">
         <h1><?= $page_title ?></h1>
       </div>
-      <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url."/img/home-header-img-corp.jpg" ?>');"></div>
+      <div class="corp-img" style="background-image: url('<?= $page_banner_url ?>');"></div>
       <?php if(isset($page_description)): ?>
       <div class="description">
-        <p class="text-center">
-          <?= getStringBetween( 'p', $page_description ) ?>
-        </p>
+        <p class="text-center"><?= getStringBetween( 'p', $page_description ) ?></p>
         <p class="about-is">Layanan <?= $blog_name ?></p>
       </div>
       <div class="circle rounded-circle"></div>
@@ -46,12 +44,12 @@ $page_description         = get_post()->post_content;
   <section class="service-1<?php if(empty($page_description)): ?> mt-5 <?php endif; ?>">     
     <div class="wrapper">
       <div class="title d-flex align-items-center mb-5">
-        <div class="mr-5">
+        <div class="mr-md-5">
           <h1><?= $services[0]->post_title ?></h1>
         </div>
         <svg width="15" height="100%" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2.02011 0.5L0.610107 1.91L5.19011 6.5L0.610107 11.09L2.02011 12.5L8.02011 6.5L2.02011 0.5Z" fill="black"/>
-        </svg >
+        </svg>
       </div>
     </div>
     <div class="services-wrapper">
@@ -95,7 +93,7 @@ $page_description         = get_post()->post_content;
   <section class="service-2">
     <div class="wrapper">
       <div class="title d-flex align-items-center mb-5">
-        <div class="mr-5">
+        <div class="mr-3 mr-md-5">
           <h1><?= $second_service_title ?></h1>
         </div>
         <svg width="15" height="100%" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
