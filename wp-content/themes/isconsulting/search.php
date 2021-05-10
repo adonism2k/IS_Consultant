@@ -31,7 +31,7 @@ $news_posts = get_posts($args);
                   <div class="card h-100 border-0">
                     <div class="news-img w-100">
                       <a href="<?= get_permalink($news->ID) ?>" class="w-100">
-                        <img src='<?= get_field("news_image", $news->ID)["url"] ?>' class="card-img-top" alt="..."/>
+                        <img src='<?= post_thumbnail_url($news->ID) ?>' class="card-img-top" alt="..."/>
                       </a>
                     </div>
                     <div class="card-body text-left">
@@ -54,11 +54,9 @@ $news_posts = get_posts($args);
                         <?php endif; ?>
                       </p>
                       <?php if(!empty($news->post_content)): ?>
-                        <?php if(strlen($first_paragraph) > 200): ?>
-                          <?= substr($first_paragraph, '0', '200') . "..." ?>
-                        <?php else: ?>
-                          <?= $first_paragraph ?>
-                        <?php endif; ?>
+                        <p class="content">
+                          <?= getStringBetween("p", $first_paragraph) ?>
+                        </p>
                       <?php endif; ?>
                     </div>
                   </div>

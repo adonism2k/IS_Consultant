@@ -11,6 +11,7 @@ if (!is_admin()) {
 
 function theme_prefix_setup() {
 	add_theme_support( "custom-logo", array("header-text" => array("site-title","site-description")));
+  add_theme_support( 'post-thumbnails' );
 }
 add_action( "after_setup_theme", "theme_prefix_setup" );
 
@@ -27,8 +28,8 @@ function string_translate() {
 add_action("after_setup_theme", "string_translate");
 
 
+
 function custom_post_type() {
-	
 	/**
 	 * Post Type: Portfolio
 	 */
@@ -297,28 +298,59 @@ function slugToTitle($slug) {
 add_action( "slugToTitle", "slugToTitle" );
 
 function paginated_links( $query ) {
-    // When we"re on page 1, "paged" is 0, but we"re counting from 1,
-    // so we"re using max() to get 1 instead of 0
-    $currentPage = max( 1, get_query_var( "paged", 1 ) );
- 
-    // This creates an array with all available page numbers, if there
-    // is only *one* page, max_num_pages will return 0, so here we also
-    // use the max() function to make sure we"ll always get 1
-    $pages = range( 1, max( 1, $query->max_num_pages ));
- 
-    // Now, map over $pages and return the page number, the url to that
-    // page and a boolean indicating whether that number is the current page
-    return count($pages) > 1 
-                                  ? array_map( function($page) use ($currentPage) {
-                                      return (object) array(
-                                          "isCurrent" => $page == $currentPage,
-                                          "page" => $page,
-                                          "url" => get_pagenum_link($page)
-                                      );
-                                    }, $pages )
-                                  : [];
+  // When we"re on page 1, "paged" is 0, but we"re counting from 1,
+  // so we"re using max() to get 1 instead of 0
+  $currentPage = max( 1, get_query_var( "paged", 1 ) );
+
+  // This creates an array with all available page numbers, if there
+  // is only *one* page, max_num_pages will return 0, so here we also
+  // use the max() function to make sure we"ll always get 1
+  $pages = range( 1, max( 1, $query->max_num_pages ));
+
+  // Now, map over $pages and return the page number, the url to that
+  // page and a boolean indicating whether that number is the current page
+  if (count($pages) > 1) {
+    return array_map( function($page) use ($currentPage) {
+      return (object) array(
+          "isCurrent" => $page == $currentPage,
+          "page" => $page,
+          "url" => get_pagenum_link($page)
+      );
+    }, $pages);
+  } else {
+    return [];
+  }
 }
 add_action( "paginated_links", "paginated_links" );
+
+// function delete_all_posts() {
+//     $subscribers = get_posts( array( 'post_type' => 'subscribers') );
+ 
+//     foreach ( $subscribers as $subs ) {
+//         // Delete all subscribers.
+//         wp_delete_post( $subs->ID, true); // Set to False if you want to send them to Trash.
+//     } 
+// }
+// add_action( 'init', 'delete_all_posts' );
+
+function turn_tag_translation_off($taxonomies) {
+    unset( $taxonomies['post_tag'] );
+    return $taxonomies;
+}
+add_filter( 'pll_get_taxonomies', 'turn_tag_translation_off', 10, 1 );
+
+function post_thumbnail_url($post_id) {
+  $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), "full")[0];
+  return $thumbnail;
+}
+add_action( "post_thumbnail_url", "post_thumbnail_url" );
+
+function post_thumbnail_description($post_id) {
+  $thumbnail_id = get_post_thumbnail_id($post_id);
+  $thumbnail    = get_post($thumbnail_id);
+  return $thumbnail->post_content;
+}
+add_action( "post_thumbnail_description", "post_thumbnail_description" );
 
 if( $_SERVER["REQUEST_METHOD"] === "POST" and !empty( $_POST["action"] ) and $_POST["action"] === "subscribe") {
   // Do some minor form validation to make sure there is content
@@ -347,19 +379,3 @@ if( $_SERVER["REQUEST_METHOD"] === "POST" and !empty( $_POST["action"] ) and $_P
   wp_safe_redirect($location);
   exit();
 }
-
-// function delete_all_posts() {
-//     $subscribers = get_posts( array( 'post_type' => 'subscribers') );
- 
-//     foreach ( $subscribers as $subs ) {
-//         // Delete all subscribers.
-//         wp_delete_post( $subs->ID, true); // Set to False if you want to send them to Trash.
-//     } 
-// }
-// add_action( 'init', 'delete_all_posts' );
-
-function turn_tagblog_translation_off( $taxonomies, $is_settings ) {
-    unset( $taxonomies['post_tag'] );
-    return $taxonomies;
-}
-add_filter( 'pll_get_taxonomies', 'turn_tagblog_translation_off', 10, 2 );

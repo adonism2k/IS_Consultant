@@ -12,7 +12,7 @@ $args  = array(
   "order"          => "ASC",
 );
 $query           = new WP_Query($args);
-$news_posts       = get_posts( $args );
+$news_posts      = get_posts( $args );
 $paginated_links = paginated_links($query);
 $page_title      = get_the_title();
 $page_banner_url = get_field( "banner_image" )["url"];
@@ -39,7 +39,7 @@ $page_banner_url = get_field( "banner_image" )["url"];
                 <div class="card h-100 border-0">
                   <div class="news-img w-100">
                     <a href="<?= get_permalink($news->ID) ?>" class="w-100">
-                      <img src='<?= get_field("news_image", $news->ID)["url"] ?>' class="card-img-top" alt="..."/>
+                      <img src='<?= post_thumbnail_url($news->ID) ?>' class="card-img-top" alt="..."/>
                     </a>
                   </div>
                   <div class="card-body text-left">
@@ -53,8 +53,8 @@ $page_banner_url = get_field( "banner_image" )["url"];
                       </a>
                     </h5>
                     <p class="card-text">
-                      <?php if(!empty(get_field("news_instagram", $news->ID))): ?>
-                        By <span class="text-primary"><?= get_field("news_instagram", $news->ID) ?></span>
+                      <?php if(!empty(get_field("news_source", $news->ID))): ?>
+                        By <span class="text-primary"><?= get_field("news_source", $news->ID) ?></span>
                         <br />
                       <?php endif; ?>
                       <?php if(!empty(get_field("news_date", $news->ID))): ?>
@@ -62,11 +62,9 @@ $page_banner_url = get_field( "banner_image" )["url"];
                       <?php endif; ?>
                     </p>
                     <?php if(!empty($news->post_content)): ?>
-                      <?php if(strlen($first_paragraph) > 200): ?>
-                        <?= substr($first_paragraph, '0', '200') . "..." ?>
-                      <?php else: ?>
-                        <?= $first_paragraph ?>
-                      <?php endif; ?>
+                      <p class="content">
+                        <?= getStringBetween("p", $first_paragraph) ?>
+                      </p>
                     <?php endif; ?>
                   </div>
                 </div>

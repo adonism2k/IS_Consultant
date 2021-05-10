@@ -12,7 +12,7 @@ $args  = array(
   "order"          => "ASC",
 );
 $query           = new WP_Query($args);
-$news_post       = get_posts( $args );
+$news_posts      = get_posts( $args );
 $paginated_links = paginated_links($query);
 $page_title      = get_the_title();
 $page_banner_url = get_field( "banner_image" )["url"];
@@ -30,16 +30,16 @@ $page_banner_url = get_field( "banner_image" )["url"];
   <section class="news">
     <div class="wrapper d-flex align-items-center flex-column">
       <?= get_search_form() ?>
-      <?php if(isset($news_post)): ?>
+      <?php if(isset($news_posts)): ?>
         <div class="news-card w-100">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-start w-100">
-            <?php foreach($news_post as $news): ?>
+            <?php foreach($news_posts as $news): ?>
               <?php $first_paragraph = array_filter(explode("<!-- /wp:paragraph -->", $news->post_content))[0] ?>
               <div class="col mb-5">
                 <div class="card h-100 border-0">
                   <div class="news-img">
                     <a href="<?= get_permalink($news->ID) ?>" class="w-100">
-                      <img src='<?= get_field("news_image", $news->ID)["url"] ?>' class="card-img-top" alt="..."/>
+                      <img src='<?= post_thumbnail_url($news->ID) ?>' class="card-img-top" alt="..."/>
                     </a>
                   </div>
                   <div class="card-body text-left">
@@ -62,11 +62,9 @@ $page_banner_url = get_field( "banner_image" )["url"];
                       <?php endif; ?>
                     </p>
                     <?php if(!empty($news->post_content)): ?>
-                      <?php if(strlen($first_paragraph) > 200): ?>
-                        <?= substr($first_paragraph, '0', '200') . "..." ?>
-                      <?php else: ?>
-                        <?= $first_paragraph ?>
-                      <?php endif; ?>
+                      <p class="content">
+                        <?= getStringBetween("p", $first_paragraph) ?>
+                      </p>
                     <?php endif; ?>
                   </div>
                 </div>

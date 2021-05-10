@@ -11,6 +11,11 @@ $email             = get_option("email");
 $lng               = (float)get_option("longitude");
 $lat               = (float)get_option("latitude");
 $contact_form      = apply_shortcodes('[contact-form-7 id="576" title="Contact Us form"]');
+
+$pattern = ['/-/', '/\b[0]/']; 
+$replace = ['', '62'];
+$int_wa_num = preg_replace($pattern, $replace, $whatsapp_number);
+$int_phone_num = preg_replace($pattern, $replace, $phone_number);
 ?>
 
 <div class="contact-us">
@@ -30,28 +35,30 @@ $contact_form      = apply_shortcodes('[contact-form-7 id="576" title="Contact U
           <?php if (isset($phone_number)): ?>
             <div class="row phone-wrapper mb-3">
               <img src="<?=$directory_url?>/img/phone-icon-black.svg" alt="..." />
-              <span class="ml-4"> <?= $phone_number ?> </span>
+              <span class="ml-2 ml-md-4">
+                <a href="tel:<?=$int_phone_num?>" target="_black"><?= $phone_number ?></a>    
+              </span>
             </div>
           <?php endif; ?>
           <?php if (isset($whatsapp_number)): ?>
             <div class="row wa-wrapper mb-3">
               <img src="<?=$directory_url?>/img/wa-icon-black.svg" alt="..." />
-              <span class="ml-4"> <?= $whatsapp_number ?> </span>
+              <span class="ml-2 ml-md-4">
+                <a href="https://wa.me/<?=$int_wa_num?>" target="_black"><?= $whatsapp_number ?></a>
+              </span>
             </div>
           <?php endif; ?>
           <?php if (isset($email)): ?>
             <div class="row email-wrapper mb-3">
               <img src="<?=$directory_url?>/img/email-icon-black.svg" alt="..." />
-              <span class="ml-4">
-                <a href="#"><?= $email ?></a>
+              <span class="ml-2 ml-md-4">
+                <a href="mail:xxxx" target="_black"><?= $email ?></a>
               </span>
             </div>
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-7">
-        <?= $contact_form ?>
-      </div>
+      <div class="col-lg-7 h-100"><?= $contact_form ?></div>
     </div>
   </section>
   <!-- end newsletter -->

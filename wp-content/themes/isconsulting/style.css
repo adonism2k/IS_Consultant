@@ -622,6 +622,12 @@ nav {
   }
 }
 
+@media (min-width: 1537px) {
+  .home .portfolio .port-photos .swiper-container {
+    padding: 50px 0 100px 70px;
+  }
+}
+
 .home .portfolio .port-photos .swiper-container .swiper-wrapper .swiper-slide {
   background-repeat: no-repeat;
   background-size: cover;
@@ -635,12 +641,13 @@ nav {
 
 @media (min-width: 992px) {
   .home .portfolio .port-photos .swiper-container .swiper-wrapper .swiper-slide {
-    width: 400px !important;
+    width: 350px !important;
   }
 }
-@media (min-width: 1281px) {
+
+@media (min-width: 1368px) {
   .home .portfolio .port-photos .swiper-container .swiper-wrapper .swiper-slide {
-    width: 450px !important;  
+    width: 450px !important;
   }
 }
 
@@ -986,7 +993,7 @@ nav {
 
 @media (min-width: 1537px) {
   .about-us .vismis .vismis-img {
-    background-position: initial;
+    background-position: center;
     background-size: cover;
     height: 660px;
   }
@@ -1022,39 +1029,37 @@ nav {
   }
 }
 
-.about-us .vismis .vismis-desc .vision .row {
+.about-us .vismis .vismis-desc .vision {
   justify-content: center;
 }
 
 @media (min-width: 1025px) {
-  .about-us .vismis .vismis-desc .vision .row {
+  .about-us .vismis .vismis-desc .vision {
     justify-content: start;
   }
 }
 
-.about-us .vismis .vismis-desc .vision .row h1 {
+.about-us .vismis .vismis-desc .vision h1 {
   color: #000000;
   transition: font-size 0.5s ease 0.5s;
   will-change: font-size;
-  font-style: normal;
-  font-weight: 600;
   font-size: 2rem;
 }
 
 @media (min-width: 1025px) {
-  .about-us .vismis .vismis-desc .vision .row h1 {
+  .about-us .vismis .vismis-desc .vision h1 {
     font-size: 2.25rem;
   }
 }
 
 @media (min-width: 1281px) {
-  .about-us .vismis .vismis-desc .vision .row h1 {
+  .about-us .vismis .vismis-desc .vision h1 {
     font-size: 2.5rem;
   }
 }
 
 @media (min-width: 1537px) {
-  .about-us .vismis .vismis-desc .vision .row h1 {
+  .about-us .vismis .vismis-desc .vision h1 {
     font-size: 3rem;
   }
 }
@@ -1121,8 +1126,6 @@ nav {
   color: #000000;
   transition: font-size 0.5s ease 0.5s;
   will-change: font-size;
-  font-style: normal;
-  font-weight: 600;
   font-size: 2rem;
 }
 
@@ -1518,7 +1521,7 @@ nav {
 
 @media (min-width: 1025px) {
   .consultant .portfolio .port .port-img {
-    background-position: initial;
+    background-position: center;
     height: 550px;
   }
 }
@@ -1870,7 +1873,7 @@ nav {
 
 @media (min-width: 1537px) {
   .services .service-1 .services-wrapper .vismis-img {
-    background-position: initial;
+    background-position: center;
     background-size: cover;
     height: 660px;
   }
@@ -2524,13 +2527,12 @@ footer .footer-container .contact {
   }
 }
 
-footer .footer-container .contact .contact-email a {
+footer .footer-container .contact :is(.contact-email, .contact-wa, .contact-phone) a {
   color: #e1f8bf;
   text-decoration: underline;
 }
 
-footer .footer-container .contact .contact-email a:hover,
-footer .footer-container .contact .contact-email a:active {
+footer .footer-container .contact :is(.contact-email, .contact-wa, .contact-phone) :is(a:hover, a:active) {
   color: white;
 }
 
@@ -2923,7 +2925,7 @@ article main #share .social-media:active {
           filter: brightness(125%);
 }
 article main #share .social-media img {
-  transition: transform 0.2s ease;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
 article main #share .social-media:hover img,
@@ -2934,6 +2936,7 @@ article main #share .social-media:active img {
 article main #news .news-image {
   width: 350px;
   height: calc(350px / 16 * 9);
+  aspect-ratio: 16 / 9;
 }
 
 @media (min-width: 768px) {
@@ -3055,7 +3058,7 @@ article main #news .news-title {
 .wpcf7 form .wpcf7-response-output {
   display: block;
   width: 100%;
-  height: calc(1.5em + .75rem + 2px);
+  height: 100%;
   padding: .375rem .75rem;
   border-radius: .25rem;
   color: rgba(255, 255, 255, 0.878);

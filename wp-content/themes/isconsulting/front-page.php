@@ -39,53 +39,33 @@ $link_to_consultant        = get_permalink(get_page_by_title(pll_current_languag
   <section class="header">
     <div class="title">
       <h1 class="prologue">
-        <?= isset($page_title) 
-                ? $page_title 
-                : "We are IS Consultant that will help your lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit. Dolor ipsum morbi massa elit consequat enim auctor."; ?>
+        <?= $page_title ?>
       </h1>
     </div>
     <div class="circle"><p>Hello World!</p></div>
-    <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : "${directory_url}/img/about-header-img-corp.jpg" ?>');"></div>
+    <div class="corp-img" style="background-image: url('<?= $page_banner_url ?>');"></div>
   </section>
   <!-- end header -->
 
   <section class="about-us">
     <div class="wrapper d-flex align-items-center flex-column">
       <div class="title">
-        <h1><?= isset($first_section_title) ? $first_section_title : "About Us" ?></h1>
+        <h1><?= $first_section_title ?></h1>
       </div>
-        <div class="subtitle">
-          <?= isset($first_section_description) 
-                  ? $first_section_description 
-                  : "IS Consulting is a trusted taxes and transfer pricing consultant. 
-                      Built to mee your needs for understanding and solving any issues 
-                      in taxation and transfer pricing matters and all aspects related."  ?>
-        </div>
+        <div class="subtitle"><?= $first_section_description  ?></div>
       <div class="about-card">
-        <div
-          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center"
-        >
-          <?php if(isset($values)): 
-            $i = 1;
-          ?>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
+          <?php if(isset($values)): $i = 1; ?>
             <?php foreach($values as $value): ?>
               <div class="col w-100 d-flex justify-content-center">
                 <div class="card h-100 border-0">
                   <div class="card-icon">
                     <?php if (isset(get_field("secondary_value_icon", $value->ID)["url"])): ?>
-                      <div class="circle-icon-<?= $i ?>">
-                        <img
-                          src="<?= get_field("secondary_value_icon", $value->ID)["url"] ?>"
-                          class="icon"
-                          alt="..."
-                        />
+                      <div class="circle-icon-<?= $i++ ?>">
+                        <img src="<?= get_field("secondary_value_icon", $value->ID)["url"] ?>" class="icon" alt="..." />
                       </div>
                     <?php endif; ?>
-                    <img
-                      src="<?= get_field("primary_value_icon", $value->ID)["url"] ?>"
-                      class="card-img-top"
-                      alt="..."
+                    <img src="<?= get_field("primary_value_icon", $value->ID)["url"] ?>" class="card-img-top" alt="..."
                       <?php if (isset(get_field("secondary_value_icon", $value->ID)["url"])): ?>
                       style="transform: translateX(70px);"
                       <?php else: ?>
@@ -99,141 +79,7 @@ $link_to_consultant        = get_permalink(get_page_by_title(pll_current_languag
                   </div>
                 </div>
               </div>
-            <?php 
-              $i++;
-              endforeach; 
-            ?>
-          <?php else: ?>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-1">
-                    <img
-                      src="<?= $directory_url ?>/img/home-learning-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-learning-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Learning</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-2">
-                    <img
-                      src="<?= $directory_url ?>/img/home-workhard-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-workhard-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Work Hard</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-3">
-                    <img
-                      src="<?= $directory_url ?>/img/home-experience-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-experience-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Experience</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-4">
-                    <img
-                      src="<?= $directory_url ?>/img/home-optimist-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-optimist-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Optimist</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col w-100 d-flex justify-content-center">
-              <div class="card h-100 border-0">
-                <div class="card-icon">
-                  <div class="circle-icon-5">
-                    <img
-                      src="<?= $directory_url ?>/img/home-satisfaction-sm-icon.svg"
-                      class="icon"
-                      alt="..."
-                    />
-                  </div>
-                  <img
-                    src="<?= $directory_url ?>/img/home-satisfaction-icon.svg"
-                    class="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div class="card-body text-left">
-                  <h5 class="card-title">Satisfaction</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
-                    ut nunc, ultrices vitae dui. Integer suspendisse mattis id
-                    in.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <?php endforeach; ?>
           <?php endif; ?>
         </div>
         <div class="circle"></div>
@@ -247,13 +93,12 @@ $link_to_consultant        = get_permalink(get_page_by_title(pll_current_languag
       <h1><?= isset($second_section_title) ? $second_section_title : "Portfolio" ?></h1>
     </div>
     <div class="port-photos">
-      <a href="<?=$link_to_consultant?>"
-        class="d-flex justify-content-between align-items-center"
-        >See all Portfolio
+      <a href="<?=$link_to_consultant?>" class="d-flex justify-content-between align-items-center">
+        See all Portfolio
         <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg" >
           <path d="M2.02011 0.5L0.610107 1.91L5.19011 6.5L0.610107 11.09L2.02011 12.5L8.02011 6.5L2.02011 0.5Z" fill="white"/>
-        </svg
-      ></a>
+        </svg>
+      </a>
       <div class="swiper-container d-flex align-items-center">
         <div class="swiper-wrapper">
           <?php foreach($portfolio_image as $img): ?>
@@ -274,12 +119,10 @@ $link_to_consultant        = get_permalink(get_page_by_title(pll_current_languag
   <section class="news">
     <div class="wrapper d-flex align-items-center flex-column">
       <div class="title">
-        <h1>
-          <?= isset($third_section_title) ? $third_section_title : "News" ?>
-        </h1>
+        <h1><?= $third_section_title ?></h1>
       </div>
       <div class="subtitle">
-        <?= isset($third_section_description) ? $third_section_description : "About what we’ve been talking about we share about accountant and tax"  ?>
+        <?= $third_section_description  ?>
       </div>
       <?php if(isset($news_posts)): ?>
         <div class="news-card">
@@ -290,7 +133,7 @@ $link_to_consultant        = get_permalink(get_page_by_title(pll_current_languag
                   <div class="card h-100 border-0">
                     <div class="news-img w-100">
                       <a href="<?= get_permalink($news->ID) ?>" class="w-100">
-                        <img src='<?= get_field("news_image", $news->ID)["url"] ?>' class="card-img-top" alt="..."/>
+                        <img src='<?= post_thumbnail_url($news->ID) ?>' class="card-img-top" alt="..."/>
                       </a>
                     </div>
                     <div class="card-body text-left">
@@ -313,10 +156,10 @@ $link_to_consultant        = get_permalink(get_page_by_title(pll_current_languag
                           <span class="d-block"><?= get_field("news_date", $news->ID) ?></span>
                         <?php endif; ?>
                       </p>
-                      <?php if(strlen($first_paragraph) > 200): ?>
-                        <?= substr($first_paragraph, '0', '200') . "..." ?>
-                      <?php else: ?>
-                        <?= $first_paragraph ?>
+                      <?php if(!empty($news->post_content)): ?>
+                        <p class="content">
+                          <?= getStringBetween("p", $first_paragraph) ?>
+                        </p>
                       <?php endif; ?>
                     </div>
                   </div>

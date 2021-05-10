@@ -29,12 +29,10 @@ $page_description         = get_post()->post_content;
       <div class="title">
         <h1><?= $page_title ?></h1>
       </div>
-      <div class="corp-img" style="background-image: url('<?= isset($page_banner_url) ? $page_banner_url : $directory_url."/img/home-header-img-corp.jpg" ?>');"></div>
+      <div class="corp-img" style="background-image: url('<?= $page_banner_url ?>');"></div>
       <?php if(isset($page_description)): ?>
       <div class="description">
-        <p class="text-center">
-          <?= $page_description ?>
-        </p>
+        <p class="text-center"><?= $page_description ?></p>
         <p class="about-is">About <?= $blog_name ?></p>
       </div>
       <div class="circle rounded-circle"></div>
@@ -47,7 +45,7 @@ $page_description         = get_post()->post_content;
   <section class="service-1<?php if(empty($page_description)): ?> mt-5 <?php endif; ?>">     
     <div class="wrapper">
       <div class="title d-flex align-items-center mb-5">
-        <div class="mr-5">
+        <div class="mr-3 mr-md-5">
           <h1><?= $services[0]->post_title ?></h1>
         </div>
         <svg width="15" height="100%" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +94,7 @@ $page_description         = get_post()->post_content;
   <section class="service-2">
     <div class="wrapper">
       <div class="title d-flex align-items-center mb-5">
-        <div class="mr-5">
+        <div class="mr-3 mr-md-5">
           <h1><?= $second_service_title ?></h1>
         </div>
         <svg width="15" height="100%" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
