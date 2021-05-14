@@ -4,7 +4,7 @@ if(is_single()) {
   $news                    = get_post(url_to_postid(home_url( $wp->request )));
   $news_title              = $news->post_title;
   $news_content            = getStringBetween("p", $news->post_content);
-  $news_image              = get_field("news_image", $news->ID)["url"];
+  $news_image              = post_thumbnail_url($news->ID);
 }
 $directory_url             = get_template_directory_uri();
 $blog_name                 = get_bloginfo("name");

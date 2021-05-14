@@ -129,12 +129,6 @@ $int_phone_num = preg_replace($pattern, $replace, $phone_number);
         return false;
       };
       
-      if (screen.width > 768) { //refresh ketika breakpoint berubah
-        $(".news-image").each((i, el) => {
-          el.style.height = el.offsetWidth / 16 * 9 + "px";
-        })
-      }
-      
       var cardContent = $(".card-body").find(".content")
       if (screen.width <= 768 && $(cardContent).html().length > 150) {
         $(cardContent).each((i, el) => {

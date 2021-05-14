@@ -2656,7 +2656,6 @@ article #thumbnail {
 
 article #thumbnail img {
   width: 100%;
-  aspect-ratio: 16 / 9;
 }
 
 article #thumbnail .description {

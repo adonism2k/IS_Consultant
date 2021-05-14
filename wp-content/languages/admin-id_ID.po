@@ -27,105 +27,105 @@ msgstr "0"
 msgid "Continue"
 msgstr "Lanjutkan"
 
-#: wp-admin/about.php:110
+#: wp-admin/about.php:164
 msgid "<strong>Buttons block:</strong> now you can choose a vertical or a horizontal layout. And you can set the width of a button to a preset percentage."
 msgstr "<strong>Blok Tombol:</strong> sekarang Anda dapat memilih tata letak vertikal atau horizontal. Dan Anda dapat mengatur lebar tombol dalam persentase tetap."
 
-#: wp-admin/about.php:206
+#: wp-admin/about.php:260
 msgid "Now it’s simple to let iframes lazy-load. By default, WordPress will add a <code>loading=\"lazy\"</code> attribute to iframe tags when both width and height are specified."
 msgstr "Sekarang mudah mengaktifkan lazy-load untuk iframe. Standarnya, WordPress akan menambahkan atribut <code>loading=\"lazy\"</code> ke tag iframe jika lebar dan tingginya diatur."
 
-#: wp-admin/about.php:204
+#: wp-admin/about.php:258
 msgid "In 5.7, jQuery gets more focused and less intrusive, with fewer messages in the console."
 msgstr "Di 5.7, jQuery menjadi lebih fokus dan tidak terlalu mengganggu, dengan lebih sedikit pesan di konsol."
 
-#: wp-admin/about.php:197
+#: wp-admin/about.php:251
 msgid "The new Robots API lets you include the filter directives in the robots meta tag, and the API includes the <code>max-image-preview: large</code> directive by default. That means search engines can show bigger image previews, which can boost your traffic (unless the site is marked <em>not-public</em>)."
 msgstr "API Robot baru memungkinkan Anda menyertakan arahan filter dalam tag meta robot, dan API menyertakan arahan <code>max-image-preview: large</code> secara standar. Itu berarti mesin pencari dapat menampilkan pratinjau gambar yang lebih besar, yang dapat meningkatkan lalu lintas Anda (kecuali blog ditandai sebagai <em>not-public</em>)."
 
-#: wp-admin/about.php:140
+#: wp-admin/about.php:194
 msgid "Above, the Dashboard before and after the color update in 5.7."
 msgstr "Di atas, Dasbor sebelum dan sesudah pembaruan warna di 5.7."
 
-#: wp-admin/about.php:137
+#: wp-admin/about.php:191
 msgid "Dashboard with new color scheme."
 msgstr "Dasbor dengan skema warna baru."
 
-#: wp-admin/about.php:135
+#: wp-admin/about.php:189
 msgid "Dashboard with old color scheme."
 msgstr "Dasbor dengan skema warna lama."
 
-#: wp-admin/about.php:115
+#: wp-admin/about.php:169
 msgid "<strong>Social Icons block:</strong> now you can change the size of the icons."
 msgstr "<strong>Blok Ikon Sosial:</strong> sekarang Anda dapat mengubah ukuran ikon."
 
-#: wp-admin/about.php:205
+#: wp-admin/about.php:259
 msgid "Lazy-load your iframes"
 msgstr "Muat-lambat iframe Anda"
 
-#: wp-admin/about.php:203
+#: wp-admin/about.php:257
 msgid "For years jQuery helped make things move on the screen in ways the basic tools couldn’t—but that keeps changing, and so does jQuery."
 msgstr "Selama bertahun-tahun jQuery membantu membuat segala sesuatunya bergerak di layar dengan cara yang tidak dapat dilakukan oleh alat dasar — tetapi itu terus berubah, dan begitu pula jQuery."
 
-#: wp-admin/about.php:202
+#: wp-admin/about.php:256
 msgid "Ongoing cleanup after update to jQuery 3.5.1"
 msgstr "Pembersihan berkelanjutan setelah pembaruan ke jQuery 3.5.1"
 
-#: wp-admin/about.php:194
+#: wp-admin/about.php:248
 msgid "New Robots API"
 msgstr "API Robot Baru"
 
-#: wp-admin/about.php:193
+#: wp-admin/about.php:247
 msgid "Starting now, switching a site from HTTP to HTTPS is a one-click move. WordPress will automatically update database URLs when you make the switch. No more hunting and guessing!"
 msgstr "Mulai sekarang, mengalihkan situs dari HTTP ke HTTPS hanya dengan satu klik. WordPress secara otomatis akan memperbarui URL basis data saat Anda beralih. Tidak ada lagi berburu dan menebak-nebak!"
 
-#: wp-admin/about.php:192
+#: wp-admin/about.php:246
 msgid "From HTTP to HTTPS in a single click"
 msgstr "Dari HTTP ke HTTPS dalam satu klik"
 
 #. translators: %s: Color palette dev note link.
-#: wp-admin/about.php:171
+#: wp-admin/about.php:225
 msgid "Find the new palette in the default WordPress Dashboard color scheme, and use it when you’re building themes, plugins, or any other components. For all the details, <a href=\"%s\">check out the Color Palette dev note</a>."
 msgstr "Temukan palet baru dalam skema warna Dasbor WordPress standar, dan gunakan saat Anda membuat tema, plugin, atau komponen lainnya. Untuk semua detailnya, <a href=\"%s\">lihat catatan Palet Warna developer</a>."
 
-#: wp-admin/about.php:164
+#: wp-admin/about.php:218
 msgid "Half the range has a 4.5 or higher contrast ratio against black, and the other half maintains the same contrast against white."
 msgstr "Separuh rentang memiliki rasio kontras 4,5 atau lebih tinggi terhadap hitam, dan separuh lainnya mempertahankan kontras yang sama terhadap putih."
 
-#: wp-admin/about.php:157
+#: wp-admin/about.php:211
 msgid "The colors are perceptually uniform from light to dark in each range, which means they start at white and get darker by the same amount with each step."
 msgstr "Warna secara persepsi seragam dari terang ke gelap di setiap rentang, yang berarti mereka mulai dari putih dan menjadi lebih gelap dengan jumlah yang sama di setiap langkah."
 
 #. translators: %s: WCAG information link.
-#: wp-admin/about.php:150
+#: wp-admin/about.php:204
 msgid "This new streamlined color palette collapses all the colors that used to be in the WordPress source code down to seven core colors and a range of 56 shades that meet the <a href=\"%s\">WCAG 2.0 AA recommended contrast ratio</a> against white or black."
 msgstr "Palet warna baru yang disederhanakan ini menyederhanakan semua warna yang dulu ada di kode sumber WordPress menjadi tujuh warna inti dan rentang 56 bayangan yang memenuhi <a href=\"%s\">rasio kontras yang disarankan WCAG 2.0 AA</a> terhadap putih atau hitam."
 
-#: wp-admin/about.php:128
+#: wp-admin/about.php:182
 msgid "A Simpler Default Color Palette"
 msgstr "Palet Warna Standar yang Lebih Sederhana"
 
-#: wp-admin/about.php:105
+#: wp-admin/about.php:159
 msgid "<strong>Full-height alignment:</strong> have you ever wanted to make a block, like the Cover block, fill the whole window? Now you can."
 msgstr "<strong>Penyelarasan ketinggian penuh:</strong> pernahkah Anda ingin membuat blok, seperti blok Cover, mengisi seluruh jendela? Sekarang kamu bisa melakukannya."
 
-#: wp-admin/about.php:100
+#: wp-admin/about.php:154
 msgid "You can do more without writing custom code"
 msgstr "Anda dapat melakukan lebih banyak tanpa menulis kode khusus"
 
-#: wp-admin/about.php:86
+#: wp-admin/about.php:140
 msgid "<strong>Inserter drag-and-drop:</strong> drag blocks and block patterns from the inserter right into your post."
 msgstr "<strong>Penyisip tarik-lepas:</strong> tarik blok dan pola blok dari penyisip langsung ke pos Anda."
 
-#: wp-admin/about.php:81
+#: wp-admin/about.php:135
 msgid "<strong>Reusable blocks:</strong> several enhancements make reusable blocks more stable and easier to use. And now they save automatically with the post when you click the Update button."
 msgstr "<strong>Blok pakai ulang:</strong> beberapa penyempurnaan membuat blok pakai ulang lebih stabil dan lebih mudah digunakan. Dan sekarang mereka menyimpan secara otomatis dengan posting ketika Anda mengklik tombol Perbarui."
 
-#: wp-admin/about.php:76
+#: wp-admin/about.php:130
 msgid "<strong>Font-size adjustment in more places:</strong> now, font-size controls are right where you need them in the List and Code blocks. No more trekking to another screen to make that single change!"
 msgstr "<strong>Penyesuaian ukuran font di lebih banyak tempat:</strong> sekarang, kontrol ukuran font tepat di tempat Anda membutuhkannya di blok Daftar dan Kode. Tidak perlu lagi berpindah ke layar lain untuk melakukan perubahan tunggal itu!"
 
-#: wp-admin/about.php:71
+#: wp-admin/about.php:125
 msgid "Now the editor is easier to use"
 msgstr "Sekarang editor lebih mudah digunakan"
 
@@ -361,32 +361,14 @@ msgid "Want more events? <a href=\"%s\">Help organize the next one</a>!"
 msgstr "Ingin lebih banyak acara? <a href=\"%s\">Bantu mengatur yang selanjutnya</a>!"
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2186
+#: wp-admin/includes/class-wp-site-health.php:2156
 msgid "The setting for %1$s is currently configured as 0, this could cause some problems when trying to upload files through plugin or theme features that rely on various upload methods. It is recommended to configure this setting to a fixed value, ideally matching the value of %2$s, as some upload methods read the value 0 as either unlimited, or disabled."
 msgstr "Setelan untuk %1$s saat ini dikonfigurasi sebagai 0, ini dapat menyebabkan beberapa masalah saat mencoba mengunggah file melalui fitur plugin atau tema yang mengandalkan berbagai metode unggahan. Direkomendasikan untuk mengonfigurasi setelan ini ke nilai tetap, idealnya cocok dengan nilai %2$s, karena beberapa metode unggahan membaca nilai 0 sebagai tidak terbatas, atau dinonaktifkan."
-
-#: wp-admin/includes/class-wp-site-health.php:1661
-msgid "Talk to your web host about resolving this HTTPS issue for your website."
-msgstr "Bicaralah dengan host web Anda tentang menyelesaikan masalah HTTPS ini untuk situs web Anda."
-
-#. translators: %s: URL to Settings > General > WordPress Address.
-#: wp-admin/includes/class-wp-site-health.php:1654
-msgid "Your <a href=\"%s\">WordPress Address</a> is set up to use HTTPS, but your website appears to be unavailable when using an HTTPS connection."
-msgstr "<a href=\"%s\">Alamat WordPress</a> Anda diatur untuk menggunakan HTTPS, tetapi situs web Anda tampaknya tidak tersedia saat menggunakan koneksi HTTPS."
-
-#. translators: %s: URL to Settings > General > WordPress Address.
-#: wp-admin/includes/class-wp-site-health.php:1645
-msgid "Your <a href=\"%s\">WordPress Address</a> is set up to use HTTPS, but the SSL certificate appears to be invalid."
-msgstr "<a href=\"%s\">Alamat WordPress</a> Anda diatur untuk menggunakan HTTPS, tetapi sertifikat SSL tampaknya tidak valid."
 
 #: wp-admin/includes/class-wp-site-health.php:1603
 #: wp-admin/includes/class-wp-site-health.php:1611
 msgid "Update your site to use HTTPS"
 msgstr "Perbarui situs Anda untuk menggunakan HTTPS"
-
-#: wp-admin/includes/class-wp-site-health.php:1637
-msgid "There are problems with the HTTPS connection of your website"
-msgstr "Ada masalah dengan koneksi HTTPS situs web Anda"
 
 #: wp-admin/includes/class-wp-site-health.php:1622
 #: wp-admin/includes/class-wp-site-health.php:1629
@@ -516,12 +498,12 @@ msgstr "PHP adalah bahasa pemrograman yang digunakan untuk membangun dan memelih
 msgid "Your website appears to use Basic Authentication, which is not currently compatible with Application Passwords."
 msgstr "Situs web Anda tampaknya menggunakan Autentikasi Dasar, yang saat ini tidak sesuai dengan Kata Sandi Aplikasi."
 
-#: wp-admin/includes/class-wp-site-health.php:2255
+#: wp-admin/includes/class-wp-site-health.php:2225
 msgid "https://developer.wordpress.org/rest-api/frequently-asked-questions/#why-is-authentication-not-working"
 msgstr "https://developer.wordpress.org/rest-api/frequently-asked-questions/#why-is-authentication-not-working"
 
 #. translators: %s: WordPress 5.7 Field Guide link.
-#: wp-admin/about.php:219
+#: wp-admin/about.php:273
 msgid "Check out the latest version of the WordPress Field Guide. It highlights developer notes for each change you may want to be aware of. <a href=\"%s\">WordPress 5.7 Field Guide.</a>"
 msgstr "Lihat versi terbaru dari Panduan Lapangan WordPress. Dia menyoroti catatan developer untuk setiap perubahan yang mungkin ingin Anda ketahui. <a href=\"%s\">Panduan Lapangan WordPress 5.7.</a>"
 
@@ -592,7 +574,7 @@ msgstr "Tambahkan Kata Sandi Aplikasi Baru"
 msgid "Required to create an Application Password, but not to update the user."
 msgstr "Wajib untuk membuat Kata Sandi Aplikasi, tetapi tidak untuk memperbarui pengguna."
 
-#: wp-admin/about.php:232
+#: wp-admin/about.php:286
 msgid "Go to Updates"
 msgstr "Pergi ke pembaruan"
 
@@ -783,31 +765,31 @@ msgstr "- %1$s (dari versi %2$s ke %3$s)"
 msgid "Current Header Video"
 msgstr "Video Tajuk Saat Ini"
 
-#: wp-admin/includes/class-wp-site-health.php:2367
+#: wp-admin/includes/class-wp-site-health.php:2337
 msgid "Authorization header"
 msgstr "Tajuk otorisasi"
 
-#: wp-admin/includes/class-wp-site-health.php:2256
+#: wp-admin/includes/class-wp-site-health.php:2226
 msgid "Learn how to configure the Authorization header."
 msgstr "Pelajari cara mengkonfigurasi tajuk Otorisasi."
 
-#: wp-admin/includes/class-wp-site-health.php:2250
+#: wp-admin/includes/class-wp-site-health.php:2220
 msgid "Flush permalinks"
 msgstr "Hapus permalink"
 
-#: wp-admin/includes/class-wp-site-health.php:2235
+#: wp-admin/includes/class-wp-site-health.php:2205
 msgid "The authorization header is invalid."
 msgstr "Tajuk otorisasi tidak valid."
 
-#: wp-admin/includes/class-wp-site-health.php:2233
+#: wp-admin/includes/class-wp-site-health.php:2203
 msgid "The authorization header is missing."
 msgstr "Tajuk otorisasi tidak ada."
 
-#: wp-admin/includes/class-wp-site-health.php:2226
+#: wp-admin/includes/class-wp-site-health.php:2196
 msgid "The Authorization header comes from the third-party applications you approve. Without it, those apps cannot connect to your site."
 msgstr "Tajuk otorisasi berasal dari aplikasi pihak ketiga yang Anda setujui. Tanpanya, aplikasi tersebut tidak dapat terhubung ke situs Anda."
 
-#: wp-admin/includes/class-wp-site-health.php:2218
+#: wp-admin/includes/class-wp-site-health.php:2188
 msgid "The Authorization header is working as expected."
 msgstr "Tajuk otorisasi berfungsi seperti yang diharapkan."
 
@@ -941,7 +923,7 @@ msgid "You can choose whether or not your site will be crawled by robots, ping s
 msgstr "Anda dapat memilih apakah situs Anda akan ditelusuri oleh robot, layanan ping, dan laba-laba web. Jika Anda ingin layanan tadi mengabaikan situs Anda, klik kotak centang di sebelah &#8220;Halangi mesin pencari mengindeks situs ini&#8221; dan klik tombol Simpan Perubahan di bawah layar."
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2175
+#: wp-admin/includes/class-wp-site-health.php:2145
 msgid "The \"%1$s\" value is smaller than \"%2$s\"."
 msgstr "Nilai \"%1$s\" lebih kecil dari \"%2$s\"."
 
@@ -949,7 +931,7 @@ msgstr "Nilai \"%1$s\" lebih kecil dari \"%2$s\"."
 msgid "Environment type"
 msgstr "Tipe lingkungan"
 
-#: wp-admin/about.php:214
+#: wp-admin/about.php:268
 msgid "Check the Field Guide for more!"
 msgstr "Lihat Panduan Lapangan untuk lebih lanjut!"
 
@@ -973,35 +955,35 @@ msgstr "Pembaruan ini tidak berfungsi dengan versi WordPress dan PHP Anda."
 msgid "Disallowed Comment Keys"
 msgstr "Kata kunci yang dilarang dalam komentar"
 
-#: wp-admin/includes/class-wp-site-health.php:2337
+#: wp-admin/includes/class-wp-site-health.php:2307
 msgid "Plugin and theme auto-updates"
 msgstr "Pembaruan otomatis plugin dan tema"
 
-#: wp-admin/includes/class-wp-site-health.php:2629
+#: wp-admin/includes/class-wp-site-health.php:2599
 msgid "Auto-updates for themes appear to be disabled. This will prevent your site from receiving new versions automatically when available."
 msgstr "Pembaruan otomatis untuk tema tampaknya dinonaktifkan. Ini akan mencegah situs Anda menerima versi baru secara otomatis ketika tersedia."
 
-#: wp-admin/includes/class-wp-site-health.php:2635
+#: wp-admin/includes/class-wp-site-health.php:2605
 msgid "There appear to be no issues with plugin and theme auto-updates."
 msgstr "Tidak ada masalah dengan pembaruan otomatis plugin dan tema."
 
-#: wp-admin/includes/class-wp-site-health.php:2619
+#: wp-admin/includes/class-wp-site-health.php:2589
 msgid "Auto-updates for plugins and themes appear to be disabled. This will prevent your site from receiving new versions automatically when available."
 msgstr "Pembaruan otomatis untuk plugin dan tema tampaknya dinonaktifkan. Ini akan mencegah situs Anda menerima versi baru secara otomatis ketika tersedia."
 
-#: wp-admin/includes/class-wp-site-health.php:1885
+#: wp-admin/includes/class-wp-site-health.php:1855
 msgid "Your site may have problems auto-updating plugins and themes"
 msgstr "Situs Anda mungkin mengalami masalah pada pembaruan otomatis plugin dan tema"
 
-#: wp-admin/includes/class-wp-site-health.php:2610
+#: wp-admin/includes/class-wp-site-health.php:2580
 msgid "Auto-updates for plugins and/or themes appear to be disabled, but settings are still set to be displayed. This could cause auto-updates to not work as expected."
 msgstr "Sepertinya pembaruan otomatis untuk plugin dan/atau tema dinonaktifkan, tapi di pengaturan masih di atur untuk ditampilkan. Hal ini akan menyebabkan pembaruan otomatis tidak berfungsi seperti yang diharapkan."
 
-#: wp-admin/includes/class-wp-site-health.php:1874
+#: wp-admin/includes/class-wp-site-health.php:1844
 msgid "Plugin and theme auto-updates ensure that the latest versions are always installed."
 msgstr "Pembaruan otomatis plugin dan tema memastikan bahwa versi terbaru selalu terpasang."
 
-#: wp-admin/includes/class-wp-site-health.php:2624
+#: wp-admin/includes/class-wp-site-health.php:2594
 msgid "Auto-updates for plugins appear to be disabled. This will prevent your site from receiving new versions automatically when available."
 msgstr "Pembaruan otomatis untuk plugin tampaknya dinonaktifkan. Ini akan mencegah situs Anda menerima versi baru secara otomatis ketika tersedia."
 
@@ -1013,7 +995,7 @@ msgctxt "theme"
 msgid "Activate &#8220;%s&#8221;"
 msgstr "Aktifkan &#8220;%s&#8221;"
 
-#: wp-admin/includes/class-wp-site-health.php:1866
+#: wp-admin/includes/class-wp-site-health.php:1836
 msgid "Plugin and theme auto-updates appear to be configured correctly"
 msgstr "Pembaruan otomatis plugin dan tema dikonfigurasikan dengan benar"
 
@@ -1022,26 +1004,26 @@ msgid "Sorry, you are not allowed to modify plugins."
 msgstr "Maaf, Anda tidak diizinkan untuk memodifikasi plugin."
 
 #. translators: %s: ini_get()
-#: wp-admin/includes/class-wp-site-health.php:2149
+#: wp-admin/includes/class-wp-site-health.php:2119
 msgid "The %s function has been disabled, some media settings are unavailable because of this."
 msgstr "Fungsi %s telah dinonaktifkan, beberapa pengaturan media tidak tersedia karena ini."
 
 #. translators: 1: file_uploads, 2: 0
-#: wp-admin/includes/class-wp-site-health.php:2161
+#: wp-admin/includes/class-wp-site-health.php:2131
 msgid "%1$s is set to %2$s. You won't be able to upload files on your site."
 msgstr "%1$s diatur ke %2$s. Anda tidak akan bisa mengunggah berkas ke situs Anda."
 
 #. translators: 1: file_uploads, 2: php.ini
-#: wp-admin/includes/class-wp-site-health.php:2136
+#: wp-admin/includes/class-wp-site-health.php:2106
 msgid "The %1$s directive in %2$s determines if uploading files is allowed on your site."
 msgstr "Pengaturan %1$s di %2$s adalah untuk menentukan apakah pengunggahan berkas diperbolehkan pada situs Anda."
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2196
+#: wp-admin/includes/class-wp-site-health.php:2166
 msgid "The setting for %1$s is smaller than %2$s, this could cause some problems when trying to upload files."
 msgstr "Nilai %1$s lebih kecil dari %2$s, hal ini akan menyebabkan masalah saat pengunggahan berkas."
 
-#: wp-admin/includes/class-wp-site-health.php:2126
+#: wp-admin/includes/class-wp-site-health.php:2096
 msgid "Files can be uploaded."
 msgstr "Berkas dapat diunggah."
 
@@ -1050,7 +1032,7 @@ msgid "Max number of files allowed"
 msgstr "Jumlah maksimal yang diperbolehkan."
 
 #: wp-admin/includes/class-wp-debug-data.php:553
-#: wp-admin/includes/class-wp-site-health.php:2333
+#: wp-admin/includes/class-wp-site-health.php:2303
 msgid "File uploads"
 msgstr "Unggah berkas"
 
@@ -1407,7 +1389,7 @@ msgctxt "comment"
 msgid "Not spam"
 msgstr "Bukan spam"
 
-#: wp-admin/includes/class-wp-site-health.php:2305
+#: wp-admin/includes/class-wp-site-health.php:2275
 msgid "PHP Sessions"
 msgstr "Sesi PHP"
 
@@ -1834,7 +1816,7 @@ msgstr "Berkas kosong. Mohon unggah sesuatu yang lebih substansial. Eror ini jug
 msgid "No comments found in Trash."
 msgstr "Tidak ada komentar ditemukan di Tempat Sampah"
 
-#: wp-admin/includes/class-wp-site-health.php:2811
+#: wp-admin/includes/class-wp-site-health.php:2781
 #: wp-admin/js/site-health.js:336
 msgid "A test is unavailable"
 msgstr "Tes tidak tersedia"
@@ -1855,8 +1837,8 @@ msgid "Your site is running an outdated version of PHP (%s), which requires an u
 msgstr "Situs Anda menjalankan PHP (%s), versi lama, yang memerlukan pembaruan"
 
 #. translators: 1: The WordPress error message. 2: The WordPress error code.
-#: wp-admin/includes/class-wp-site-health.php:2075
-#: wp-admin/includes/class-wp-site-health.php:2686
+#: wp-admin/includes/class-wp-site-health.php:2045
+#: wp-admin/includes/class-wp-site-health.php:2656
 msgid "Error: %1$s (%2$s)"
 msgstr "Eror: %1$s (%2$s)"
 
@@ -1928,7 +1910,7 @@ msgstr "F"
 msgid "Table prefix"
 msgstr "Awalan tabel"
 
-#: wp-admin/includes/class-wp-site-health.php:2301
+#: wp-admin/includes/class-wp-site-health.php:2271
 msgid "PHP Default Timezone"
 msgstr "Zona Waktu Asal PHP"
 
@@ -2236,11 +2218,11 @@ msgid "Front Page"
 msgstr "Laman Depan"
 
 #. translators: %s: The name of the late cron event.
-#: wp-admin/includes/class-wp-site-health.php:1774
+#: wp-admin/includes/class-wp-site-health.php:1744
 msgid "The scheduled event, %s, is late to run. Your site still works, but this may indicate that scheduling posts or automated updates may not work as intended."
 msgstr "Event yang dijadwalkan, %s, terlambat dijalankan. Situs Anda masih berfungsi, tetapi ini mungkin menunjukkan bahwa penjadwalan pos atau pembaruan otomatis mungkin tidak berfungsi sebagaimana mestinya."
 
-#: wp-admin/includes/class-wp-site-health.php:1768
+#: wp-admin/includes/class-wp-site-health.php:1738
 msgid "A scheduled event is late"
 msgstr "Event yang dijadwalkan terlambat"
 
@@ -2669,7 +2651,7 @@ msgid "Sorry, you are not allowed to perform this action."
 msgstr "Maaf, anda tidak diizinkan melakukan tindakan ini."
 
 #. translators: %s: Name of the constant used.
-#: wp-admin/includes/class-wp-site-health.php:1986
+#: wp-admin/includes/class-wp-site-health.php:1956
 msgid "HTTP requests have been blocked by the %s constant, with no allowed hosts."
 msgstr "Permintaan HTTP telah diblokir oleh konstan %s, tanpa host yang diizinkan."
 
@@ -2685,7 +2667,7 @@ msgid "Eraser does not include a callback: %s."
 msgstr "Eraser tidak mengandung callback: %s."
 
 #. translators: 1: Name of the constant used. 2: List of allowed hostnames.
-#: wp-admin/includes/class-wp-site-health.php:2001
+#: wp-admin/includes/class-wp-site-health.php:1971
 msgid "HTTP requests have been blocked by the %1$s constant, with some allowed hosts: %2$s."
 msgstr "Permintaan HTTP telah diblokir oleh konstan %1$s, terkecuali beberapa host: %2$s."
 
@@ -2696,11 +2678,11 @@ msgstr "Permintaan HTTP telah diblokir oleh konstan %1$s, terkecuali beberapa ho
 #: wp-admin/includes/class-wp-site-health.php:1105
 #: wp-admin/includes/class-wp-site-health.php:1155
 #: wp-admin/includes/class-wp-site-health.php:1246
-#: wp-admin/includes/class-wp-site-health.php:1726
-#: wp-admin/includes/class-wp-site-health.php:1912
-#: wp-admin/includes/class-wp-site-health.php:1955
-#: wp-admin/includes/class-wp-site-health.php:2026
-#: wp-admin/includes/class-wp-site-health.php:2129
+#: wp-admin/includes/class-wp-site-health.php:1696
+#: wp-admin/includes/class-wp-site-health.php:1882
+#: wp-admin/includes/class-wp-site-health.php:1925
+#: wp-admin/includes/class-wp-site-health.php:1996
+#: wp-admin/includes/class-wp-site-health.php:2099
 msgid "Performance"
 msgstr "Performa"
 
@@ -2749,10 +2731,10 @@ msgstr[1] "Situs Anda memiliki %1$d tema tidak aktif, selain %2$s, tema dasar Wo
 #: wp-admin/includes/class-wp-site-health.php:1361
 #: wp-admin/includes/class-wp-site-health.php:1430
 #: wp-admin/includes/class-wp-site-health.php:1511
-#: wp-admin/includes/class-wp-site-health.php:1680
-#: wp-admin/includes/class-wp-site-health.php:1799
-#: wp-admin/includes/class-wp-site-health.php:1869
-#: wp-admin/includes/class-wp-site-health.php:2221
+#: wp-admin/includes/class-wp-site-health.php:1650
+#: wp-admin/includes/class-wp-site-health.php:1769
+#: wp-admin/includes/class-wp-site-health.php:1839
+#: wp-admin/includes/class-wp-site-health.php:2191
 msgid "Security"
 msgstr "Keamanan"
 
@@ -2874,192 +2856,192 @@ msgstr[1] "%s hal tanpa masalah terdeteksi"
 msgid "Secondary menu"
 msgstr "Menu sekunder"
 
-#: wp-admin/includes/class-wp-site-health.php:2379
+#: wp-admin/includes/class-wp-site-health.php:2349
 msgid "REST API availability"
 msgstr "Ketersediaan REST API"
 
-#: wp-admin/includes/class-wp-site-health.php:2329
+#: wp-admin/includes/class-wp-site-health.php:2299
 msgid "Debugging enabled"
 msgstr "Debugging diaktifkan"
 
-#: wp-admin/includes/class-wp-site-health.php:2325
+#: wp-admin/includes/class-wp-site-health.php:2295
 msgid "HTTP Requests"
 msgstr "Permintaan HTTP"
 
-#: wp-admin/includes/class-wp-site-health.php:2361
+#: wp-admin/includes/class-wp-site-health.php:2331
 msgid "HTTPS status"
 msgstr "Status HTTPS"
 
-#: wp-admin/includes/class-wp-site-health.php:2285
+#: wp-admin/includes/class-wp-site-health.php:2255
 msgid "Plugin Versions"
 msgstr "Versi Plugin"
 
-#: wp-admin/includes/class-wp-site-health.php:2281
+#: wp-admin/includes/class-wp-site-health.php:2251
 msgid "WordPress Version"
 msgstr "Versi WordPress"
 
-#: wp-admin/includes/class-wp-site-health.php:2297
+#: wp-admin/includes/class-wp-site-health.php:2267
 msgid "PHP Extensions"
 msgstr "Ekstensi PHP"
 
-#: wp-admin/includes/class-wp-site-health.php:2293
+#: wp-admin/includes/class-wp-site-health.php:2263
 msgid "PHP Version"
 msgstr "Versi PHP"
 
-#: wp-admin/includes/class-wp-site-health.php:2289
+#: wp-admin/includes/class-wp-site-health.php:2259
 msgid "Theme Versions"
 msgstr "Versi Tema"
 
-#: wp-admin/includes/class-wp-site-health.php:2317
+#: wp-admin/includes/class-wp-site-health.php:2287
 msgid "Secure communication"
 msgstr "Komunikasi aman"
 
-#: wp-admin/includes/class-wp-site-health.php:2101
+#: wp-admin/includes/class-wp-site-health.php:2071
 msgid "The REST API did not behave correctly"
 msgstr "REST API tidak berjalan sebagaimana mestinya"
 
-#: wp-admin/includes/class-wp-site-health.php:2707
+#: wp-admin/includes/class-wp-site-health.php:2677
 msgid "The loopback request to your site completed successfully."
 msgstr "Permintaan loopback ke situs Anda telah berhasil."
 
-#: wp-admin/includes/class-wp-site-health.php:2355
+#: wp-admin/includes/class-wp-site-health.php:2325
 msgid "Loopback request"
 msgstr "Permintaan loopback"
 
 #. translators: %s: The name of the query parameter being tested.
-#: wp-admin/includes/class-wp-site-health.php:2107
+#: wp-admin/includes/class-wp-site-health.php:2077
 msgid "The REST API did not process the %s query parameter correctly."
 msgstr "REST API tidak memproses parameter kueri %s dengan benar."
 
 #. translators: %d: The HTTP response code returned.
-#: wp-admin/includes/class-wp-site-health.php:2699
+#: wp-admin/includes/class-wp-site-health.php:2669
 msgid "The loopback request returned an unexpected http status code, %d, it was not possible to determine if this will prevent features from working as expected."
 msgstr "Permintaan loopback menghasilkan kode status http yang tidak terduga,%d, sehingga tidak mungkin untuk menentukan apakah hal ini akan mencegah fitur berfungsi seperti yang diharapkan."
 
 #. translators: 1: The HTTP error code. 2: The HTTP error message.
-#: wp-admin/includes/class-wp-site-health.php:2090
+#: wp-admin/includes/class-wp-site-health.php:2060
 msgid "The REST API call gave the following unexpected result: (%1$d) %2$s."
 msgstr "Panggilan REST API memberikan hasil yang tidak terduga berikut: (%1$d) %2$s."
 
-#: wp-admin/includes/class-wp-site-health.php:2309
+#: wp-admin/includes/class-wp-site-health.php:2279
 msgid "Database Server version"
 msgstr "Versi Server Basis Data"
 
-#: wp-admin/includes/class-wp-site-health.php:2066
+#: wp-admin/includes/class-wp-site-health.php:2036
 msgid "The REST API encountered an error"
 msgstr "Terjadi eror pada REST API"
 
-#: wp-admin/includes/class-wp-site-health.php:2072
+#: wp-admin/includes/class-wp-site-health.php:2042
 msgid "The REST API request failed due to an error."
 msgstr "Permintaan REST API gagal karena terjadi eror."
 
-#: wp-admin/includes/class-wp-site-health.php:2084
+#: wp-admin/includes/class-wp-site-health.php:2054
 msgid "The REST API encountered an unexpected result"
 msgstr "REST API memberikan hasil yang tidak terduga"
 
-#: wp-admin/includes/class-wp-site-health.php:2321
+#: wp-admin/includes/class-wp-site-health.php:2291
 msgid "Scheduled events"
 msgstr "Event terjadwal"
 
-#: wp-admin/includes/class-wp-site-health.php:2475
+#: wp-admin/includes/class-wp-site-health.php:2445
 msgid "No scheduled events exist on this site."
 msgstr "Tidak ada event terjadwal di situs ini."
 
-#: wp-admin/includes/class-wp-site-health.php:2313
+#: wp-admin/includes/class-wp-site-health.php:2283
 msgid "MySQL utf8mb4 support"
 msgstr "Mendukung MySQL utf8mb4"
 
-#: wp-admin/includes/class-wp-site-health.php:2683
+#: wp-admin/includes/class-wp-site-health.php:2653
 msgid "The loopback request to your site failed, this means features relying on them are not currently working as expected."
 msgstr "Permintaan loopback ke situs Anda gagal, ini berarti fitur terkait loopback saat ini tidak berfungsi sebagaimana mestinya."
 
-#: wp-admin/includes/class-wp-site-health.php:2031
+#: wp-admin/includes/class-wp-site-health.php:2001
 msgid "The REST API is one way WordPress, and other applications, communicate with the server. One example is the block editor screen, which relies on this to display, and save, your posts and pages."
 msgstr "REST API adalah sebuah cara WordPress, dan aplikasi lain, berkomunikasi dengan server. Salah satu contohnya adalah layar editor blok, yang mengandalkan REST API untuk menampilkan, dan menyimpan, artikel dan laman Anda."
 
-#: wp-admin/includes/class-wp-site-health.php:1995
+#: wp-admin/includes/class-wp-site-health.php:1965
 msgid "HTTP requests are partially blocked"
 msgstr "Permintaan HTTP sebagian diblokir"
 
-#: wp-admin/includes/class-wp-site-health.php:1980
+#: wp-admin/includes/class-wp-site-health.php:1950
 msgid "HTTP requests are blocked"
 msgstr "Permintaan HTTP diblokir"
 
-#: wp-admin/includes/class-wp-site-health.php:2023
+#: wp-admin/includes/class-wp-site-health.php:1993
 msgid "The REST API is available"
 msgstr "Tersedia REST API"
 
-#: wp-admin/includes/class-wp-site-health.php:1960
+#: wp-admin/includes/class-wp-site-health.php:1930
 msgid "It is possible for site maintainers to block all, or some, communication to other sites and services. If set up incorrectly, this may prevent plugins and themes from working as intended."
 msgstr "Pemelihara situs dapat memblokir semua, atau sebagian komunikasi ke situs dan layanan lainnya. Jika pengaturannya tidak benar, akan mengakibatkan plugin dan tema tidak dapat berfungsi secara normal. "
 
-#: wp-admin/includes/class-wp-site-health.php:1952
+#: wp-admin/includes/class-wp-site-health.php:1922
 msgid "HTTP requests seem to be working as expected"
 msgstr "Permintaan HTTP tampaknya berfungsi seperti yang diharapkan"
 
-#: wp-admin/includes/class-wp-site-health.php:1928
+#: wp-admin/includes/class-wp-site-health.php:1898
 msgid "Your site could not complete a loopback request"
 msgstr "Situs Anda tidak dapat menyelesaikan permintaan loopback"
 
 #. translators: %s: The name of the failed cron event.
-#: wp-admin/includes/class-wp-site-health.php:1761
+#: wp-admin/includes/class-wp-site-health.php:1731
 msgid "The scheduled event, %s, failed to run. Your site still works, but this may indicate that scheduling posts or automated updates may not work as intended."
 msgstr "Event yang dijadwalkan, %s, gagal dijalankan. Situs Anda masih berfungsi, namun hal ini menunjukkan bahwa penerbitan terjadwal atau pembaruan otomatis mungkin tidak berfungsi sebagaimana mestinya."
 
-#: wp-admin/includes/class-wp-site-health.php:1755
+#: wp-admin/includes/class-wp-site-health.php:1725
 msgid "A scheduled event has failed"
 msgstr "Event yang dijadwalkan telah gagal"
 
-#: wp-admin/includes/class-wp-site-health.php:1742
+#: wp-admin/includes/class-wp-site-health.php:1712
 msgid "It was not possible to check your scheduled events"
 msgstr "Tidak dapat memeriksa event yang dijadwalkan"
 
-#: wp-admin/includes/class-wp-site-health.php:1909
+#: wp-admin/includes/class-wp-site-health.php:1879
 msgid "Your site can perform loopback requests"
 msgstr "Situs Anda dapat menjalankan permintaan loopback"
 
 #. translators: %s: The error message returned while from the cron scheduler.
-#: wp-admin/includes/class-wp-site-health.php:1748
+#: wp-admin/includes/class-wp-site-health.php:1718
 msgid "While trying to test your site&#8217;s scheduled events, the following error was returned: %s"
 msgstr "Saat mencoba menguji event terjadwal situs Anda, muncul pesan eror berikut: %s"
 
-#: wp-admin/includes/class-wp-site-health.php:1833
+#: wp-admin/includes/class-wp-site-health.php:1803
 msgid "Background updates may not be working properly"
 msgstr "Pembaruan tertutup mungkin tidak berfungsi dengan baik"
 
-#: wp-admin/includes/class-wp-site-health.php:1825
+#: wp-admin/includes/class-wp-site-health.php:1795
 msgid "Background updates are not working as expected"
 msgstr "Pembaruan tertutup tidak berfungsi sebagaimana mestinya"
 
-#: wp-admin/includes/class-wp-site-health.php:1804
+#: wp-admin/includes/class-wp-site-health.php:1774
 msgid "Background updates ensure that WordPress can auto-update if a security update is released for the version you are currently using."
 msgstr "Pembaruan tertutup memastikan bahwa WordPress dapat memperbarui secara otomatis ketika peningkatan keamanan dirilis untuk versi yang sedang Anda gunakan."
 
-#: wp-admin/includes/class-wp-site-health.php:1796
+#: wp-admin/includes/class-wp-site-health.php:1766
 msgid "Background updates are working"
 msgstr "Pembaruan tertutup berfungsi normal"
 
-#: wp-admin/includes/class-wp-site-health.php:1822
+#: wp-admin/includes/class-wp-site-health.php:1792
 msgid "Passed"
 msgstr "Lolos"
 
-#: wp-admin/includes/class-wp-site-health.php:1917
+#: wp-admin/includes/class-wp-site-health.php:1887
 msgid "Loopback requests are used to run scheduled events, and are also used by the built-in editors for themes and plugins to verify code stability."
 msgstr "Permintaan loopback digunakan untuk menjalankan event terjadwal, serta digunakan oleh penyunting baku supaya tema dan plugin dapat memverifikasi stabilitas kode."
 
-#: wp-admin/includes/class-wp-site-health.php:1731
+#: wp-admin/includes/class-wp-site-health.php:1701
 msgid "Scheduled events are what periodically looks for updates to plugins, themes and WordPress itself. It is also what makes sure scheduled posts are published on time. It may also be used by various plugins to make sure that planned actions are executed."
 msgstr "Event terjadwal adalah mekanisme agar sistem secara periodik mencari pembaruan tema, plugin dan WordPress itu sendiri. Dan memastikan penerbitan terjadwal dapat berlangsung tepat waktu. Serta digunakan oleh beberapa plugin untuk menjalankan aksi/fungsi terencana."
 
-#: wp-admin/includes/class-wp-site-health.php:1696
+#: wp-admin/includes/class-wp-site-health.php:1666
 msgid "Your site can communicate securely with other services"
 msgstr "Situs Anda dapat berkomunikasi dengan aman dengan layanan lain"
 
-#: wp-admin/includes/class-wp-site-health.php:1700
+#: wp-admin/includes/class-wp-site-health.php:1670
 msgid "Your site is unable to communicate securely with other services"
 msgstr "Situs Anda tidak dapat berkomunikasi dengan aman dengan layanan lain"
 
-#: wp-admin/includes/class-wp-site-health.php:1704
+#: wp-admin/includes/class-wp-site-health.php:1674
 msgid "Talk to your web host about OpenSSL support for PHP."
 msgstr "Harap hubungi layanan hosting web Anda dan tanyakan apakah OpenSSL mendukung untuk PHP."
 
@@ -3067,11 +3049,11 @@ msgstr "Harap hubungi layanan hosting web Anda dan tanyakan apakah OpenSSL mendu
 msgid "Learn more about why you should use HTTPS"
 msgstr "Pelajari lebih lanjut tentang mengapa Anda harus menggunakan HTTPS"
 
-#: wp-admin/includes/class-wp-site-health.php:1723
+#: wp-admin/includes/class-wp-site-health.php:1693
 msgid "Scheduled events are running"
 msgstr "Event terjadwal sedang berjalan"
 
-#: wp-admin/includes/class-wp-site-health.php:1685
+#: wp-admin/includes/class-wp-site-health.php:1655
 msgid "Securely communicating between servers are needed for transactions such as fetching files, conducting sales on store sites, and much more."
 msgstr "Komunikasi antar server yang aman diperlukan untuk fungsi transaksi seperti mengambil berkas, memproses penjualan di situs e-commerce, dan sebagainya."
 
@@ -3196,7 +3178,7 @@ msgstr "Modul yang diwajibkan, %s, tidak diinstal, atau telah dinonaktifkan."
 
 #: wp-admin/includes/class-wp-site-health.php:1001
 #: wp-admin/includes/class-wp-site-health.php:1389
-#: wp-admin/includes/class-wp-site-health.php:1829
+#: wp-admin/includes/class-wp-site-health.php:1799
 msgid "Error"
 msgstr "Eror"
 
@@ -3683,7 +3665,7 @@ msgstr "WordPress.org dapat dijangkau"
 
 #: wp-admin/includes/class-wp-debug-data.php:421
 #: wp-admin/includes/class-wp-debug-data.php:427
-#: wp-admin/includes/class-wp-site-health.php:2343
+#: wp-admin/includes/class-wp-site-health.php:2313
 msgid "Communication with WordPress.org"
 msgstr "Komunikasi dengan WordPress.org"
 
@@ -4014,7 +3996,8 @@ msgstr "Plugin ini tidak berfungsi dengan versi WordPress dan PHP Anda."
 
 #. translators: %s: WordPress version.
 #: wp-admin/includes/update.php:302 wp-admin/install.php:238
-#: wp-admin/update-core.php:84 wp-admin/upgrade.php:80
+#: wp-admin/update-core.php:84 wp-admin/upgrade.php:80 wp-admin/about.php:86
+#: wp-admin/about.php:112
 msgid "https://wordpress.org/support/wordpress-version/version-%s/"
 msgstr "https://wordpress.org/support/wordpress-version/version-%s/"
 
@@ -6428,7 +6411,7 @@ msgid "(Currently set to: %s)"
 msgstr "(Saat ini diletakkan di: %s)"
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:333
+#: wp-admin/about.php:76 wp-admin/about.php:387
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr "<strong>Versi %s</strong> mengatasi sebuah masalah keamanan."
 
@@ -6440,15 +6423,15 @@ msgstr "https://en.gravatar.com/"
 msgid "Profile Picture"
 msgstr "Foto Profil"
 
-#: wp-admin/about.php:327
+#: wp-admin/about.php:381
 msgid "Security Releases"
 msgstr "Rilis Keamanan"
 
-#: wp-admin/about.php:324
+#: wp-admin/about.php:378
 msgid "Maintenance Releases"
 msgstr "Rilis Pemeliharaan"
 
-#: wp-admin/about.php:330
+#: wp-admin/about.php:71 wp-admin/about.php:384
 msgid "Maintenance and Security Releases"
 msgstr "Rilis Pemeliharaan dan Keamanan"
 
@@ -6710,7 +6693,7 @@ msgid "Saving revision&hellip;"
 msgstr "Menyimpan revisi&hellip;"
 
 #: wp-admin/includes/class-wp-site-health.php:1009
-#: wp-admin/includes/class-wp-site-health.php:1837
+#: wp-admin/includes/class-wp-site-health.php:1807
 msgid "Warning"
 msgstr "Peringatan"
 
@@ -8338,7 +8321,7 @@ msgstr "[%1$s] WordPress %2$s telah tersedia. Silakan perbarui!"
 msgid "[%1$s] URGENT: Your site may be down due to a failed update"
 msgstr "[%1$s] PENTING: Situs Anda mungkin down akibat kegagalan pembaruan"
 
-#: wp-admin/includes/class-wp-site-health.php:2349
+#: wp-admin/includes/class-wp-site-health.php:2319
 msgid "Background updates"
 msgstr "Pembaruan tertutup"
 
@@ -9265,10 +9248,6 @@ msgstr "Edit"
 msgid "Select comment"
 msgstr "Pilih komentar"
 
-#: wp-admin/menu-header.php:287
-msgid "Skip to main content"
-msgstr "Lewat menuju konten utama"
-
 #. translators: %s: Link name.
 #. translators: %s: Plugin name.
 #. translators: %s: Taxonomy term name.
@@ -9288,6 +9267,10 @@ msgstr "Lewat menuju konten utama"
 #: wp-admin/includes/class-wp-ms-users-list-table.php:241
 msgid "Select %s"
 msgstr "Pilih %s"
+
+#: wp-admin/menu-header.php:287
+msgid "Skip to main content"
+msgstr "Lewat menuju konten utama"
 
 #: wp-admin/includes/class-custom-image-header.php:551
 msgid "You can select an image to be shown at the top of your site by uploading from your computer or choosing from your media library. After selecting an image you will be able to crop it."
@@ -9940,27 +9923,28 @@ msgstr "Tampilkan Baris Perkakas ketika mengunjungi situs"
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:344
+#: wp-admin/about.php:398
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "<strong>Versi %1$s</strong> telah memperbaiki masalah keamanan dan memperbaiki %2$s bug."
 msgstr[1] "<strong>Versi %1$s</strong> telah memperbaiki masalah keamanan dan memperbaiki %2$s bug."
 
+#. translators: %s: HelpHub URL.
 #. translators: %s: Documentation URL.
-#: wp-admin/about.php:356
+#: wp-admin/about.php:83 wp-admin/about.php:109 wp-admin/about.php:410
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "Untuk informasi lebih lanjut, lihatlah <a href=\"%s\">catatan rilis</a>."
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:350
+#: wp-admin/about.php:97 wp-admin/about.php:404
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "<strong>Versi %1$s</strong> memperbaiki beberapa masalah keamanan dan %2$s bug."
 msgstr[1] "<strong>Versi %1$s</strong> memperbaiki beberapa masalah keamanan dan %2$s bug."
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs.
-#: wp-admin/about.php:338
+#: wp-admin/about.php:392
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "<strong>Versi %1$s</strong> mengatasi %2$s bug."
@@ -9976,19 +9960,19 @@ msgid "What&#8217;s New"
 msgstr "Apa yang Baru"
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:335
+#: wp-admin/about.php:389
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr "<strong>Versi %s</strong> mengatasi sejumlah isu keamanan."
 
-#: wp-admin/about.php:323
+#: wp-admin/about.php:377
 msgid "Maintenance Release"
 msgstr "Rilis Perawatan"
 
-#: wp-admin/about.php:326
+#: wp-admin/about.php:380
 msgid "Security Release"
 msgstr "Rilis Perbaikan Keamanan"
 
-#: wp-admin/about.php:329
+#: wp-admin/about.php:383
 msgid "Maintenance and Security Release"
 msgstr "Rilis Perawatan dan Perbaikan Keamanan"
 
@@ -10268,11 +10252,11 @@ msgstr "<strong>Buang</strong> akan menghapus artikel dari daftar ini dan memasu
 msgid "Because this is a multisite installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users."
 msgstr "Karena ini adalah instalasi multi-situs, Anda dapat menambahkan akun-akun yang telah ada pada Jaringan dengan menyebutkan sebuah nama pengguna atau email, dan mendefinisikan sebuah peran. Untuk pilihan lebih lanjut, seperti menentukan kata sandi, Anda haruslah seorang Administrator Jaringan dan gunakan taut layangan di bawah nama pengguna yang telah ada untuk Menyunting riwayat pengguna tersebut di bawah Admin Jaringan > Semua Pengguna."
 
-#: wp-admin/about.php:235
+#: wp-admin/about.php:289
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Pergi ke Dasbor &rarr; Beranda"
 
-#: wp-admin/about.php:232
+#: wp-admin/about.php:286
 msgid "Go to Dashboard &rarr; Updates"
 msgstr "Pergi ke Dasbor &rarr; Pembaruan"
 
@@ -10500,32 +10484,6 @@ msgstr "Plugin %s"
 msgid "Installed Plugins"
 msgstr "Plugin Terpasang"
 
-#: wp-admin/includes/ms.php:987 wp-admin/users.php:389
-msgid "Confirm Deletion"
-msgstr "Konfirmasi Penghapusan"
-
-#: wp-admin/includes/class-wp-plugins-list-table.php:605
-#: wp-admin/includes/class-wp-plugins-list-table.php:833
-#: wp-admin/includes/class-wp-ms-sites-list-table.php:700
-msgid "Deactivate"
-msgstr "Non-aktifkan"
-
-#. translators: %s: Plugin version number.
-#. translators: %s: Theme version number.
-#. translators: %s: WordPress version.
-#. translators: %s: Plugin version.
-#. translators: %s: Theme version.
-#: wp-admin/includes/class-wp-debug-data.php:905
-#: wp-admin/includes/class-wp-debug-data.php:952
-#: wp-admin/includes/class-wp-debug-data.php:1275
-#: wp-admin/includes/class-wp-plugins-list-table.php:1022
-#: wp-admin/includes/update.php:231 wp-admin/includes/update.php:273
-#: wp-admin/includes/ajax-actions.php:4451
-#: wp-admin/includes/ajax-actions.php:4494
-#: wp-admin/includes/class-wp-ms-themes-list-table.php:713
-msgid "Version %s"
-msgstr "Versi %s"
-
 #: wp-admin/options-reading.php:51 wp-admin/edit-tags.php:304
 #: wp-admin/link-manager.php:77 wp-admin/options-writing.php:51
 #: wp-admin/includes/class-custom-background.php:98
@@ -10578,6 +10536,32 @@ msgstr "Untuk info lebih lanjut:"
 #: wp-admin/includes/class-wp-ms-users-list-table.php:514
 msgid "Delete"
 msgstr "Hapus"
+
+#: wp-admin/includes/ms.php:987 wp-admin/users.php:389
+msgid "Confirm Deletion"
+msgstr "Konfirmasi Penghapusan"
+
+#: wp-admin/includes/class-wp-plugins-list-table.php:605
+#: wp-admin/includes/class-wp-plugins-list-table.php:833
+#: wp-admin/includes/class-wp-ms-sites-list-table.php:700
+msgid "Deactivate"
+msgstr "Non-aktifkan"
+
+#. translators: %s: Plugin version number.
+#. translators: %s: Theme version number.
+#. translators: %s: WordPress version.
+#. translators: %s: Plugin version.
+#. translators: %s: Theme version.
+#: wp-admin/includes/class-wp-debug-data.php:905
+#: wp-admin/includes/class-wp-debug-data.php:952
+#: wp-admin/includes/class-wp-debug-data.php:1275
+#: wp-admin/includes/class-wp-plugins-list-table.php:1022
+#: wp-admin/includes/update.php:231 wp-admin/includes/update.php:273
+#: wp-admin/includes/ajax-actions.php:4451
+#: wp-admin/includes/ajax-actions.php:4494
+#: wp-admin/includes/class-wp-ms-themes-list-table.php:713
+msgid "Version %s"
+msgstr "Versi %s"
 
 #: wp-admin/user-new.php:361 wp-admin/network/user-new.php:91
 #: wp-admin/network/site-users.php:237 wp-admin/network/users.php:262
@@ -12112,7 +12096,7 @@ msgstr "Edit item menu"
 msgid "Inactive:"
 msgstr "Tidak Aktif:"
 
-#: wp-admin/about.php:235 wp-admin/includes/network.php:148
+#: wp-admin/about.php:289 wp-admin/includes/network.php:148
 msgid "Go to Dashboard"
 msgstr "Kunjungi Dasbor"
 
@@ -13391,13 +13375,13 @@ msgstr "Jika Anda memiliki tema dalam format .zip, Anda dapat memasang atau memp
 msgid "To post to WordPress by email, you must set up a secret email account with POP3 access. Any mail received at this address will be posted, so it&#8217;s a good idea to keep this address very secret. Here are three random strings you could use: %1$s, %2$s, %3$s."
 msgstr "Untuk memposkan ke WordPress via email, Anda harus menyiapkan akun email rahasia dengan akses POP3. Seluruh email yang terkirim ke alamat tersebut akan diposkan, jadi, jagalah kerahasiaan alamat tersebut. Berikut tiga string acak yang bisa Anda pakai: %1$s, %2$s, %3$s."
 
-#: wp-admin/options-discussion.php:209
-msgid "When a comment contains any of these words in its content, author name, URL, email, IP address, or browser&#8217;s user agent string, it will be put in the Trash. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;."
-msgstr "Saat sebuah komentar memuat salah satu kata-kata berikut di dalam konten, nama penulis, URL, e-mail, alamat IP, atau string user agent browser, komentar tersebut akan dibuang ke dalam Tempat Sampah. Satu kata atau satu IP tiap barisnya. Ini juga mendeteksi bagian kata, jadi &#8220;press&#8221; akan mendeteksi &#8220;WordPress&#8221;."
-
 #: wp-admin/options-discussion.php:200
 msgid "When a comment contains any of these words in its content, author name, URL, email, IP address, or browser&#8217;s user agent string, it will be held in the <a href=\"edit-comments.php?comment_status=moderated\">moderation queue</a>. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;."
 msgstr "Saat sebuah komentar memuat salah satu kata-kata berikut di dalam konten, nama penulis, URL, e-mail, alamat IP, atau string user agent browser, komentar tersebut akan ditahan dalam <a href=\"edit-comments.php?comment_status=moderated\">antrian moderasi</a>. Satu kata atau satu IP tiap barisnya. Ini juga mendeteksi bagian kata, jadi &#8220;press&#8221; akan mendeteksi &#8220;WordPress&#8221;."
+
+#: wp-admin/options-discussion.php:209
+msgid "When a comment contains any of these words in its content, author name, URL, email, IP address, or browser&#8217;s user agent string, it will be put in the Trash. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;."
+msgstr "Saat sebuah komentar memuat salah satu kata-kata berikut di dalam konten, nama penulis, URL, e-mail, alamat IP, atau string user agent browser, komentar tersebut akan dibuang ke dalam Tempat Sampah. Satu kata atau satu IP tiap barisnya. Ini juga mendeteksi bagian kata, jadi &#8220;press&#8221; akan mendeteksi &#8220;WordPress&#8221;."
 
 #. translators: %s: Number of days.
 #: wp-admin/options-discussion.php:83
