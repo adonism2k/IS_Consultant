@@ -31,7 +31,6 @@ $args = array(
   "order"          => "ASC",
 );
 $latest_news = get_posts($args);
-// var_dump(get_the_author_meta("nickname", $news->post_author));
 ?>
 
 <article class="container d-flex flex-column">
@@ -55,7 +54,7 @@ $latest_news = get_posts($args);
     <!-- end header -->
     
     <div id="thumbnail" class="col-12 w-100"> <!-- NOTE: the image must be 16:9 ratio or 703x395.4375 pixel -->
-      <img src="<?= post_thumbnail_url($news->ID) ?>" alt="News Thumbnail" class="news-image">
+      <img src="<?= post_thumbnail_url($news->ID) ?>" alt="News Thumbnail">
       <div class="description">
         <p><?= post_thumbnail_description($news->ID) ?></p>
       </div>
@@ -109,7 +108,7 @@ $latest_news = get_posts($args);
                 <?php foreach($related_news as $news): ?>
                   <div class="w-100 d-flex flex-column justify-content-center align-items-center">
                     <a href="<?= get_permalink($news->ID) ?>" class="news-image d-flex align-items-center" style="overflow: hidden;">
-                      <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="<?=$news->post_title?>" class="w-100">
+                      <img src="<?= post_thumbnail_url($news->ID) ?>" alt="<?=$news->post_title?>" class="w-100">
                     </a>
                     <a href="<?= get_permalink($news->ID) ?>" class="text-dark news-title"><?=$news->post_title?></a>
                     <div class="w-100 border-top border-secondary my-4"></div>
@@ -126,7 +125,7 @@ $latest_news = get_posts($args);
                 <?php foreach($latest_news as $news): ?>
                   <div class="w-100 d-flex flex-column justify-content-center align-items-center">
                     <a href="<?= get_permalink($news->ID) ?>" class="news-image d-flex align-items-center" style="overflow: hidden;">
-                      <img src="<?= get_field("news_image", $news->ID)["url"] ?>" alt="<?=$news->post_title?>" class="w-100">
+                      <img src="<?= post_thumbnail_url($news->ID) ?>" alt="<?=$news->post_title?>" class="w-100">
                     </a>
                     <a href="<?= get_permalink($news->ID) ?>" class="text-dark news-title"><?=$news->post_title?></a>
                     <div class="w-100 border-top border-secondary my-4"></div>
