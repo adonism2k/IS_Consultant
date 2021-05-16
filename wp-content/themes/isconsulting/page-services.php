@@ -31,8 +31,8 @@ $page_description         = get_post()->post_content;
       </div>
       <div class="corp-img" style="background-image: url('<?= $page_banner_url ?>');"></div>
       <?php if(isset($page_description)): ?>
-      <div class="description">
-        <p class="text-center"><?= $page_description ?></p>
+      <div class="description text-center">
+        <?= $page_description ?>
         <p class="about-is">About <?= $blog_name ?></p>
       </div>
       <div class="circle rounded-circle"></div>

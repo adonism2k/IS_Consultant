@@ -8,10 +8,9 @@ $args = array(
 $values                  = array_reverse(get_posts( $args ));
 $directory_url           = get_template_directory_uri();
 $blog_name               = get_bloginfo("name");
-$page_title              = get_field("page_title");
+$page_title              = get_post()->post_title;
 $page_banner_url         = get_field( "banner_image" )["url"];
-$page_first_description  = get_field("page_first_description");
-$page_second_description = get_field("page_second_description");
+$page_description        = get_post()->post_content;
 $vismis_image            = get_field("vismis_image")["url"];
 $vision_title            = get_field("vision_title");
 $vision_description      = get_field("vision_description");
@@ -27,11 +26,10 @@ $second_section_title    = get_field("second_section_title");
         <h1><?= $page_title ?></h1>
       </div>
       <div class="corp-img" style="background-image: url('<?= $page_banner_url ?>');"></div>
-      <?php if($page_first_description or $page_second_description !== null): ?>
-        <div class="description">
-            <p class="text-center"><?= $page_first_description ?></p>
-            <p class="text-center"><?= $page_second_description ?></p>
-            <p class="about-is">About <?= $blog_name;?></p>
+      <?php if(isset($page_description)): ?>
+        <div class="description text-center">
+          <?= $page_description ?>
+          <p class="about-is">About <?= $blog_name;?></p>
         </div>
         <div class="circle rounded-circle"></div>
       <?php endif; ?>
